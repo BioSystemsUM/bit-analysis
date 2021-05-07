@@ -8,7 +8,10 @@ import urllib.request as urllib_request
 from contextlib import closing
 from typing import List, Union
 
-from Bio import Entrez
+from Bio import Entrez, SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+import pandas as pd
 
 from settings import ENTREZ_E_MAIL, ENTREZ_API_KEY
 
@@ -159,6 +162,17 @@ class Organism:
     def refseq_ftp(self):
         return str(self._assembly_record.get('FtpPath_RefSeq', '/'))
 
+    @property
+    def rna_ftp(self):
+        file_name = self.genbank_ftp.split('/')[-1]
+        file_name = f'{file_name}_rna_from_genomic.fna.gz'
+        return f'{self.genbank_ftp}/{file_name}'
+
+    @property
+    def rna_file_name(self):
+        file_name = self.genbank_ftp.split('/')[-1]
+        return f'{self.name}_{self.taxonomy_id}_{file_name}.fna.gz'
+
     def has_valid_taxonomy(self):
 
         if self.taxonomy_id:
@@ -178,13 +192,9 @@ class Organism:
 
         return False
 
-    def has_valid_ftp(self, genbank=True):
+    def has_valid_ftp(self):
 
-        if genbank:
-            url = self.genbank_ftp.replace('ftp://', 'https://')
-
-        else:
-            url = self.refseq_ftp.replace('ftp://', 'https://')
+        url = self.genbank_ftp.replace('ftp://', 'https://')
 
         ftp_response = _get(url)
 
@@ -205,27 +215,15 @@ class Organism:
 
         return False
 
-    def get_rna_from_ftp(self, workdir, genbank=True):
+    def get_rna_from_ftp(self, workdir: str):
 
-        if genbank:
-
-            file_name = self.genbank_ftp.split('/')[-1]
-            file_name = f'{file_name}_rna_from_genomic.fna.gz'
-            url = f'{self.genbank_ftp}/{file_name}'
-
-        else:
-
-            file_name = self.refseq_ftp.split('/')[-1]
-            file_name = f'{file_name}_rna_from_genomic.fna.gz'
-            url = f'{self.refseq_ftp}/{file_name}'
-
-        if self.has_valid_ftp(genbank=genbank):
+        if self.has_valid_ftp():
 
             try:
 
-                with closing(urllib_request.urlopen(url)) as request:
+                with closing(urllib_request.urlopen(self.rna_ftp)) as request:
 
-                    file_path = os.path.join(workdir, f'{self.bigg_id}_{file_name}')
+                    file_path = os.path.join(workdir, self.rna_file_name)
 
                     with open(file_path, 'wb') as file:
                         shutil.copyfileobj(request, file)
@@ -237,6 +235,22 @@ class Organism:
                 pass
 
         return self._status
+
+    def to_dataframe(self):
+
+        description = {'bigg_id': self.bigg_id,
+                       'name': self.name,
+                       'taxonomy_id': self.taxonomy_id,
+                       'taxonomy_ids': self.taxonomy_ids,
+                       'assembly_id': self.assembly_id,
+                       'assembly_accession': self.assembly_accession,
+                       'assembly_name': self.assembly_name,
+                       'refseq': self.refseq_ftp,
+                       'rna_ftp': self.rna_ftp,
+                       'rna_file': self.rna_file_name,
+                       'status': self.status}
+
+        return pd.DataFrame.from_dict(description)
 
 
 def read_bigg_models(workdir: str) -> dict:
@@ -431,10 +445,22 @@ def get_organisms_rna(organisms: List[Organism],
     if verbose:
         print('### Get organisms rna ###')
 
+    gz_dir = os.path.join(workdir, 'gz_fnas')
+    if not os.path.exists(gz_dir):
+        os.makedirs(gz_dir)
+
+    ftps = []
+
     for organism in organisms:
+
+        if organism.rna_ftp in ftps:
+            continue
+
         time.sleep(interval)
 
-        status = organism.get_rna_from_ftp(workdir=workdir)
+        status = organism.get_rna_from_ftp(workdir=gz_dir)
+
+        ftps.append(organism.rna_ftp)
 
         if verbose:
 
@@ -446,38 +472,37 @@ def get_organisms_rna(organisms: List[Organism],
                 print(f'Failed to obtain RNA for {organism.bigg_id}')
 
 
-def organisms_to_curate(organisms: List[Organism],
-                        workdir: str,
-                        verbose: bool = False):
-    file_path = os.path.join(workdir, 'to_curate.txt')
+def create_report(organisms: List[Organism],
+                  workdir: str,
+                  verbose: bool = False):
 
-    with open(file_path, 'w') as file:
+    if verbose:
+        print('### Create report ###')
 
-        for organism in organisms:
+    dfs = []
 
-            if organism.is_valid() and organism.status:
-                continue
+    for organism in organisms:
+        df = organism.to_dataframe()
 
-            curation = f'bigg_id:{organism.bigg_id}, name:{organism.name}, '
+        dfs.append(df)
 
-            curation += f'taxonomy_id:{organism.taxonomy_id}, taxonomy_ids:{organism.taxonomy_ids}, '
+    final_df = pd.concat(dfs)
 
-            curation += f'assembly_id:{organism.assembly_id}, '
-
-            curation += f'assembly_accession:{organism.assembly_accession}, assembly_name:{organism.assembly_name}, '
-
-            curation += f'genbank_ftp:{organism.genbank_ftp}'
-
-            curation += f'status:{organism.status}'
-
-            curation += '\n'
-            file.write(curation)
+    file_path = os.path.join(workdir, 'report.xlsx')
+    final_df.to_excel(file_path)
 
 
-def unpacking_gz(workdir: str):
+def unpacking_gz(workdir: str,
+                 verbose: bool = False):
 
-    if os.path.exists(workdir):
-        files = os.listdir(workdir)
+    if verbose:
+        print('### Unpacking gunzip ###')
+
+    gz_dir = os.path.join(workdir, 'gz_fnas')
+
+    if os.path.exists(gz_dir):
+
+        files = os.listdir(gz_dir)
 
         fna_dir = os.path.join(workdir, 'fnas')
         if not os.path.exists(fna_dir):
@@ -486,13 +511,64 @@ def unpacking_gz(workdir: str):
         for file in files:
 
             if file.endswith('.fna.gz'):
-                file_path = os.path.join(workdir, file)
+                file_path = os.path.join(gz_dir, file)
 
                 with gzip.open(file_path, 'rb') as f:
                     fna_path = os.path.join(fna_dir, file.replace('.gz', ''))
 
                     with open(fna_path, 'wb') as f_out:
                         shutil.copyfileobj(f, f_out)
+
+
+def parse_file_name_to_description(file_name):
+    # f'{self.name}_{self.taxonomy_id}_{file_name}.fna'
+
+    file_name = file_name.replace('.fna', '')
+    names = file_name.split('_')
+
+    name = names[0]
+
+    name = name.replace(' ', '_')
+
+    return name, file_name
+
+
+def to_compile(workdir: str,
+               verbose: bool = False):
+
+    if verbose:
+        print('### Compiling organisms rna sequences ###')
+
+    fna_dir = os.path.join(workdir, 'fnas')
+
+    if os.path.exists(fna_dir):
+        files = os.listdir(fna_dir)
+
+        _16s_dir = os.path.join(workdir, '16s_fna')
+        if not os.path.exists(_16s_dir):
+            os.makedirs(_16s_dir)
+
+        file_out = os.path.join(_16s_dir, '16s_species.fna')
+
+        with open(file_out, 'w') as f_out:
+
+            for file in files:
+
+                sequence = Seq('')
+
+                file_path = os.path.join(fna_dir, file)
+
+                for seq_record in SeqIO.parse(file_path, 'fasta'):
+                    if '[product=16S ribosomal RNA]' in seq_record.description:
+                        sequence += seq_record.seq
+
+                name, description = parse_file_name_to_description(file)
+
+                record = SeqRecord(sequence,
+                                   id=name,
+                                   description=description)
+
+                SeqIO.write(record, f_out, 'fasta')
 
 
 def main(workdir: str = None,
@@ -544,7 +620,7 @@ def main(workdir: str = None,
                           interval=interval,
                           verbose=verbose)
 
-        organisms_to_curate(bigg_organisms, workdir=workdir, verbose=verbose)
+        create_report(bigg_organisms, workdir=workdir, verbose=verbose)
 
     if unpack:
 
@@ -556,6 +632,16 @@ def main(workdir: str = None,
 
         unpacking_gz(workdir)
 
+    if compiling:
+
+        if not workdir:
+            workdir = os.path.join(os.getcwd(), 'organisms_rna')
+
+            if not os.path.exists(workdir):
+                os.makedirs(workdir)
+
+        to_compile(workdir)
+
 
 if __name__ == '__main__':
 
@@ -564,6 +650,4 @@ if __name__ == '__main__':
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    _organisms_filter = ['iAB_RBC_283']
-
-    main(workdir=directory, rnas=False, unpack=True, verbose=True)
+    main(workdir=directory, verbose=True)
