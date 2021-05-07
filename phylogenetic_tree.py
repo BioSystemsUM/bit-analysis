@@ -1,3 +1,4 @@
+import gzip
 import json
 import os
 import time
@@ -161,7 +162,6 @@ class Organism:
     def has_valid_taxonomy(self):
 
         if self.taxonomy_id:
-
             return True
 
         return False
@@ -263,7 +263,6 @@ def get_bigg_models(url: str = 'http://bigg.ucsd.edu/api/v2/models',
             res = response.json()
 
             if 'results' in res:
-
                 res['results'] = tuple(res['results'])
 
         if workdir:
@@ -288,7 +287,6 @@ def get_bigg_models(url: str = 'http://bigg.ucsd.edu/api/v2/models',
 def get_organisms(models_dict: dict,
                   organisms_filter: List[str] = None,
                   verbose: bool = False) -> List[Organism]:
-
     if verbose:
         print('### Parsing BiGG organisms ###')
 
@@ -307,7 +305,6 @@ def get_organisms(models_dict: dict,
         filtered = models_dict
 
     for model_dict in filtered:
-
         res.append(Organism.from_dict(model_dict))
 
     return res
@@ -394,7 +391,6 @@ def get_organisms_assembly_id(organisms: List[Organism],
 def get_organisms_assembly_record(organisms: List[Organism],
                                   interval: float = 0.2,
                                   verbose: bool = False):
-
     if verbose:
         print('### Get organisms assembly record ###')
 
@@ -418,7 +414,6 @@ def get_organisms_assembly_record(organisms: List[Organism],
                     assembly_records = record['DocumentSummarySet']['DocumentSummary']
 
                     if assembly_records:
-
                         organism.assembly_record = assembly_records[0]
 
                 if verbose:
@@ -433,7 +428,6 @@ def get_organisms_rna(organisms: List[Organism],
                       workdir: str,
                       interval: float = 0.3,
                       verbose: bool = False):
-
     if verbose:
         print('### Get organisms rna ###')
 
@@ -455,7 +449,6 @@ def get_organisms_rna(organisms: List[Organism],
 def organisms_to_curate(organisms: List[Organism],
                         workdir: str,
                         verbose: bool = False):
-
     file_path = os.path.join(workdir, 'to_curate.txt')
 
     with open(file_path, 'w') as file:
@@ -463,7 +456,6 @@ def organisms_to_curate(organisms: List[Organism],
         for organism in organisms:
 
             if organism.is_valid() and organism.status:
-
                 continue
 
             curation = f'bigg_id:{organism.bigg_id}, name:{organism.name}, '
@@ -482,49 +474,87 @@ def organisms_to_curate(organisms: List[Organism],
             file.write(curation)
 
 
-def main(workdir: str = None, verbose: bool = False, **kwargs):
+def unpacking_gz(workdir: str):
 
-    url = kwargs.get('url', 'http://bigg.ucsd.edu/api/v2/models')
-    by_request = kwargs.get('by_request', True)
+    if os.path.exists(workdir):
+        files = os.listdir(workdir)
 
-    models = get_bigg_models(url=url,
-                             workdir=workdir,
-                             by_request=by_request,
-                             verbose=verbose)
+        fna_dir = os.path.join(workdir, 'fnas')
+        if not os.path.exists(fna_dir):
+            os.makedirs(fna_dir)
 
-    organisms_filter = kwargs.get('organisms_filter', None)
-    bigg_organisms = get_organisms(models,
-                                   organisms_filter=organisms_filter,
-                                   verbose=verbose)
+        for file in files:
 
-    interval = kwargs.get('interval', 0.2)
-    get_organisms_tax_id(bigg_organisms,
-                         interval=interval,
-                         verbose=verbose,
-                         workdir=workdir)
+            if file.endswith('.fna.gz'):
+                file_path = os.path.join(workdir, file)
 
-    get_organisms_assembly_id(bigg_organisms,
-                              interval=interval,
-                              verbose=verbose)
+                with gzip.open(file_path, 'rb') as f:
+                    fna_path = os.path.join(fna_dir, file.replace('.gz', ''))
 
-    get_organisms_assembly_record(bigg_organisms,
+                    with open(fna_path, 'wb') as f_out:
+                        shutil.copyfileobj(f, f_out)
+
+
+def main(workdir: str = None,
+         rnas: bool = True,
+         unpack: bool = True,
+         compiling: bool = True,
+         verbose: bool = False,
+         **kwargs):
+
+    if rnas:
+
+        url = kwargs.get('url', 'http://bigg.ucsd.edu/api/v2/models')
+        by_request = kwargs.get('by_request', True)
+
+        models = get_bigg_models(url=url,
+                                 workdir=workdir,
+                                 by_request=by_request,
+                                 verbose=verbose)
+
+        organisms_filter = kwargs.get('organisms_filter', None)
+        bigg_organisms = get_organisms(models,
+                                       organisms_filter=organisms_filter,
+                                       verbose=verbose)
+
+        interval = kwargs.get('interval', 0.2)
+        get_organisms_tax_id(bigg_organisms,
+                             interval=interval,
+                             verbose=verbose,
+                             workdir=workdir)
+
+        get_organisms_assembly_id(bigg_organisms,
                                   interval=interval,
                                   verbose=verbose)
 
-    if not workdir:
-        workdir = os.path.join(os.getcwd(), 'organisms_rna')
+        get_organisms_assembly_record(bigg_organisms,
+                                      interval=interval,
+                                      verbose=verbose)
 
-        if not os.path.exists(workdir):
-            os.makedirs(workdir)
+        if not workdir:
+            workdir = os.path.join(os.getcwd(), 'organisms_rna')
 
-    interval = kwargs.get('interval', 0.2)
-    interval += 0.1
-    get_organisms_rna(bigg_organisms,
-                      workdir=workdir,
-                      interval=interval,
-                      verbose=verbose)
+            if not os.path.exists(workdir):
+                os.makedirs(workdir)
 
-    organisms_to_curate(bigg_organisms, workdir=workdir, verbose=verbose)
+        interval = kwargs.get('interval', 0.2)
+        interval += 0.1
+        get_organisms_rna(bigg_organisms,
+                          workdir=workdir,
+                          interval=interval,
+                          verbose=verbose)
+
+        organisms_to_curate(bigg_organisms, workdir=workdir, verbose=verbose)
+
+    if unpack:
+
+        if not workdir:
+            workdir = os.path.join(os.getcwd(), 'organisms_rna')
+
+            if not os.path.exists(workdir):
+                os.makedirs(workdir)
+
+        unpacking_gz(workdir)
 
 
 if __name__ == '__main__':
@@ -536,4 +566,4 @@ if __name__ == '__main__':
 
     _organisms_filter = ['iAB_RBC_283']
 
-    main(workdir=directory, verbose=True, by_request=False)
+    main(workdir=directory, rnas=False, unpack=True, verbose=True)
