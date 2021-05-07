@@ -1,0 +1,23 @@
+bigg_id:iAM_Pv461, name:Plasmodium vivax Sal-1, taxonomy_id:126793, taxonomy_ids:['126793'], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iB21_1397, name:Escherichia coli BL21(DE3), taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iE2348C_1286, name:Escherichia coli O127:H6 str. E2348/69, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iEC1356_Bl21DE3, name:Escherichia coli BL21(DE3), taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iEC1368_DH5a, name:Escherichia coli DH5[alpha], taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECBD_1354, name:Escherichia coli 'BL21-Gold(DE3)pLysS AG', taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECD_1391, name:Escherichia coli BL21(DE3), taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iEcE24377_1341, name:Escherichia coli O139:H28 str. E24377A, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECH74115_1262, name:Escherichia coli O157:H7 str. EC4115, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECO103_1326, name:Escherichia coli O103:H2 str. 12009, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECO111_1330, name:Escherichia coli O111:H- str. 11128, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECO26_1355, name:Escherichia coli O26:H11 str. 11368, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECs_1301, name:Escherichia coli O157:H7 str. Sakai, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iECSP_1301, name:Escherichia coli O157:H7 str. TW14359, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iG2583_1286, name:Escherichia coli O55:H7 str. CB9615, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iJN678, name:Synechocystis sp. PCC 6803, taxonomy_id:1148, taxonomy_ids:['1148'], assembly_id:0, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iNRG857_1313, name:Escherichia coli O83:H1 str. NRG 857C, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iPC815, name:Yersinia pestis CO92, taxonomy_id:214092, taxonomy_ids:['214092'], assembly_id:0, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iRC1080, name:Chlamydomonas reinhardtii, taxonomy_id:3055, taxonomy_ids:['3055'], assembly_id:0, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iSDY_1059, name:Shigella dysenteriae Sd197, taxonomy_id:300267, taxonomy_ids:['300267'], assembly_id:8544441, assembly_accession:GCF_015475595.1, assembly_name:ASM1547559v1, genbank_ftp:ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/015/475/595/GCA_015475595.1_ASM1547559v1status:False
+bigg_id:iSynCJ816, name:Synechocystis sp. PCC 6803, taxonomy_id:1148, taxonomy_ids:['1148'], assembly_id:0, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iYS1720, name:Salmonella pan-reactome, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
+bigg_id:iZ_1308, name:Escherichia coli O157:H7 str. EDL933, taxonomy_id:None, taxonomy_ids:[], assembly_id:None, assembly_accession:, assembly_name:, genbank_ftp:/status:False
