@@ -655,4 +655,4 @@ if __name__ == '__main__':
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    main(workdir=directory, rnas=False,unpack=False, verbose=True)
+    main(workdir=directory, rnas=False, verbose=True)
