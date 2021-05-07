@@ -489,7 +489,7 @@ def create_report(organisms: List[Organism],
     final_df = pd.concat(dfs)
 
     file_path = os.path.join(workdir, 'report.xlsx')
-    final_df.to_excel(file_path)
+    final_df.to_excel(file_path, index=False)
 
 
 def unpacking_gz(workdir: str,
@@ -544,11 +544,11 @@ def to_compile(workdir: str,
     if os.path.exists(fna_dir):
         files = os.listdir(fna_dir)
 
-        _16s_dir = os.path.join(workdir, '16s_fna')
-        if not os.path.exists(_16s_dir):
-            os.makedirs(_16s_dir)
+        rrna_dir = os.path.join(workdir, 'rrna_fna')
+        if not os.path.exists(rrna_dir):
+            os.makedirs(rrna_dir)
 
-        file_out = os.path.join(_16s_dir, '16s_species.fna')
+        file_out = os.path.join(rrna_dir, 'rrnas.fna')
 
         with open(file_out, 'w') as f_out:
 
@@ -559,16 +559,21 @@ def to_compile(workdir: str,
                 file_path = os.path.join(fna_dir, file)
 
                 for seq_record in SeqIO.parse(file_path, 'fasta'):
-                    if '[product=16S ribosomal RNA]' in seq_record.description:
+                    if '18S' in seq_record.description.upper():
                         sequence += seq_record.seq
 
-                name, description = parse_file_name_to_description(file)
+                    elif '16S' in seq_record.description.upper():
+                        sequence += seq_record.seq
 
-                record = SeqRecord(sequence,
-                                   id=name,
-                                   description=description)
+                if len(sequence) > 0:
 
-                SeqIO.write(record, f_out, 'fasta')
+                    name, description = parse_file_name_to_description(file)
+
+                    record = SeqRecord(sequence,
+                                       id=name,
+                                       description=description)
+
+                    SeqIO.write(record, f_out, 'fasta')
 
 
 def main(workdir: str = None,
@@ -630,7 +635,7 @@ def main(workdir: str = None,
             if not os.path.exists(workdir):
                 os.makedirs(workdir)
 
-        unpacking_gz(workdir)
+        unpacking_gz(workdir, verbose=verbose)
 
     if compiling:
 
@@ -640,7 +645,7 @@ def main(workdir: str = None,
             if not os.path.exists(workdir):
                 os.makedirs(workdir)
 
-        to_compile(workdir)
+        to_compile(workdir, verbose=verbose)
 
 
 if __name__ == '__main__':
@@ -650,4 +655,4 @@ if __name__ == '__main__':
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    main(workdir=directory, verbose=True)
+    main(workdir=directory, rnas=False,unpack=False, verbose=True)
