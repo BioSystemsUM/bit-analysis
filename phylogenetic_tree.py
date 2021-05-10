@@ -1,17 +1,18 @@
 import gzip
 import json
 import os
-import time
-import requests
 import shutil
+import time
 import urllib.request as urllib_request
+from collections import defaultdict
 from contextlib import closing
 from typing import List, Union
 
+import pandas as pd
+import requests
 from Bio import Entrez, SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-import pandas as pd
 
 from settings import ENTREZ_E_MAIL, ENTREZ_API_KEY
 
@@ -40,11 +41,14 @@ def _get(url) -> requests.Response:
 class Organism:
 
     def __init__(self,
-                 bigg_id=None,
-                 name=None):
+                 name,
+                 children=None):
 
-        self._bigg_id = bigg_id
+        if not children:
+            children = {}
+
         self._name = name
+        self._children = children
         self._taxonomy_record = {}
         self._genome_record = {}
         self._assembly_record = {}
@@ -55,32 +59,30 @@ class Organism:
     # Polymorphism
     # ------------------------------
     @classmethod
-    def from_dict(cls, model_dict):
-        bigg_id = model_dict.get('bigg_id')
-        organism = model_dict.get('organism')
+    def from_list(cls, name, models_dicts):
 
-        return cls(bigg_id=bigg_id,
-                   name=organism)
+        return cls(name=name,
+                   children=models_dicts)
 
     # ------------------------------
     # Built-in
     # ------------------------------
     def __str__(self):
-        return f'{self.bigg_id}_{self.name}'
+        return self.name
 
     def __repr__(self):
-        return f'Organism: {self.bigg_id}'
+        return f'Organism: {self.name}'
 
     # ------------------------------
     # Static attributes
     # ------------------------------
     @property
-    def bigg_id(self):
-        return self._bigg_id
-
-    @property
     def name(self):
         return self._name
+
+    @property
+    def children(self):
+        return self._children
 
     @property
     def status(self):
@@ -125,6 +127,32 @@ class Organism:
     # ------------------------------
     # Dynamic attributes
     # ------------------------------
+    @property
+    def organisms(self):
+
+        res = []
+
+        for model in self.children:
+            identifier = model.get('organism')
+
+            if identifier:
+                res.append(identifier)
+
+        return res
+
+    @property
+    def bigg_ids(self):
+
+        res = []
+
+        for model in self.children:
+            identifier = model.get('bigg_id')
+
+            if identifier:
+                res.append(identifier)
+
+        return res
+
     @property
     def taxonomy_ids(self) -> list:
         return [str(identifier) for identifier in self._taxonomy_record.get('IdList', [])]
@@ -238,10 +266,11 @@ class Organism:
 
     def to_dataframe(self):
 
-        description = {'bigg_id': self.bigg_id,
-                       'name': self.name,
+        description = {'name': self.name,
+                       'bigg_id': ', '.join(self.bigg_ids),
+                       'organisms': ', '.join(self.organisms),
                        'taxonomy_id': self.taxonomy_id,
-                       'taxonomy_ids': self.taxonomy_ids,
+                       'taxonomy_ids': ', '.join(self.taxonomy_ids),
                        'assembly_id': self.assembly_id,
                        'assembly_accession': self.assembly_accession,
                        'assembly_name': self.assembly_name,
@@ -250,7 +279,7 @@ class Organism:
                        'rna_file': self.rna_file_name,
                        'status': self.status}
 
-        return pd.DataFrame.from_dict(description)
+        return pd.DataFrame(description, index=[0])
 
 
 def read_bigg_models(workdir: str) -> dict:
@@ -304,8 +333,6 @@ def get_organisms(models_dict: dict,
     if verbose:
         print('### Parsing BiGG organisms ###')
 
-    res = []
-
     models_dict = models_dict.get('results', [])
 
     if organisms_filter:
@@ -318,10 +345,22 @@ def get_organisms(models_dict: dict,
     else:
         filtered = models_dict
 
-    for model_dict in filtered:
-        res.append(Organism.from_dict(model_dict))
+    organisms = defaultdict(list)
+    for model in filtered:
 
-    return res
+        name = model.get('organism', '')
+        names = name.split()
+
+        if 'subsp.' in name.lower():
+            f_name = ' '.join(names[:4])
+
+        else:
+            f_name = ' '.join(names[:2])
+
+        organisms[f_name].append(model)
+
+    return [Organism.from_list(name=organism, models_dicts=models_dicts)
+            for organism, models_dicts in organisms.items()]
 
 
 def get_organisms_tax_id(organisms: List[Organism],
@@ -334,7 +373,7 @@ def get_organisms_tax_id(organisms: List[Organism],
     for organism in organisms:
 
         if verbose:
-            print(f'Taxonomy identifier for {organism.bigg_id}')
+            print(f'Taxonomy identifier for {organism.bigg_ids}')
 
         # ncbi api allows 3 requests per second, 10 if you have an api key
         time.sleep(interval)
@@ -347,12 +386,12 @@ def get_organisms_tax_id(organisms: List[Organism],
             organism.taxonomy_record = record
 
             if verbose:
-                print(f'Taxonomy identifier for {organism.bigg_id} was found: {organism.taxonomy_id}')
+                print(f'Taxonomy identifier for {organism.bigg_ids} was found: {organism.taxonomy_id}')
 
         except IOError:
 
             if verbose:
-                print(f'Could not find taxonomy identifier for {organism.bigg_id}')
+                print(f'Could not find taxonomy identifier for {organism.bigg_ids}')
 
 
 def get_organisms_assembly_id(organisms: List[Organism],
@@ -391,7 +430,7 @@ def get_organisms_assembly_id(organisms: List[Organism],
                     organism.genome_record = record2[0]
 
                     if verbose:
-                        print(f'Assembly identifier for {organism.bigg_id} was found: {organism.assembly_id}')
+                        print(f'Assembly identifier for {organism.bigg_ids} was found: {organism.assembly_id}')
 
                 else:
                     if verbose:
@@ -411,7 +450,7 @@ def get_organisms_assembly_record(organisms: List[Organism],
     for organism in organisms:
 
         if verbose:
-            print(f'Assembly record for {organism.bigg_id}')
+            print(f'Assembly record for {organism.bigg_ids}')
 
         if organism.has_valid_genome():
 
@@ -420,7 +459,7 @@ def get_organisms_assembly_record(organisms: List[Organism],
             try:
                 handle = Entrez.esummary(db='assembly', id=organism.assembly_id,
                                          email=ENTREZ_E_MAIL, api_key=ENTREZ_API_KEY)
-                record = Entrez.read(handle)
+                record = Entrez.read(handle, validate=False)
                 handle.close()
 
                 if record:
@@ -431,11 +470,11 @@ def get_organisms_assembly_record(organisms: List[Organism],
                         organism.assembly_record = assembly_records[0]
 
                 if verbose:
-                    print(f'Assembly record for {organism.bigg_id} was found')
+                    print(f'Assembly record for {organism.bigg_ids} was found')
 
-            except IOError:
+            except BaseException:
                 if verbose:
-                    print(f'Could not find assembly record for {organism.bigg_id}')
+                    print(f'Could not find assembly record for {organism.bigg_ids}')
 
 
 def get_organisms_rna(organisms: List[Organism],
@@ -466,10 +505,10 @@ def get_organisms_rna(organisms: List[Organism],
 
             if status:
 
-                print(f'RNA for {organism.bigg_id} was obtained')
+                print(f'RNA for {organism.bigg_ids} was obtained')
 
             else:
-                print(f'Failed to obtain RNA for {organism.bigg_id}')
+                print(f'Failed to obtain RNA for {organism.bigg_ids}')
 
 
 def create_report(organisms: List[Organism],
@@ -489,7 +528,7 @@ def create_report(organisms: List[Organism],
     final_df = pd.concat(dfs)
 
     file_path = os.path.join(workdir, 'report.xlsx')
-    final_df.to_excel(file_path, index=False)
+    final_df.to_excel(file_path)
 
 
 def unpacking_gz(workdir: str,
@@ -542,28 +581,37 @@ def to_compile(workdir: str,
     fna_dir = os.path.join(workdir, 'fnas')
 
     if os.path.exists(fna_dir):
+
+        r_rna_dir = os.path.join(workdir, 'rrna_fna')
+        if not os.path.exists(r_rna_dir):
+            os.makedirs(r_rna_dir)
+
+        r_rna = os.path.join(r_rna_dir, 'rrnas.fna')
+
         files = os.listdir(fna_dir)
 
-        rrna_dir = os.path.join(workdir, 'rrna_fna')
-        if not os.path.exists(rrna_dir):
-            os.makedirs(rrna_dir)
-
-        file_out = os.path.join(rrna_dir, 'rrnas.fna')
-
-        with open(file_out, 'w') as f_out:
+        with open(r_rna, 'w') as r_rna_file:
 
             for file in files:
 
-                sequence = Seq('')
-
                 file_path = os.path.join(fna_dir, file)
 
+                is_prokaryote = False
                 for seq_record in SeqIO.parse(file_path, 'fasta'):
-                    if '18S' in seq_record.description.upper():
-                        sequence += seq_record.seq
+                    if '16S' in seq_record.description.upper():
+                        is_prokaryote = True
+                        break
 
-                    elif '16S' in seq_record.description.upper():
-                        sequence += seq_record.seq
+                sequence = Seq('')
+                for seq_record in SeqIO.parse(file_path, 'fasta'):
+
+                    if is_prokaryote:
+                        if '16S' in seq_record.description.upper():
+                            sequence += seq_record.seq
+
+                    else:
+                        if '18S' in seq_record.description.upper():
+                            sequence += seq_record.seq
 
                 if len(sequence) > 0:
 
@@ -573,7 +621,7 @@ def to_compile(workdir: str,
                                        id=name,
                                        description=description)
 
-                    SeqIO.write(record, f_out, 'fasta')
+                    SeqIO.write(record, r_rna_file, 'fasta')
 
 
 def main(workdir: str = None,
