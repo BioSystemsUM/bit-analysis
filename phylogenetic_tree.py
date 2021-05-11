@@ -596,22 +596,17 @@ def to_compile(workdir: str,
 
                 file_path = os.path.join(fna_dir, file)
 
-                is_prokaryote = False
-                for seq_record in SeqIO.parse(file_path, 'fasta'):
-                    if '16S' in seq_record.description.upper():
-                        is_prokaryote = True
-                        break
-
                 sequence = Seq('')
                 for seq_record in SeqIO.parse(file_path, 'fasta'):
 
-                    if is_prokaryote:
-                        if '16S' in seq_record.description.upper():
-                            sequence += seq_record.seq
+                    if '12s' in seq_record.description.lower():
+                        sequence += seq_record.seq
 
-                    else:
-                        if '18S' in seq_record.description.upper():
-                            sequence += seq_record.seq
+                    elif '16s' in seq_record.description.lower():
+                        sequence += seq_record.seq
+
+                    elif '18s' in seq_record.description.lower():
+                        sequence += seq_record.seq
 
                 if len(sequence) > 0:
 
@@ -703,4 +698,4 @@ if __name__ == '__main__':
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    main(workdir=directory, rnas=False, verbose=True)
+    main(workdir=directory, rnas=False, unpack=False, verbose=True)
