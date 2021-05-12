@@ -181,14 +181,14 @@ class Organism:
         return str(self._assembly_record.get('AssemblyName', ''))
 
     @property
-    def genbank_ftp(self):
-        return str(self._assembly_record.get('FtpPath_GenBank', '/'))
+    def refseq_ftp(self):
+        return str(self._assembly_record.get('FtpPath_RefSeq', '/'))
 
     @property
     def faa_ftp(self):
-        file_name = self.genbank_ftp.split('/')[-1]
+        file_name = self.refseq_ftp.split('/')[-1]
         file_name = f'{file_name}_protein.faa.gz'
-        return f'{self.genbank_ftp}/{file_name}'
+        return f'{self.refseq_ftp}/{file_name}'
 
     @property
     def faa_file_name(self):
@@ -215,7 +215,7 @@ class Organism:
 
     def has_valid_ftp(self):
 
-        url = self.genbank_ftp.replace('ftp://', 'https://')
+        url = self.refseq_ftp.replace('ftp://', 'https://')
 
         ftp_response = _get(url)
 
@@ -540,10 +540,11 @@ def unpacking_gz(workdir: str,
         for file in files:
 
             if file.endswith('.faa.gz'):
+
                 file_path = os.path.join(gz_dir, file)
 
                 with gzip.open(file_path, 'rb') as f:
-                    fna_path = os.path.join(fna_dir, file.replace('.gz', ''))
+                    fna_path = os.path.join(fna_dir, file.replace('.gz', '').replace(' ', '_'))
 
                     with open(fna_path, 'wb') as f_out:
                         shutil.copyfileobj(f, f_out)
