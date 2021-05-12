@@ -617,4 +617,4 @@ if __name__ == '__main__':
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    main(workdir=directory, verbose=True)
+    main(workdir=directory, faas=False, verbose=True)
