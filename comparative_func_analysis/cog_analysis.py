@@ -37,3 +37,16 @@ for k, v in cog_protein_descriptions.items():
     pbar = ProgressBar()
     for prot in pbar(v):
         result.loc[k][prot] = 1
+
+def distance_between_rows(row1, row2):
+    return (result.loc[row1] - result.loc[row2]).abs().sum()
+
+def distance_matrix(df):
+    result = pd.DataFrame(index=df.index, columns=df.index)
+    for taxon1 in df.index:
+        for taxon2 in df.index:
+            result.loc[taxon1, taxon2] = distance_between_rows(taxon1, taxon2)
+    return result
+
+
+
