@@ -1,6 +1,6 @@
 import os
-from collections import defaultdict
-from typing import List
+from collections import defaultdict, namedtuple
+from typing import List, Union, Tuple
 
 import pandas as pd
 from cobra import Model
@@ -11,75 +11,178 @@ from sklearn.decomposition import PCA
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.preprocessing import StandardScaler
 
+ModelAnalysis = namedtuple('ModelAnalysis',
+                           field_names=('model',
+                                        'organism',
+                                        'organism_id',
+                                        'template',
+                                        'method'),
+                           defaults=(Model(),
+                                     'Mycobacterium tuberculosis',
+                                     'Mtub'
+                                     'all',
+                                     'permissive'))
 
-def read_models(workdir: str) -> List[Model]:
+
+def parse_organism_annotation(model_annotation):
+    if len(model_annotation) > 1:
+
+        organism, *_ = model_annotation
+
+        if 'tuber' in organism:
+            return 'Mycobacterium tuberculosis'
+
+        elif 'thermo' in organism:
+            return 'Streptococcus thermophilus'
+
+        elif 'fasti' in organism:
+            return 'Xylella fastidiosa'
+
+    return '_'.join(model_annotation)
+
+
+def parse_organism_id(organism_name):
+    genus_species = organism_name.split()
+    genus = genus_species[0]
+    species = genus_species[1]
+
+    return f'{genus[0]}{species[0:3]}'
+
+
+def parse_template_annotation(model_annotation):
+    if len(model_annotation) > 1:
+
+        _, template, *_ = model_annotation
+
+        if 'all' in template:
+            return 'all'
+
+        elif 'random' in template:
+            return 'random'
+
+        elif 'select' in template:
+            return 'select'
+
+    return '_'.join(model_annotation)
+
+
+def parse_method_annotation(model_annotation):
+    if len(model_annotation) > 1:
+
+        *_, method = model_annotation
+
+        if 'permissive' in method:
+            return 'permissive'
+
+        elif 'restrictive' in method:
+            return 'restrictive'
+
+    return '_'.join(model_annotation)
+
+
+def read_models(workdir: str) -> List[ModelAnalysis]:
     if not os.path.exists(workdir):
         raise OSError(f'{workdir} does not exist')
 
     models = os.listdir(workdir)
 
-    cobra_models = []
-    for model in models:
+    models_analysis = []
 
-        if model.endswith('.xml') or model.endswith('.sbml'):
-            model_path = os.path.join(workdir, model)
-            cobra_model: Model = read_sbml_model(model_path)
+    for model_name in models:
 
-            model_annotation = model.split('_')
+        if model_name.endswith('.xml') or model_name.endswith('.sbml'):
+            model_path = os.path.join(workdir, model_name)
 
-            if len(model_annotation) > 1:
-                _, organism, label = model_annotation
-                cobra_model.id = f'{organism}_{label}'
+            model: Model = read_sbml_model(model_path)
 
-            cobra_models.append(cobra_model)
+            name = model_name.replace('model_', '')
 
-    return cobra_models
+            model_annotation = name.split('_')
+
+            organism = parse_organism_annotation(model_annotation)
+            organism_id = parse_organism_id(organism)
+            template = parse_template_annotation(model_annotation)
+            method = parse_method_annotation(model_annotation)
+
+            model.id = f'{organism_id}_{template}_{method}'
+
+            model_analysis = ModelAnalysis(model=model,
+                                           organism=organism,
+                                           organism_id=organism_id,
+                                           template=template,
+                                           method=method)
+
+            models_analysis.append(model_analysis)
+
+    return models_analysis
 
 
-def features_dataframe(models: List[Model],
-                       factors: dict,
-                       reactions: bool = True,
-                       metabolites: bool = False) -> pd.DataFrame:
+def models_dataframe(models: List[ModelAnalysis],
+                     reactions: bool = True,
+                     metabolites: bool = False) -> pd.DataFrame:
     if reactions and metabolites:
         raise ValueError('Select only one feature type, either reactions or metabolites')
 
     features_lookup = defaultdict(list)
 
     index = []
-    for model in models:
+    organisms = []
+    organisms_id = []
+    templates = []
+    methods = []
+    for model_analysis in models:
 
-        index.append(model.id)
+        index.append(model_analysis.model.id)
+        organisms.append(model_analysis.organism)
+        organisms_id.append(model_analysis.organism_id)
+        templates.append(model_analysis.template)
+        methods.append(model_analysis.method)
 
         if reactions:
-            for rxn in model.reactions:
-                features_lookup[rxn.id].append(model.id)
+            for rxn in model_analysis.model.reactions:
+                features_lookup[rxn.id].append(model_analysis.model.id)
 
         if metabolites:
-            for met in model.metabolites:
-                features_lookup[met.id].append(model.id)
+            for met in model_analysis.model.metabolites:
+                features_lookup[met.id].append(model_analysis.model.id)
 
     data = [[0] * len(features_lookup)] * len(index)
     df = pd.DataFrame(data=data,
                       index=index,
                       columns=features_lookup.keys())
 
-    for key, models_ids in features_lookup.items():
+    for rxn_or_met, models_ids in features_lookup.items():
 
         for model_id in models_ids:
-            df.loc[model_id, key] = 1
+            df.loc[model_id, rxn_or_met] = 1
 
     dfs = [df]
-    for factor, values in factors.items():
-        df = pd.DataFrame(data=values,
+    factors = ('organism', 'organism_id', 'template', 'method')
+    labels = (organisms, organisms_id, templates, methods)
+
+    for factor, label in zip(factors, labels):
+        df = pd.DataFrame(data=label,
                           index=index,
                           columns=[factor])
 
         dfs.append(df)
 
-    return pd.concat(dfs, axis=1)
+    df = pd.concat(dfs, axis=1)
+
+    return df
 
 
-def scaling(dataframe: pd.DataFrame, factors, standard=True, variance=True):
+def cog_dataframe(file_path: str) -> pd.DataFrame:
+    df = pd.read_csv(file_path, sep='\t')
+    df.index = df['organism']
+
+    return df
+
+
+def scaling(dataframe: pd.DataFrame,
+            factors: Union[List[str], Tuple[str]],
+            standard: bool = True,
+            variance: bool = True) -> pd.DataFrame:
     x_mask = dataframe.columns[~dataframe.columns.isin(factors)]
     x = dataframe.loc[:, x_mask]
     y = dataframe.loc[:, factors]
@@ -90,20 +193,18 @@ def scaling(dataframe: pd.DataFrame, factors, standard=True, variance=True):
         x = x.iloc[:, scaled.get_support(indices=True)]
 
     if standard:
-        t_df = x.T
-
         scalier = StandardScaler()
-        scaled = scalier.fit_transform(t_df)
+        scaled = scalier.fit_transform(x.T)
 
         x = pd.DataFrame(scaled, columns=x.index, index=x.columns)
         x = x.T
 
-    out_df = pd.concat([x, y], axis=1)
-
-    return out_df
+    return pd.concat([x, y], axis=1)
 
 
-def pca_analysis(dataframe: pd.DataFrame, factors, components=2):
+def pca_analysis(dataframe: pd.DataFrame,
+                 factors: Union[List[str], Tuple[str]],
+                 components: int = 2):
     x_mask = dataframe.columns[~dataframe.columns.isin(factors)]
     x = dataframe.loc[:, x_mask]
     y = dataframe.loc[:, factors]
@@ -114,43 +215,94 @@ def pca_analysis(dataframe: pd.DataFrame, factors, components=2):
 
     columns = [f'PC {i + 1}' for i in range(components)]
 
-    pc_df = pd.DataFrame(data=pc, index=dataframe.index, columns=columns)
+    df = pd.DataFrame(data=pc, index=dataframe.index, columns=columns)
 
-    df = pd.concat([pc_df, y], axis=1)
-
-    return df
+    return pd.concat([df, y], axis=1)
 
 
-def plot_pca(dataframe: pd.DataFrame, pc1, pc2, factors):
+def plot_pca(workdir: str,
+             dataframe: pd.DataFrame,
+             pc1: str,
+             pc2: str,
+             factors: Union[List[str], Tuple[str]],
+             content: str):
+
+    if not os.path.exists(workdir):
+        os.makedirs(workdir)
+
     for factor in factors:
+
         fig = plt.figure(figsize=(8, 8))
+
         ax = fig.add_subplot(1, 1, 1)
         ax.set_xlabel(pc1, fontsize=15)
         ax.set_ylabel(pc2, fontsize=15)
-        ax.set_title(f'{factor.title()} PCA', fontsize=20)
-        targets = set(dataframe.loc[:, factor])
+        ax.set_title(f'{content} PCA', fontsize=20)
 
-        for target, color in zip(targets, mcolors.TABLEAU_COLORS):
-            idxs = dataframe.loc[:, factor] == target
+        labels = set(dataframe.loc[:, factor])
 
-            ax.scatter(dataframe.loc[idxs, pc1],
-                       dataframe.loc[idxs, pc2],
+        colors = list(mcolors.TABLEAU_COLORS.keys())
+        diff = len(labels) - len(colors)
+
+        if diff > 0:
+            colors += ['#1f6357', '#017374', '#0cb577', '#ff0789', '#afa88b']
+
+        for label, color in zip(labels, colors):
+            mask = dataframe.loc[:, factor] == label
+
+            pc1_values = dataframe.loc[mask, pc1]
+            pc2_values = dataframe.loc[mask, pc2]
+            ax.scatter(pc1_values,
+                       pc2_values,
+                       c=color,
                        s=50)
 
-        ax.legend(targets)
+            organisms_id = dataframe.loc[mask, 'organism_id']
+
+            for pc1_pt, pc2_pt, annotation in zip(pc1_values, pc2_values, organisms_id):
+
+                ax.annotate(annotation, (pc1_pt+1, pc2_pt-1))
+
+        legend = ax.legend(labels, loc=(1.04, 0))
         ax.grid()
-        fig.show()
-        fname = f'{factor.title()}_{pc1}_{pc2}_PCA.png'.replace(' ', '_')
-        fig.savefig(fname=fname)
+        file_name = f'{content}_{factor.title()}_{pc1}_{pc2}.png'.replace(' ', '_')
+        file_path = os.path.join(workdir, file_name)
+        fig.savefig(fname=file_path, bbox_extra_artists=(legend,), bbox_inches='tight')
+
+
+def rxns_pca(models_dir: str, analysis_dir: str):
+
+    factors = ('organism', 'organism_id', 'template', 'method')
+
+    analysis_models = read_models(models_dir)
+    df = models_dataframe(analysis_models, reactions=True, metabolites=False)
+    df = scaling(df, factors=factors)
+    pca = pca_analysis(df, factors=factors)
+    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
+             factors=('organism', 'template', 'method'), content='Reactions')
+
+
+def mets_pca(models_dir: str, analysis_dir: str):
+    factors = ('organism', 'organism_id', 'template', 'method')
+
+    analysis_models = read_models(models_dir)
+    df = models_dataframe(analysis_models, reactions=False, metabolites=True)
+    df = scaling(df, factors=factors)
+    pca = pca_analysis(df, factors=factors)
+    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
+             factors=('organism', 'template', 'method'), content='Metabolites')
+
+
+def cog_pca(cog_analysis_file:str, analysis_dir: str):
+
+    factors = ('domain', 'phylum')
+
+    df = cog_dataframe(cog_analysis_file)
+    df = scaling(df, factors)
+    pca = pca_analysis(df, factors=factors, components=2)
+    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2', factors=factors, content='COG')
 
 
 if __name__ == '__main__':
-    directory = os.path.join(os.getcwd(), 'models')
-    analysis_models = read_models(directory)
-    models_factors = {'template': ['all', 'all', 'all'],
-                      'organism': ['mtb', 'ec', 'ec']}
-    models_factors_keys = tuple(models_factors.keys())
-    rxns_df = features_dataframe(analysis_models, factors=models_factors, reactions=True)
-    scaled_df = scaling(rxns_df, models_factors_keys)
-    pca = pca_analysis(scaled_df, models_factors_keys)
-    plot_pca(pca, 'PC 1', 'PC 2', models_factors_keys)
+    rxns_pca(os.path.join(os.getcwd(), 'models'), os.path.join(os.getcwd(), 'model_content_analysis'))
+    # mets_pca(os.path.join(os.getcwd(), 'models'), os.path.join(os.getcwd(), 'model_content_analysis'))
