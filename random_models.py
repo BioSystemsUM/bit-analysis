@@ -46,7 +46,7 @@ def write_random_report(workdir, models):
 
 
 if __name__ == '__main__':
-    directory = os.path.join(os.getcwd(), 'comparative_func_analysis')
+    directory = os.path.join(os.getcwd(), 'models')
 
     bigg_models = read_bigg_models(workdir=directory)
 
@@ -55,4 +55,3 @@ if __name__ == '__main__':
     random_models = get_random_models('sth', 'mtb', 'xfa', organisms=bigg_organisms)
 
     final_df = write_random_report(directory, random_models)
-    print()
