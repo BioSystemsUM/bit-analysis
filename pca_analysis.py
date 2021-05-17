@@ -119,9 +119,7 @@ def read_models(workdir: str) -> List[ModelAnalysis]:
 
 def models_dataframe(models: List[ModelAnalysis],
                      reactions: bool = True,
-                     metabolites: bool = False) -> pd.DataFrame:
-    if reactions and metabolites:
-        raise ValueError('Select only one feature type, either reactions or metabolites')
+                     filter_exchanges: bool = True) -> pd.DataFrame:
 
     features_lookup = defaultdict(list)
 
@@ -139,12 +137,35 @@ def models_dataframe(models: List[ModelAnalysis],
         methods.append(model_analysis.method)
 
         if reactions:
-            for rxn in model_analysis.model.reactions:
-                features_lookup[rxn.id].append(model_analysis.model.id)
 
-        if metabolites:
+            for rxn in model_analysis.model.reactions:
+
+                is_exchange = False
+
+                if rxn.boundary:
+                    is_exchange = True
+
+                else:
+
+                    for met in rxn.metabolites:
+                        if met.id.endswith('_b'):
+                            is_exchange = True
+                            break
+
+                if is_exchange:
+                    continue
+
+                else:
+                    features_lookup[rxn.id].append(model_analysis.model.id)
+
+        else:
+
             for met in model_analysis.model.metabolites:
-                features_lookup[met.id].append(model_analysis.model.id)
+                if met.id.endswith('_b'):
+                    continue
+
+                else:
+                    features_lookup[met.id].append(model_analysis.model.id)
 
     data = [[0] * len(features_lookup)] * len(index)
     df = pd.DataFrame(data=data,
@@ -270,23 +291,23 @@ def plot_pca(workdir: str,
         fig.savefig(fname=file_path, bbox_extra_artists=(legend,), bbox_inches='tight')
 
 
-def rxns_pca(models_dir: str, analysis_dir: str):
+def rxns_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
 
     factors = ('organism', 'organism_id', 'template', 'method')
 
     analysis_models = read_models(models_dir)
-    df = models_dataframe(analysis_models, reactions=True, metabolites=False)
+    df = models_dataframe(analysis_models, reactions=True, filter_exchanges=filter_exchanges)
     df = scaling(df, factors=factors)
     pca = pca_analysis(df, factors=factors)
     plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
              factors=('organism', 'template', 'method'), content='Reactions')
 
 
-def mets_pca(models_dir: str, analysis_dir: str):
+def mets_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
     factors = ('organism', 'organism_id', 'template', 'method')
 
     analysis_models = read_models(models_dir)
-    df = models_dataframe(analysis_models, reactions=False, metabolites=True)
+    df = models_dataframe(analysis_models, reactions=False, filter_exchanges=filter_exchanges)
     df = scaling(df, factors=factors)
     pca = pca_analysis(df, factors=factors)
     plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
@@ -304,5 +325,9 @@ def cog_pca(cog_analysis_file:str, analysis_dir: str):
 
 
 if __name__ == '__main__':
-    rxns_pca(os.path.join(os.getcwd(), 'models'), os.path.join(os.getcwd(), 'model_content_analysis'))
-    # mets_pca(os.path.join(os.getcwd(), 'models'), os.path.join(os.getcwd(), 'model_content_analysis'))
+    rxns_pca(os.path.join(os.getcwd(), 'models'),
+             os.path.join(os.getcwd(), 'model_content_analysis'),
+             filter_exchanges=True)
+    mets_pca(os.path.join(os.getcwd(), 'models'),
+             os.path.join(os.getcwd(), 'model_content_analysis'),
+             filter_exchanges=True)
