@@ -38,6 +38,9 @@ def parse_organism_annotation(model_annotation):
         elif 'fasti' in organism:
             return 'Xylella fastidiosa'
 
+        else:
+            return 'carveme'
+
     return '_'.join(model_annotation)
 
 
@@ -63,6 +66,9 @@ def parse_template_annotation(model_annotation):
         elif 'select' in template:
             return 'select'
 
+        else:
+            return 'carveme'
+
     return '_'.join(model_annotation)
 
 
@@ -76,6 +82,9 @@ def parse_method_annotation(model_annotation):
 
         elif 'restrictive' in method:
             return 'restrictive'
+
+        else:
+            return 'carveme'
 
     return '_'.join(model_annotation)
 
@@ -120,7 +129,6 @@ def read_models(workdir: str) -> List[ModelAnalysis]:
 def models_dataframe(models: List[ModelAnalysis],
                      reactions: bool = True,
                      filter_exchanges: bool = True) -> pd.DataFrame:
-
     features_lookup = defaultdict(list)
 
     index = []
@@ -196,6 +204,7 @@ def models_dataframe(models: List[ModelAnalysis],
 def cog_dataframe(file_path: str) -> pd.DataFrame:
     df = pd.read_csv(file_path, sep='\t')
     df.index = df['organism']
+    df.loc[:, 'organism_id'] = [parse_organism_id(organism) for organism in df.index]
 
     return df
 
@@ -247,7 +256,6 @@ def plot_pca(workdir: str,
              pc2: str,
              factors: Union[List[str], Tuple[str]],
              content: str):
-
     if not os.path.exists(workdir):
         os.makedirs(workdir)
 
@@ -281,8 +289,7 @@ def plot_pca(workdir: str,
             organisms_id = dataframe.loc[mask, 'organism_id']
 
             for pc1_pt, pc2_pt, annotation in zip(pc1_values, pc2_values, organisms_id):
-
-                ax.annotate(annotation, (pc1_pt+1, pc2_pt-1))
+                ax.annotate(annotation, (pc1_pt + 1, pc2_pt - 1))
 
         legend = ax.legend(labels, loc=(1.04, 0))
         ax.grid()
@@ -292,7 +299,6 @@ def plot_pca(workdir: str,
 
 
 def rxns_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
-
     factors = ('organism', 'organism_id', 'template', 'method')
 
     analysis_models = read_models(models_dir)
@@ -314,14 +320,14 @@ def mets_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
              factors=('organism', 'template', 'method'), content='Metabolites')
 
 
-def cog_pca(cog_analysis_file:str, analysis_dir: str):
-
-    factors = ('domain', 'phylum')
+def cog_pca(cog_analysis_file: str, analysis_dir: str):
+    factors = ('domain', 'phylum', 'organism', 'organism_id')
 
     df = cog_dataframe(cog_analysis_file)
     df = scaling(df, factors)
     pca = pca_analysis(df, factors=factors, components=2)
-    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2', factors=factors, content='COG')
+    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
+             factors=('domain', 'phylum'), content='COG')
 
 
 if __name__ == '__main__':
@@ -331,3 +337,5 @@ if __name__ == '__main__':
     mets_pca(os.path.join(os.getcwd(), 'models'),
              os.path.join(os.getcwd(), 'model_content_analysis'),
              filter_exchanges=True)
+    cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'genomes_cog_analysis.tsv'),
+            os.path.join(os.getcwd(), 'comparative_func_analysis'))
