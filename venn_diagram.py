@@ -128,7 +128,7 @@ def run_random(models_list, analysis='Reactions'):
     mean_values = np.rint(mean_values).astype(np.int32)
 
     organisms = [model.organism for model in models_list]
-    labels = []
+    labels = ['$\it{M. tuberculosis}$', '$\it{S. thermophilus}$', '$\it{X. fastidiosa}$']
     for orgn in organisms:
         o = orgn.split(' ')
         label = '$\it{' + o[0][0] + '. ' + o[1] + '}$'
