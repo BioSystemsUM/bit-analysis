@@ -30,13 +30,13 @@ def parse_organism_annotation(model_annotation):
 
         organism, *_ = model_annotation
 
-        if 'tuber' in organism:
+        if 'tuber' in organism or 'Mtub' in organism:
             return 'Mycobacterium tuberculosis'
 
-        elif 'thermo' in organism:
+        elif 'thermo' in organism or 'Sthe' in organism:
             return 'Streptococcus thermophilus'
 
-        elif 'fasti' in organism:
+        elif 'fasti' in organism or 'Xfas' in organism:
             return 'Xylella fastidiosa'
 
         else:

@@ -9,7 +9,8 @@ from sklearn.decomposition import PCA
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.preprocessing import StandardScaler
 
-from utils import ModelAnalysis, parse_organism_id, read_models, parse_reaction, parse_metabolite
+from utils import ModelAnalysis, parse_organism_id, read_models, parse_reaction, parse_metabolite, \
+    parse_organism_annotation, parse_template_annotation, parse_method_annotation
 
 
 def models_dataframe(models: List[ModelAnalysis],
@@ -94,10 +95,50 @@ def cog_dataframe(file_path: str) -> pd.DataFrame:
     return df
 
 
+def models_genes_cog_dataframe(file_path: str) -> pd.DataFrame:
+    df = pd.read_csv(file_path, sep='\t')
+
+    models_id = []
+    organisms = []
+    organisms_id = []
+    templates = []
+    methods = []
+    for model_id in df.loc[:, 'model_id']:
+        model_annotation = model_id.split('_')
+
+        organism = parse_organism_annotation(model_annotation)
+        organism_id = parse_organism_id(organism)
+        template = parse_template_annotation(model_annotation)
+        method = parse_method_annotation(model_annotation)
+
+        model_id = f'{organism_id}_{template}_{method}'
+
+        organisms.append(organism)
+        organisms_id.append(organism_id)
+        templates.append(template)
+        methods.append(method)
+        models_id.append(model_id)
+
+    df.loc[:, 'organism'] = organisms
+    df.loc[:, 'organism_id'] = organisms_id
+    df.loc[:, 'template'] = templates
+    df.loc[:, 'method'] = methods
+    df.index = models_id
+
+    del df['model_id']
+
+    return df
+
+
 def scaling(dataframe: pd.DataFrame,
             factors: Union[List[str], Tuple[str]],
+            model_filter: float = 0.0,
             standard: bool = True,
             variance: bool = True) -> pd.DataFrame:
+
+    # filter rows
+    dataframe = dataframe[dataframe.sum(axis=1) > round(dataframe.shape[1] * model_filter, 0)]
+
     x_mask = dataframe.columns[~dataframe.columns.isin(factors)]
     x = dataframe.loc[:, x_mask]
     y = dataframe.loc[:, factors]
@@ -141,6 +182,7 @@ def plot_pca(workdir: str,
              pc2: str,
              factors: Union[List[str], Tuple[str]],
              content: str):
+
     if not os.path.exists(workdir):
         os.makedirs(workdir)
 
@@ -209,7 +251,6 @@ def mets_pca(models_dir: str,
              filter_exchanges: bool,
              read: str = '',
              write: str = ''):
-
     factors = ('organism', 'organism_id', 'template', 'method')
 
     if read:
@@ -236,16 +277,29 @@ def cog_pca(cog_analysis_file: str, analysis_dir: str):
              factors=('domain', 'phylum'), content='COG')
 
 
-if __name__ == '__main__':
-    rxns_pca(models_dir=os.path.join(os.getcwd(), 'models'),
-             analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
-             filter_exchanges=True,
-             read=os.path.join(os.getcwd(), 'model_content_analysis', 'reactions_analysis.xlsx'))
+def models_genes_cog_pca(cog_analysis_file: str, analysis_dir: str):
+    factors = ('organism', 'organism_id', 'template', 'method')
 
-    mets_pca(models_dir=os.path.join(os.getcwd(), 'models'),
-             analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
-             filter_exchanges=True,
-             read=os.path.join(os.getcwd(), 'model_content_analysis', 'metabolites_analysis.xlsx'),)
+    df = models_genes_cog_dataframe(cog_analysis_file)
+    df = scaling(df, factors, 0)
+    pca = pca_analysis(df, factors=factors, components=2)
+    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
+             factors=('organism', 'template', 'method'), content='Models Genes COG')
+
+
+if __name__ == '__main__':
+    # rxns_pca(models_dir=os.path.join(os.getcwd(), 'models'),
+    #          analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
+    #          filter_exchanges=True,
+    #          read=os.path.join(os.getcwd(), 'model_content_analysis', 'reactions_analysis.xlsx'))
+    #
+    # mets_pca(models_dir=os.path.join(os.getcwd(), 'models'),
+    #          analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
+    #          filter_exchanges=True,
+    #          read=os.path.join(os.getcwd(), 'model_content_analysis', 'metabolites_analysis.xlsx'),)
 
     # cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'genomes_cog_analysis.tsv'),
     #         os.path.join(os.getcwd(), 'comparative_func_analysis'))
+
+    models_genes_cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'models_cog_analysis.tsv'),
+                         os.path.join(os.getcwd(), 'comparative_func_analysis'))

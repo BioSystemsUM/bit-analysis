@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 from matplotlib_venn import venn3
 import numpy as np
 import os
-from pca_analysis import read_models
+from utils import read_models
 
 
 # Get reactions from the models, excluding exchanges
