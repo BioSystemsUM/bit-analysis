@@ -122,12 +122,10 @@ def models_genes_dataframe(models: List[ModelAnalysis]):
 
 
 if __name__ == '__main__':
-    '''
-    models_analysis = read_models(os.path.join(os.getcwd(), 'models'))
-    models_genes_df = models_genes_dataframe(models_analysis)
-    models_genes_df.to_csv(os.path.join(os.getcwd(), 'comparative_func_analysis', 'models_genes.tsv'),
-                           sep='\t', index_label='model_id')
-    '''
+    # models_analysis = read_models(os.path.join(os.getcwd(), 'models'))
+    # models_genes_df = models_genes_dataframe(models_analysis)
+    # models_genes_df.to_csv(os.path.join(os.getcwd(), 'comparative_func_analysis', 'models_genes.tsv'),
+    #                        sep='\t', index_label='model_id')
 
     models_cog_analysis()
 
