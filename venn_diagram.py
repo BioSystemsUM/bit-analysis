@@ -151,13 +151,13 @@ if __name__ == '__main__':
                                 model.template == 'random']
 
     # # Reactions
-    # run(models_list=models_permissive_all, analysis='Reactions')  # all
-    # run(models_list=models_permissive_selected, analysis='Reactions')  # selected
+    run(models_list=models_permissive_all, analysis='Reactions')  # all
+    run(models_list=models_permissive_selected, analysis='Reactions')  # selected
     run_random(models_list=models_permissive_random, analysis='Reactions')  # random
 
     # # Metabolites
-    # run(models_list=models_permissive_all, analysis='Metabolites')  # all
-    # run(models_list=models_permissive_selected, analysis='Metabolites')  # selected
+    run(models_list=models_permissive_all, analysis='Metabolites')  # all
+    run(models_list=models_permissive_selected, analysis='Metabolites')  # selected
     run_random(models_list=models_permissive_random, analysis='Metabolites')  # random
 
     # ###########################################################################
@@ -170,20 +170,20 @@ if __name__ == '__main__':
                                  model.template == 'random']
 
     # Reactions
-    # run(models_list=models_restrictive_all, analysis='Reactions')  # all
-    # run(models_list=models_restrictive_selected, analysis='Reactions')  # selected
+    run(models_list=models_restrictive_all, analysis='Reactions')  # all
+    run(models_list=models_restrictive_selected, analysis='Reactions')  # selected
     run_random(models_list=models_restrictive_random, analysis='Reactions')  # random
 
     # # Metabolites
-    # run(models_list=models_restrictive_all, analysis='Metabolites')  # all
-    # run(models_list=models_restrictive_selected, analysis='Metabolites')  # selected
+    run(models_list=models_restrictive_all, analysis='Metabolites')  # all
+    run(models_list=models_restrictive_selected, analysis='Metabolites')  # selected
     run_random(models_list=models_restrictive_random, analysis='Metabolites')  # random
 
     # ###########################################################################
 
     # CARVEME MODELS
 
-    # carveme = [model for model in models if 'carveme' in model.method]
-    #
-    # run(models_list=carveme, analysis="Reactions")
-    # run(models_list=carveme, analysis="Metabolites")
+    carveme = [model for model in models if 'carveme' in model.method]
+
+    run(models_list=carveme, analysis="Reactions")
+    run(models_list=carveme, analysis="Metabolites")
