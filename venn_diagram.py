@@ -5,46 +5,52 @@ import os
 from pca_analysis import read_models
 
 
+# Get reactions from the models, excluding exchanges
 def get_reactions(model):
     exch = []
     for exchange in model.reactions:
         if exchange.boundary:
             exch.append(exchange.id)
+        else:
             for met in exchange.metabolites:
                 if met.id.endswith('_b'):
                     exch.append(exchange.id)
                     break
 
-    reactions = [r.id for r in model.reactions if r not in exch]
+    reactions = [r.id for r in model.reactions if r.id not in exch]
     return reactions
 
 
+# Get metabolites from the models, excluding extracellular
 def get_metabolites(model):
-    metabolites = [m.id for m in model.metabolites if not m.id.endswith('_b') and not m.id.endswith('__e')]
+    metabolites = [m.id for m in model.metabolites if not m.id.endswith('_b') and not m.id.endswith('__e')
+                   and not m.id.endswith('_e')]
     return metabolites
 
 
-def find_common(reactions_a, reactions_b, reactions_c):
-    abc = set(reactions_a).intersection(set(reactions_b), set(reactions_c))
+# Find common reactions/metabolites between models of the 3 different species
+def find_common(entities_a, entities_b, entities_c):
+    abc = set(entities_a).intersection(set(entities_b), set(entities_c))
 
-    ab_all = set(reactions_a).intersection(set(reactions_b))
+    ab_all = set(entities_a).intersection(set(entities_b))
     ab = [r for r in ab_all if r not in abc]
 
-    ac_all = set(reactions_a).intersection(set(reactions_c))
+    ac_all = set(entities_a).intersection(set(entities_c))
     ac = [r for r in ac_all if r not in abc]
 
-    a = [r for r in reactions_a if r not in abc and r not in ab and r not in ac]
+    a = [r for r in entities_a if r not in abc and r not in ab and r not in ac]
 
-    bc_all = set(reactions_b).intersection(set(reactions_c))
+    bc_all = set(entities_b).intersection(set(entities_c))
     bc = [r for r in bc_all if r not in abc]
 
-    b = [r for r in reactions_b if r not in abc and r not in ab and r not in bc]
+    b = [r for r in entities_b if r not in abc and r not in ab and r not in bc]
 
-    c = [r for r in reactions_c if r not in abc and r not in ac and r not in bc]
+    c = [r for r in entities_c if r not in abc and r not in ac and r not in bc]
 
     return len(a), len(b), len(ab), len(c), len(ac), len(bc), len(abc)
 
 
+# Create a venn's diagram for 3 groups
 def create_venn(values, labels, filename, title):
     venn3(subsets=values, set_labels=labels, set_colors=("orangered", "dodgerblue", "green"))
     plt.title(title)
@@ -53,7 +59,6 @@ def create_venn(values, labels, filename, title):
 
 
 def run(models_list, analysis='Reactions'):
-
     if len(models_list) != 3:
         raise ValueError('3 groups are needed to perform venn\'s diagram')
 
@@ -75,17 +80,15 @@ def run(models_list, analysis='Reactions'):
         labels.append(label)
 
     if 'carveme' in models_list[0].method:
-        png_name = analysis + '_' + 'carveme' + '.png'
+        png_name = 'venns_diagrams/' + analysis + '_' + 'carveme' + '.png'
     else:
-        png_name = analysis + '_' + models_list[0].method + '_' + models_list[0].template + '.png'
+        png_name = 'venns_diagrams/' + analysis + '_' + models_list[0].method + '_' + models_list[0].template + '.png'
 
     create_venn(values=venn_values, labels=labels, filename=png_name, title=analysis)
 
 
+# Create venn's diagram for the random models (5 models for each species: 125 combinations)
 def run_random(models_list, analysis='Reactions'):
-
-    if len(models_list) != 3:
-        raise ValueError('3 groups are needed to perform venn\'s diagram')
 
     all_Mt_rand = []
     all_St_rand = []
@@ -131,7 +134,7 @@ def run_random(models_list, analysis='Reactions'):
         label = '$\it{' + o[0][0] + '. ' + o[1] + '}$'
         labels.append(label)
 
-    png_name = analysis + '_' + models_list[0].method + '_' + models_list[0].template + '.png'
+    png_name = 'venns_diagrams/' + analysis + '_' + models_list[0].method + '_' + models_list[0].template + '.png'
 
     create_venn(values=mean_values, labels=labels, filename=png_name, title=analysis)
 
@@ -144,7 +147,6 @@ if __name__ == '__main__':
     models_permissive_all = [model for model in models if model.method == 'permissive' and model.template == 'all']
     models_permissive_selected = [model for model in models if model.method == 'permissive' and
                                   model.template == 'select']
-
     models_permissive_random = [model for model in models if model.method == 'permissive' and
                                 model.template == 'random']
 
@@ -160,7 +162,7 @@ if __name__ == '__main__':
 
     # ###########################################################################
 
-    # RESTRICTIVE MODELS
+    # # RESTRICTIVE MODELS
     models_restrictive_all = [model for model in models if model.method == 'restrictive' and model.template == 'all']
     models_restrictive_selected = [model for model in models if model.method == 'restrictive' and
                                    model.template == 'select']
@@ -182,5 +184,6 @@ if __name__ == '__main__':
     # CARVEME MODELS
 
     carveme = [model for model in models if 'carveme' in model.method]
+
     run(models_list=carveme, analysis="Reactions")
     run(models_list=carveme, analysis="Metabolites")
