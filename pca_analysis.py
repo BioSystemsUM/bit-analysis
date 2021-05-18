@@ -1,134 +1,21 @@
 import os
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 from typing import List, Union, Tuple
 
 import pandas as pd
-from cobra import Model
-from cobra.io import read_sbml_model
 from matplotlib import pyplot as plt
 import matplotlib.colors as mcolors
 from sklearn.decomposition import PCA
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.preprocessing import StandardScaler
 
-ModelAnalysis = namedtuple('ModelAnalysis',
-                           field_names=('model',
-                                        'organism',
-                                        'organism_id',
-                                        'template',
-                                        'method'),
-                           defaults=(Model(),
-                                     'Mycobacterium tuberculosis',
-                                     'Mtub'
-                                     'all',
-                                     'permissive'))
-
-
-def parse_organism_annotation(model_annotation):
-    if len(model_annotation) > 1:
-
-        organism, *_ = model_annotation
-
-        if 'tuber' in organism:
-            return 'Mycobacterium tuberculosis'
-
-        elif 'thermo' in organism:
-            return 'Streptococcus thermophilus'
-
-        elif 'fasti' in organism:
-            return 'Xylella fastidiosa'
-
-        else:
-            return 'carveme'
-
-    return '_'.join(model_annotation)
-
-
-def parse_organism_id(organism_name):
-    genus_species = organism_name.split()
-    genus = genus_species[0]
-    species = genus_species[1]
-
-    return f'{genus[0]}{species[0:3]}'
-
-
-def parse_template_annotation(model_annotation):
-    if len(model_annotation) > 1:
-
-        _, template, *_ = model_annotation
-
-        if 'all' in template:
-            return 'all'
-
-        elif 'random' in template:
-            return 'random'
-
-        elif 'select' in template:
-            return 'select'
-
-        else:
-            return 'carveme'
-
-    return '_'.join(model_annotation)
-
-
-def parse_method_annotation(model_annotation):
-    if len(model_annotation) > 1:
-
-        *_, method = model_annotation
-
-        if 'permissive' in method:
-            return 'permissive'
-
-        elif 'restrictive' in method:
-            return 'restrictive'
-
-        else:
-            return 'carveme'
-
-    return '_'.join(model_annotation)
-
-
-def read_models(workdir: str) -> List[ModelAnalysis]:
-    if not os.path.exists(workdir):
-        raise OSError(f'{workdir} does not exist')
-
-    models = os.listdir(workdir)
-
-    models_analysis = []
-
-    for model_name in models:
-
-        if model_name.endswith('.xml') or model_name.endswith('.sbml'):
-            model_path = os.path.join(workdir, model_name)
-
-            model: Model = read_sbml_model(model_path)
-
-            name = model_name.replace('model_', '')
-
-            model_annotation = name.split('_')
-
-            organism = parse_organism_annotation(model_annotation)
-            organism_id = parse_organism_id(organism)
-            template = parse_template_annotation(model_annotation)
-            method = parse_method_annotation(model_annotation)
-
-            model.id = f'{organism_id}_{template}_{method}'
-
-            model_analysis = ModelAnalysis(model=model,
-                                           organism=organism,
-                                           organism_id=organism_id,
-                                           template=template,
-                                           method=method)
-
-            models_analysis.append(model_analysis)
-
-    return models_analysis
+from utils import ModelAnalysis, parse_organism_id, read_models, parse_reaction, parse_metabolite
 
 
 def models_dataframe(models: List[ModelAnalysis],
                      reactions: bool = True,
-                     filter_exchanges: bool = True) -> pd.DataFrame:
+                     filter_boundaries: bool = True,
+                     write: str = '') -> pd.DataFrame:
     features_lookup = defaultdict(list)
 
     index = []
@@ -148,32 +35,19 @@ def models_dataframe(models: List[ModelAnalysis],
 
             for rxn in model_analysis.model.reactions:
 
-                is_exchange = False
+                rxn_id = parse_reaction(rxn, filter_boundaries)
 
-                if rxn.boundary:
-                    is_exchange = True
-
-                else:
-
-                    for met in rxn.metabolites:
-                        if met.id.endswith('_b'):
-                            is_exchange = True
-                            break
-
-                if is_exchange:
-                    continue
-
-                else:
-                    features_lookup[rxn.id].append(model_analysis.model.id)
+                if rxn_id is not None:
+                    features_lookup[rxn_id].append(model_analysis.model.id)
 
         else:
 
             for met in model_analysis.model.metabolites:
-                if met.id.endswith('_b'):
-                    continue
 
-                else:
-                    features_lookup[met.id].append(model_analysis.model.id)
+                met_id = parse_metabolite(met, filter_boundaries)
+
+                if met_id is not None:
+                    features_lookup[met_id].append(model_analysis.model.id)
 
     data = [[0] * len(features_lookup)] * len(index)
     df = pd.DataFrame(data=data,
@@ -197,6 +71,17 @@ def models_dataframe(models: List[ModelAnalysis],
         dfs.append(df)
 
     df = pd.concat(dfs, axis=1)
+
+    if write:
+        if reactions:
+            df.to_excel(write,
+                        sheet_name='reactions',
+                        index_label='model_id')
+
+        else:
+            df.to_excel(write,
+                        sheet_name='metabolites',
+                        index_label='model_id')
 
     return df
 
@@ -298,24 +183,45 @@ def plot_pca(workdir: str,
         fig.savefig(fname=file_path, bbox_extra_artists=(legend,), bbox_inches='tight')
 
 
-def rxns_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
+def rxns_pca(models_dir: str,
+             analysis_dir: str,
+             filter_exchanges: bool,
+             read: str = '',
+             write: str = ''):
     factors = ('organism', 'organism_id', 'template', 'method')
 
-    analysis_models = read_models(models_dir)
-    df = models_dataframe(analysis_models, reactions=True, filter_exchanges=filter_exchanges)
+    if read:
+        df = pd.read_excel(read, sheet_name='reactions')
+
+    else:
+        analysis_models = read_models(models_dir)
+        df = models_dataframe(analysis_models, reactions=True, filter_boundaries=filter_exchanges, write=write)
+
     df = scaling(df, factors=factors)
     pca = pca_analysis(df, factors=factors)
+
     plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
              factors=('organism', 'template', 'method'), content='Reactions')
 
 
-def mets_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
+def mets_pca(models_dir: str,
+             analysis_dir: str,
+             filter_exchanges: bool,
+             read: str = '',
+             write: str = ''):
+
     factors = ('organism', 'organism_id', 'template', 'method')
 
-    analysis_models = read_models(models_dir)
-    df = models_dataframe(analysis_models, reactions=False, filter_exchanges=filter_exchanges)
+    if read:
+        df = pd.read_excel(read, sheet_name='metabolites')
+
+    else:
+        analysis_models = read_models(models_dir)
+        df = models_dataframe(analysis_models, reactions=False, filter_boundaries=filter_exchanges, write=write)
+
     df = scaling(df, factors=factors)
     pca = pca_analysis(df, factors=factors)
+
     plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
              factors=('organism', 'template', 'method'), content='Metabolites')
 
@@ -331,11 +237,15 @@ def cog_pca(cog_analysis_file: str, analysis_dir: str):
 
 
 if __name__ == '__main__':
-    rxns_pca(os.path.join(os.getcwd(), 'models'),
-             os.path.join(os.getcwd(), 'model_content_analysis'),
-             filter_exchanges=True)
-    mets_pca(os.path.join(os.getcwd(), 'models'),
-             os.path.join(os.getcwd(), 'model_content_analysis'),
-             filter_exchanges=True)
-    cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'genomes_cog_analysis.tsv'),
-            os.path.join(os.getcwd(), 'comparative_func_analysis'))
+    rxns_pca(models_dir=os.path.join(os.getcwd(), 'models'),
+             analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
+             filter_exchanges=True,
+             read=os.path.join(os.getcwd(), 'model_content_analysis', 'reactions_analysis.xlsx'))
+
+    mets_pca(models_dir=os.path.join(os.getcwd(), 'models'),
+             analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
+             filter_exchanges=True,
+             read=os.path.join(os.getcwd(), 'model_content_analysis', 'metabolites_analysis.xlsx'),)
+
+    # cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'genomes_cog_analysis.tsv'),
+    #         os.path.join(os.getcwd(), 'comparative_func_analysis'))
