@@ -6,19 +6,25 @@ from typing import List, Union
 from cobra import Model, Reaction, Metabolite
 from cobra.io import read_sbml_model
 
+COLOR_MAPS = ['Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
+              'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
+              'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn']
+
+MARKERS = ['o', '^', '*', '8', 's', 'p']
 
 metabolite_pattern = re.compile(r'(__[A-Za-z](?!.))')
 extracellular_metabolite_pattern = re.compile(r'(__[A-Za-z]_b(?!.))')
 reaction_pattern = re.compile(r'(__[A-Za-z]+(?!.))')
 
-
 ModelAnalysis = namedtuple('ModelAnalysis',
                            field_names=('model',
+                                        'model_id',
                                         'organism',
                                         'organism_id',
                                         'template',
                                         'method'),
                            defaults=(Model(),
+                                     'Mtuberculosis_all_permissive'
                                      'Mycobacterium tuberculosis',
                                      'Mtub'
                                      'all',
@@ -105,18 +111,20 @@ def read_models(workdir: str) -> List[ModelAnalysis]:
 
             model: Model = read_sbml_model(model_path)
 
-            name = model_name.replace('model_', '')
+            name = model_name.replace('model_', '').replace('.xml', '').replace('.sbml', '')
 
             model_annotation = name.split('_')
 
+            model_id = name
             organism = parse_organism_annotation(model_annotation)
             organism_id = parse_organism_id(organism)
             template = parse_template_annotation(model_annotation)
             method = parse_method_annotation(model_annotation)
 
-            model.id = f'{organism_id}_{template}_{method}'
+            model.id = model_id
 
             model_analysis = ModelAnalysis(model=model,
+                                           model_id=model_id,
                                            organism=organism,
                                            organism_id=organism_id,
                                            template=template,
@@ -161,7 +169,6 @@ def parse_reaction_id(reaction_id: str) -> str:
 
 
 def parse_reaction(reaction: Reaction, filter_boundaries: bool = True) -> Union[str, None]:
-
     """
     Parsing reaction to the correct reaction BiGG identifier.
     It returns None if the reaction is boundary and filter_boundaries is True
@@ -191,7 +198,6 @@ def parse_reaction(reaction: Reaction, filter_boundaries: bool = True) -> Union[
 
 
 def parse_metabolite(metabolite: Metabolite, filter_boundaries: bool = True) -> Union[str, None]:
-
     """
     Parsing metabolite to the correct metabolite BiGG identifier.
     It returns None if the metabolite is boundary and filter_boundaries is True
