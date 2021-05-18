@@ -38,6 +38,9 @@ def parse_organism_annotation(model_annotation):
         elif 'fasti' in organism:
             return 'Xylella fastidiosa'
 
+        else:
+            return 'carveme'
+
     return '_'.join(model_annotation)
 
 
@@ -63,6 +66,9 @@ def parse_template_annotation(model_annotation):
         elif 'select' in template:
             return 'select'
 
+        else:
+            return 'carveme'
+
     return '_'.join(model_annotation)
 
 
@@ -76,6 +82,9 @@ def parse_method_annotation(model_annotation):
 
         elif 'restrictive' in method:
             return 'restrictive'
+
+        else:
+            return 'carveme'
 
     return '_'.join(model_annotation)
 
@@ -119,10 +128,7 @@ def read_models(workdir: str) -> List[ModelAnalysis]:
 
 def models_dataframe(models: List[ModelAnalysis],
                      reactions: bool = True,
-                     metabolites: bool = False) -> pd.DataFrame:
-    if reactions and metabolites:
-        raise ValueError('Select only one feature type, either reactions or metabolites')
-
+                     filter_exchanges: bool = True) -> pd.DataFrame:
     features_lookup = defaultdict(list)
 
     index = []
@@ -139,12 +145,35 @@ def models_dataframe(models: List[ModelAnalysis],
         methods.append(model_analysis.method)
 
         if reactions:
-            for rxn in model_analysis.model.reactions:
-                features_lookup[rxn.id].append(model_analysis.model.id)
 
-        if metabolites:
+            for rxn in model_analysis.model.reactions:
+
+                is_exchange = False
+
+                if rxn.boundary:
+                    is_exchange = True
+
+                else:
+
+                    for met in rxn.metabolites:
+                        if met.id.endswith('_b'):
+                            is_exchange = True
+                            break
+
+                if is_exchange:
+                    continue
+
+                else:
+                    features_lookup[rxn.id].append(model_analysis.model.id)
+
+        else:
+
             for met in model_analysis.model.metabolites:
-                features_lookup[met.id].append(model_analysis.model.id)
+                if met.id.endswith('_b'):
+                    continue
+
+                else:
+                    features_lookup[met.id].append(model_analysis.model.id)
 
     data = [[0] * len(features_lookup)] * len(index)
     df = pd.DataFrame(data=data,
@@ -175,6 +204,7 @@ def models_dataframe(models: List[ModelAnalysis],
 def cog_dataframe(file_path: str) -> pd.DataFrame:
     df = pd.read_csv(file_path, sep='\t')
     df.index = df['organism']
+    df.loc[:, 'organism_id'] = [parse_organism_id(organism) for organism in df.index]
 
     return df
 
@@ -226,7 +256,6 @@ def plot_pca(workdir: str,
              pc2: str,
              factors: Union[List[str], Tuple[str]],
              content: str):
-
     if not os.path.exists(workdir):
         os.makedirs(workdir)
 
@@ -260,8 +289,7 @@ def plot_pca(workdir: str,
             organisms_id = dataframe.loc[mask, 'organism_id']
 
             for pc1_pt, pc2_pt, annotation in zip(pc1_values, pc2_values, organisms_id):
-
-                ax.annotate(annotation, (pc1_pt+1, pc2_pt-1))
+                ax.annotate(annotation, (pc1_pt + 1, pc2_pt - 1))
 
         legend = ax.legend(labels, loc=(1.04, 0))
         ax.grid()
@@ -270,39 +298,44 @@ def plot_pca(workdir: str,
         fig.savefig(fname=file_path, bbox_extra_artists=(legend,), bbox_inches='tight')
 
 
-def rxns_pca(models_dir: str, analysis_dir: str):
-
+def rxns_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
     factors = ('organism', 'organism_id', 'template', 'method')
 
     analysis_models = read_models(models_dir)
-    df = models_dataframe(analysis_models, reactions=True, metabolites=False)
+    df = models_dataframe(analysis_models, reactions=True, filter_exchanges=filter_exchanges)
     df = scaling(df, factors=factors)
     pca = pca_analysis(df, factors=factors)
     plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
              factors=('organism', 'template', 'method'), content='Reactions')
 
 
-def mets_pca(models_dir: str, analysis_dir: str):
+def mets_pca(models_dir: str, analysis_dir: str, filter_exchanges: bool):
     factors = ('organism', 'organism_id', 'template', 'method')
 
     analysis_models = read_models(models_dir)
-    df = models_dataframe(analysis_models, reactions=False, metabolites=True)
+    df = models_dataframe(analysis_models, reactions=False, filter_exchanges=filter_exchanges)
     df = scaling(df, factors=factors)
     pca = pca_analysis(df, factors=factors)
     plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
              factors=('organism', 'template', 'method'), content='Metabolites')
 
 
-def cog_pca(cog_analysis_file:str, analysis_dir: str):
-
-    factors = ('domain', 'phylum')
+def cog_pca(cog_analysis_file: str, analysis_dir: str):
+    factors = ('domain', 'phylum', 'organism', 'organism_id')
 
     df = cog_dataframe(cog_analysis_file)
     df = scaling(df, factors)
     pca = pca_analysis(df, factors=factors, components=2)
-    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2', factors=factors, content='COG')
+    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
+             factors=('domain', 'phylum'), content='COG')
 
 
 if __name__ == '__main__':
-    rxns_pca(os.path.join(os.getcwd(), 'models'), os.path.join(os.getcwd(), 'model_content_analysis'))
-    # mets_pca(os.path.join(os.getcwd(), 'models'), os.path.join(os.getcwd(), 'model_content_analysis'))
+    rxns_pca(os.path.join(os.getcwd(), 'models'),
+             os.path.join(os.getcwd(), 'model_content_analysis'),
+             filter_exchanges=True)
+    mets_pca(os.path.join(os.getcwd(), 'models'),
+             os.path.join(os.getcwd(), 'model_content_analysis'),
+             filter_exchanges=True)
+    cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'genomes_cog_analysis.tsv'),
+            os.path.join(os.getcwd(), 'comparative_func_analysis'))
