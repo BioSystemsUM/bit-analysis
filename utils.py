@@ -3,12 +3,13 @@ import re
 from collections import namedtuple
 from typing import List, Union
 
+from matplotlib import colors as mcolors
+
 from cobra import Model, Reaction, Metabolite
 from cobra.io import read_sbml_model
 
-COLOR_MAPS = ['Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
-              'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
-              'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn']
+M_COLORS = list(mcolors.TABLEAU_COLORS.keys())
+COLORS = M_COLORS + ['#1f6357', '#017374', '#0cb577', '#ff0789', '#afa88b']
 
 MARKERS = ['o', '^', '*', '8', 's', 'p']
 
