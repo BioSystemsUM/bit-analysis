@@ -9,24 +9,21 @@ from utils import read_models, parse_reaction, parse_metabolite
 
 # Get reactions from models, excluding exchanges
 def get_reactions(model):
-    exch = []
-    for exchange in model.reactions:
-        if exchange.boundary:
-            exch.append(exchange.id)
-        else:
-            for met in exchange.metabolites:
-                if met.id.endswith('_b'):
-                    exch.append(exchange.id)
-                    break
-
-    reactions = [parse_reaction(reaction=r) for r in model.reactions if r.id not in exch]
+    reactions = []
+    for r in model.reactions:
+        parse = parse_reaction(r)
+        if parse:
+            reactions.append(parse)
     return reactions
 
 
 # Get metabolites from models, excluding extracellular
 def get_metabolites(model):
-    metabolites = [parse_metabolite(metabolite=m) for m in model.metabolites if not m.id.endswith('_b')
-                   and not m.id.endswith('__e') and not m.id.endswith('_e')]
+    metabolites = []
+    for m in model.metabolites:
+        parse = parse_metabolite(m)
+        if parse:
+            metabolites.append(parse)
     return metabolites
 
 
@@ -119,8 +116,8 @@ def run(models_list, analysis='Reactions', group='organism'):
             if model.method == 'carveme':
                 labels.append(model.method)
             else:
-                labels.append('bigg_' + model.template)
-        png_name = 'venns_diagrams/' + 'biggVScarveme' + '_' + models_list[0].organism_id + '_' + analysis + '_' + \
+                labels.append('bit_' + model.template)
+        png_name = 'venns_diagrams/' + 'bitVScarveme' + '_' + models_list[0].organism_id + '_' + analysis + '_' + \
                    models_list[1].method + '.png'
 
     create_venn(values=venn_values, labels=labels, filename=png_name, title=analysis)
@@ -212,17 +209,41 @@ def run_organism(models_list, organism, method):
     run(models_list=group, analysis='Genes', group='template')
 
 
-# Compares CarveMe and BIGG selected models
-def compare_carveme_bigg(models_list, organism, method):
+# Compares CarveMe and bit selected models
+def compare_carveme_bit(models_list, organism, method):
     group = []
     for model in models_list:
         if model.organism_id == organism and model.method == 'carveme':
             group.append(model)
         if model.organism_id == organism and model.method == method and model.template == 'select':
             group.append(model)
+
     run(models_list=group, analysis='Reactions', group='method')
     run(models_list=group, analysis='Metabolites', group='method')
     run(models_list=group, analysis='Genes', group='method')
+
+
+def models_statistics(models_list):
+    columns = ['method', 'template', 'organism', 'genes', 'reactions', 'exchanges', 'metabolites',
+               'extracellularMetabolites']
+
+    data = []
+
+    for modelAnalysis in models_list:
+        method = modelAnalysis.method
+        organism = modelAnalysis.organism_id
+        template = modelAnalysis.template
+        genes = len(get_genes(modelAnalysis.model))
+        reactions = len(get_reactions(modelAnalysis.model))
+        exchanges_n = len(modelAnalysis.model.exchanges)
+        metabolites = len(get_metabolites(modelAnalysis.model))
+        met_extra_n = len([m for m in modelAnalysis.model.metabolites if m.id.endswith('_b')])
+
+        line = [method, template, organism, genes, reactions, exchanges_n, metabolites, met_extra_n]
+        data.append(line)
+
+    df = pd.DataFrame(data, columns=columns)
+    df.to_csv('statistics.csv')
 
 
 if __name__ == '__main__':
@@ -262,11 +283,14 @@ if __name__ == '__main__':
     # RUN FOR COGS
     run_cogs('comparative_func_analysis/protagonists2cogs.tsv')
 
-    # COMPARISON BIGG vs CARVE ME
-    compare_carveme_bigg(models_list=models, organism='Mtub', method='permissive')
-    compare_carveme_bigg(models_list=models, organism='Sthe', method='permissive')
-    compare_carveme_bigg(models_list=models, organism='Xfas', method='permissive')
+    # COMPARISON bit vs CARVE ME
+    compare_carveme_bit(models_list=models, organism='Mtub', method='permissive')
+    compare_carveme_bit(models_list=models, organism='Sthe', method='permissive')
+    compare_carveme_bit(models_list=models, organism='Xfas', method='permissive')
 
-    compare_carveme_bigg(models_list=models, organism='Mtub', method='restrictive')
-    compare_carveme_bigg(models_list=models, organism='Sthe', method='restrictive')
-    compare_carveme_bigg(models_list=models, organism='Xfas', method='restrictive')
+    compare_carveme_bit(models_list=models, organism='Mtub', method='restrictive')
+    compare_carveme_bit(models_list=models, organism='Sthe', method='restrictive')
+    compare_carveme_bit(models_list=models, organism='Xfas', method='restrictive')
+
+    # create table
+    models_statistics(models_list=models)
