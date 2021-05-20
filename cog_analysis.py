@@ -21,7 +21,8 @@ def run_recognizer():
     cog_protein_descriptions = dict()
 
     for file in glob.glob('bit_analysis/recognizer_outs/*/COG_report.tsv'):
-        name = file.split('/')[2]; print(name)
+        name = file.split('/')[2];
+        print(name)
         data = pd.read_csv(f'bit_analysis/recognizer_outs/{name}/COG_report.tsv', sep='\t')
         data = data[data['evalue'] < 10e-10]
         cog_protein_descriptions[name] = data[data['COG general functional category'] == 'METABOLISM']['DB ID'].tolist()
@@ -57,6 +58,7 @@ def distance_matrix(df):
             result.loc[taxon1, taxon2] = distance_between_rows(df, taxon1, taxon2)
     return result
 
+
 def genomes_cog_analysis():
     cpd = run_recognizer()
     b_matrix = boolean_matrix(cpd)
@@ -64,10 +66,11 @@ def genomes_cog_analysis():
     d_matrix = distance_matrix(b_matrix)
     d_matrix.to_csv('bit_analysis/distance_matrix.tsv', sep='\t')
 
+
 def models_cog_analysis():
-    id2species = {'Mtub':'Mycobacterium_tuberculosis',
-                  'Sthe':'Streptococcus_thermophilus',
-                  'Xfas':'Xylella_fastidiosa'}
+    id2species = {'Mtub': 'Mycobacterium_tuberculosis',
+                  'Sthe': 'Streptococcus_thermophilus',
+                  'Xfas': 'Xylella_fastidiosa'}
 
     id2model = {
         'Mtub': pd.read_csv('bit_analysis/recognizer_outs/Mycobacterium_tuberculosis/COG_report.tsv', sep='\t'),
@@ -94,12 +97,12 @@ def models_cog_analysis():
             refseq2cog[prefix].loc[ide]['DB ID'] for ide in mod2reac.iloc[i]['model_genes']
             if ide in refseq2cog[prefix].index])
 
-    mod2cogs = {mod2reac.iloc[i]['model_id'] : mod2reac.iloc[i]['cogs'].split(',') for i in range(len(mod2reac))}
+    mod2cogs = {mod2reac.iloc[i]['model_id']: mod2reac.iloc[i]['cogs'].split(',') for i in range(len(mod2reac))}
     bmatrix = boolean_matrix(mod2cogs, mod2cogs.keys())
     bmatrix.to_csv('bit_analysis/models_bmatrix.tsv', sep='\t')
 
-def models_genes_dataframe(models: List[ModelAnalysis]):
 
+def models_genes_dataframe(models: List[ModelAnalysis]):
     index = []
     genes = []
     for model_analysis in models:
@@ -123,4 +126,3 @@ if __name__ == '__main__':
 
     genomes_cog_analysis()
     models_cog_analysis()
-
