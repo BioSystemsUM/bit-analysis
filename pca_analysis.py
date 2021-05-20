@@ -4,33 +4,33 @@ from typing import List, Union, Tuple
 
 import pandas as pd
 from matplotlib import pyplot as plt
-import matplotlib.colors as mcolors
 from sklearn.decomposition import PCA
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.preprocessing import StandardScaler
 
 from utils import ModelAnalysis, parse_organism_id, read_models, parse_reaction, parse_metabolite, \
-    parse_organism_annotation, parse_template_annotation, parse_method_annotation
+    parse_organism_annotation, parse_template_annotation, parse_method_annotation, COLORS, get_explained_variance_idx
 
 
 def models_dataframe(models: List[ModelAnalysis],
                      reactions: bool = True,
-                     filter_boundaries: bool = True,
-                     write: str = '') -> pd.DataFrame:
+                     filter_boundaries: bool = True) -> Tuple[pd.DataFrame, Tuple[str]]:
+
     features_lookup = defaultdict(list)
 
-    index = []
-    organisms = []
-    organisms_id = []
-    templates = []
-    methods = []
+    categorical = {'model_id': [],
+                   'organism_id': [],
+                   'organism': [],
+                   'template': [],
+                   'method': []}
+
     for model_analysis in models:
 
-        index.append(model_analysis.model.id)
-        organisms.append(model_analysis.organism)
-        organisms_id.append(model_analysis.organism_id)
-        templates.append(model_analysis.template)
-        methods.append(model_analysis.method)
+        categorical['model_id'].append(model_analysis.model_id)
+        categorical['organism_id'].append(model_analysis.organism_id)
+        categorical['organism'].append(model_analysis.organism)
+        categorical['template'].append(model_analysis.template)
+        categorical['method'].append(model_analysis.method)
 
         if reactions:
 
@@ -39,7 +39,7 @@ def models_dataframe(models: List[ModelAnalysis],
                 rxn_id = parse_reaction(rxn, filter_boundaries)
 
                 if rxn_id is not None:
-                    features_lookup[rxn_id].append(model_analysis.model.id)
+                    features_lookup[rxn_id].append(model_analysis.model_id)
 
         else:
 
@@ -48,62 +48,52 @@ def models_dataframe(models: List[ModelAnalysis],
                 met_id = parse_metabolite(met, filter_boundaries)
 
                 if met_id is not None:
-                    features_lookup[met_id].append(model_analysis.model.id)
+                    features_lookup[met_id].append(model_analysis.model_id)
 
-    data = [[0] * len(features_lookup)] * len(index)
+    data = [[0] * len(features_lookup)] * len(categorical['model_id'])
     df = pd.DataFrame(data=data,
-                      index=index,
+                      index=categorical['model_id'],
                       columns=features_lookup.keys())
 
-    for rxn_or_met, models_ids in features_lookup.items():
+    for rxn_or_met, models_lkp in features_lookup.items():
 
-        for model_id in models_ids:
+        for model_id in models_lkp:
             df.loc[model_id, rxn_or_met] = 1
 
-    dfs = [df]
-    factors = ('organism', 'organism_id', 'template', 'method')
-    labels = (organisms, organisms_id, templates, methods)
+    categorical_df = pd.DataFrame.from_dict(categorical)
+    categorical_df.index = categorical['model_id']
 
-    for factor, label in zip(factors, labels):
-        df = pd.DataFrame(data=label,
-                          index=index,
-                          columns=[factor])
+    df = pd.concat([df, categorical_df], axis=1)
 
-        dfs.append(df)
-
-    df = pd.concat(dfs, axis=1)
-
-    if write:
-        if reactions:
-            df.to_excel(write,
-                        sheet_name='reactions',
-                        index_label='model_id')
-
-        else:
-            df.to_excel(write,
-                        sheet_name='metabolites',
-                        index_label='model_id')
-
-    return df
+    return df, tuple(categorical.keys())
 
 
-def cog_dataframe(file_path: str) -> pd.DataFrame:
-    df = pd.read_csv(file_path, sep='\t')
-    df.index = df['organism']
+def read_models_dataframe(file_path: str) -> Tuple[pd.DataFrame, Tuple[str]]:
+    df = pd.read_csv(file_path,
+                     sep='\t')
+    df.index = df.loc[:, 'model_id']
+    del df['Unnamed: 0']
+    return df, ('model_id', 'organism_id', 'organism', 'template', 'method')
+
+
+def cog_dataframe(file_path: str) -> Tuple[pd.DataFrame, Tuple[str]]:
+    df = pd.read_csv(file_path,
+                     sep='\t',
+                     index_col='organism')
     df.loc[:, 'organism_id'] = [parse_organism_id(organism) for organism in df.index]
-
-    return df
+    return df, ('domain', 'phylum', 'organism_id')
 
 
 def models_genes_cog_dataframe(file_path: str) -> pd.DataFrame:
-    df = pd.read_csv(file_path, sep='\t')
+    df = pd.read_csv(file_path,
+                     sep='\t',
+                     index_col='model_id')
 
-    models_id = []
     organisms = []
     organisms_id = []
     templates = []
     methods = []
-    for model_id in df.loc[:, 'model_id']:
+    for model_id in df.index:
         model_annotation = model_id.split('_')
 
         organism = parse_organism_annotation(model_annotation)
@@ -111,37 +101,27 @@ def models_genes_cog_dataframe(file_path: str) -> pd.DataFrame:
         template = parse_template_annotation(model_annotation)
         method = parse_method_annotation(model_annotation)
 
-        model_id = f'{organism_id}_{template}_{method}'
-
         organisms.append(organism)
         organisms_id.append(organism_id)
         templates.append(template)
         methods.append(method)
-        models_id.append(model_id)
 
-    df.loc[:, 'organism'] = organisms
     df.loc[:, 'organism_id'] = organisms_id
+    df.loc[:, 'organism'] = organisms
     df.loc[:, 'template'] = templates
     df.loc[:, 'method'] = methods
-    df.index = models_id
 
-    del df['model_id']
-
-    return df
+    return df, ('organism_id', 'organism', 'template', 'method')
 
 
 def scaling(dataframe: pd.DataFrame,
-            factors: Union[List[str], Tuple[str]],
-            model_filter: float = 0.0,
+            categorical: Tuple[str],
             standard: bool = True,
             variance: bool = True) -> pd.DataFrame:
-
-    # filter rows
-    dataframe = dataframe[dataframe.sum(axis=1) > round(dataframe.shape[1] * model_filter, 0)]
-
-    x_mask = dataframe.columns[~dataframe.columns.isin(factors)]
-    x = dataframe.loc[:, x_mask]
-    y = dataframe.loc[:, factors]
+    mask = dataframe.columns.isin(categorical)
+    cols = dataframe.columns[~mask]
+    x = dataframe.loc[:, cols]
+    y = dataframe.loc[:, categorical]
 
     if variance:
         scalier = VarianceThreshold()
@@ -158,12 +138,19 @@ def scaling(dataframe: pd.DataFrame,
     return pd.concat([x, y], axis=1)
 
 
+def method_filter(dataframe: pd.DataFrame, label: str):
+
+    mask = dataframe.loc[:, 'method'] != label
+
+    return dataframe.loc[mask, :]
+
 def pca_analysis(dataframe: pd.DataFrame,
-                 factors: Union[List[str], Tuple[str]],
-                 components: int = 2):
-    x_mask = dataframe.columns[~dataframe.columns.isin(factors)]
-    x = dataframe.loc[:, x_mask]
-    y = dataframe.loc[:, factors]
+                 categorical: Tuple[str],
+                 components: int = 2) -> Tuple[pd.DataFrame, PCA]:
+    mask = dataframe.columns.isin(categorical)
+    cols = dataframe.columns[~mask]
+    x = dataframe.loc[:, cols]
+    y = dataframe.loc[:, categorical]
 
     pca = PCA(n_components=components)
 
@@ -173,133 +160,263 @@ def pca_analysis(dataframe: pd.DataFrame,
 
     df = pd.DataFrame(data=pc, index=dataframe.index, columns=columns)
 
-    return pd.concat([df, y], axis=1)
+    df = pd.concat([df, y], axis=1)
+    return df, pca
 
 
 def plot_pca(workdir: str,
              dataframe: pd.DataFrame,
-             pc1: str,
-             pc2: str,
-             factors: Union[List[str], Tuple[str]],
-             content: str):
+             pca: PCA,
+             c1: str,
+             c2: str,
+             title: str,
+             factor: str):
 
-    if not os.path.exists(workdir):
-        os.makedirs(workdir)
+    explained_variance_1 = get_explained_variance_idx(c1)
+    explained_variance_2 = get_explained_variance_idx(c2)
 
-    for factor in factors:
+    fig = plt.figure(figsize=(8, 8))
 
-        fig = plt.figure(figsize=(8, 8))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.set_title(title, fontsize=20)
 
-        ax = fig.add_subplot(1, 1, 1)
-        ax.set_xlabel(pc1, fontsize=15)
-        ax.set_ylabel(pc2, fontsize=15)
-        ax.set_title(f'{content} PCA', fontsize=20)
+    x_label = f'{c1} ({round(pca.explained_variance_ratio_[explained_variance_1] * 100, 2)} %)'
+    y_label = f'{c2} ({round(pca.explained_variance_ratio_[explained_variance_2] * 100, 2)} %)'
+    ax.set_xlabel(x_label, fontsize=15)
+    ax.set_ylabel(y_label, fontsize=15)
 
-        labels = set(dataframe.loc[:, factor])
+    labels = set(dataframe.loc[:, factor])
 
-        colors = list(mcolors.TABLEAU_COLORS.keys())
-        diff = len(labels) - len(colors)
+    for label, color in zip(labels, COLORS):
+        mask = dataframe.loc[:, factor] == label
 
-        if diff > 0:
-            colors += ['#1f6357', '#017374', '#0cb577', '#ff0789', '#afa88b']
+        pc1 = dataframe.loc[mask, c1]
+        pc2 = dataframe.loc[mask, c2]
+        ax.scatter(pc1,
+                   pc2,
+                   c=color,
+                   s=60)
 
-        for label, color in zip(labels, colors):
-            mask = dataframe.loc[:, factor] == label
+        organisms_id = dataframe.loc[mask, 'organism_id']
 
-            pc1_values = dataframe.loc[mask, pc1]
-            pc2_values = dataframe.loc[mask, pc2]
-            ax.scatter(pc1_values,
-                       pc2_values,
-                       c=color,
-                       s=50)
+        for pc1_pt, pc2_pt, annotation in zip(pc1, pc2, organisms_id):
+            ax.annotate(annotation, (pc1_pt + 1, pc2_pt - 1))
 
-            organisms_id = dataframe.loc[mask, 'organism_id']
-
-            for pc1_pt, pc2_pt, annotation in zip(pc1_values, pc2_values, organisms_id):
-                ax.annotate(annotation, (pc1_pt + 1, pc2_pt - 1))
-
-        legend = ax.legend(labels, loc=(1.04, 0))
-        ax.grid()
-        file_name = f'{content}_{factor.title()}_{pc1}_{pc2}.png'.replace(' ', '_')
-        file_path = os.path.join(workdir, file_name)
-        fig.savefig(fname=file_path, bbox_extra_artists=(legend,), bbox_inches='tight')
+    legend = ax.legend(labels, loc=(1.04, 0))
+    ax.grid()
+    file_name = f'{title}_{factor}_{c1}_{c2}.png'
+    file_path = os.path.join(workdir, file_name)
+    fig.savefig(fname=file_path, bbox_extra_artists=(legend,), bbox_inches='tight', dpi=300)
 
 
-def rxns_pca(models_dir: str,
-             analysis_dir: str,
-             filter_exchanges: bool,
-             read: str = '',
-             write: str = ''):
-    factors = ('organism', 'organism_id', 'template', 'method')
+# ----------------------------------
+# ANALYSIS RUN
+# ----------------------------------
+def organisms_analysis(cog_file: str,
+                       analysis_dir: str):
+
+    df, categorical = cog_dataframe(cog_file)
+    df = scaling(dataframe=df, categorical=categorical)
+    pca_df, pca = pca_analysis(dataframe=df, categorical=categorical, components=3)
+
+    if not os.path.exists(analysis_dir):
+        os.makedirs(analysis_dir)
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='Metabolic COG Analysis',
+             factor='domain')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 3',
+             title='Metabolic COG Analysis',
+             factor='domain')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='Metabolic COG Analysis',
+             factor='phylum')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 3',
+             title='Metabolic COG Analysis',
+             factor='phylum')
+
+
+def reactions_analysis(models_dir: str,
+                       analysis_dir: str,
+                       filter_exchanges: bool,
+                       read: str = '',
+                       write: str = ''):
 
     if read:
-        df = pd.read_excel(read, sheet_name='reactions')
+        df, categorical = read_models_dataframe(read)
 
     else:
-        analysis_models = read_models(models_dir)
-        df = models_dataframe(analysis_models, reactions=True, filter_boundaries=filter_exchanges, write=write)
+        models_analysis = read_models(models_dir)
+        df, categorical = models_dataframe(models_analysis, reactions=True, filter_boundaries=filter_exchanges)
 
-    df = scaling(df, factors=factors)
-    pca = pca_analysis(df, factors=factors)
+        if write:
+            df.to_csv(write, sep='\t')
 
-    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
-             factors=('organism', 'template', 'method'), content='Reactions')
+    df = method_filter(df, 'permissive')
+
+    df = scaling(dataframe=df, categorical=categorical)
+    pca_df, pca = pca_analysis(dataframe=df, categorical=categorical, components=3)
+
+    if not os.path.exists(analysis_dir):
+        os.makedirs(analysis_dir)
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='Reactions Analysis',
+             factor='template')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 3',
+             title='Reactions Analysis',
+             factor='template')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='Reactions Analysis',
+             factor='method')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='Reactions Analysis',
+             factor='method')
 
 
-def mets_pca(models_dir: str,
-             analysis_dir: str,
-             filter_exchanges: bool,
-             read: str = '',
-             write: str = ''):
-    factors = ('organism', 'organism_id', 'template', 'method')
+def metabolites_analysis(models_dir: str,
+                         analysis_dir: str,
+                         filter_exchanges: bool,
+                         read: str = '',
+                         write: str = ''):
 
     if read:
-        df = pd.read_excel(read, sheet_name='metabolites')
+        df, categorical = read_models_dataframe(read)
 
     else:
-        analysis_models = read_models(models_dir)
-        df = models_dataframe(analysis_models, reactions=False, filter_boundaries=filter_exchanges, write=write)
+        models_analysis = read_models(models_dir)
+        df, categorical = models_dataframe(models_analysis, reactions=False, filter_boundaries=filter_exchanges)
 
-    df = scaling(df, factors=factors)
-    pca = pca_analysis(df, factors=factors)
+        if write:
+            df.to_csv(write, sep='\t')
 
-    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
-             factors=('organism', 'template', 'method'), content='Metabolites')
+    df = method_filter(df, 'permissive')
+
+    df = scaling(dataframe=df, categorical=categorical)
+    pca_df, pca = pca_analysis(dataframe=df, categorical=categorical, components=3)
+
+    if not os.path.exists(analysis_dir):
+        os.makedirs(analysis_dir)
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='Metabolites Analysis',
+             factor='template')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 3',
+             title='Metabolites Analysis',
+             factor='template')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='Metabolites Analysis',
+             factor='method')
+
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 3',
+             title='Metabolites Analysis',
+             factor='method')
 
 
-def cog_pca(cog_analysis_file: str, analysis_dir: str):
-    factors = ('domain', 'phylum', 'organism', 'organism_id')
+def genes_analysis(cog_file: str, analysis_dir: str):
 
-    df = cog_dataframe(cog_analysis_file)
-    df = scaling(df, factors)
-    pca = pca_analysis(df, factors=factors, components=2)
-    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
-             factors=('domain', 'phylum'), content='COG')
+    df, categorical = models_genes_cog_dataframe(cog_file)
+    df = scaling(df, categorical=categorical)
+    pca_df, pca = pca_analysis(df, categorical=categorical, components=3)
 
+    if not os.path.exists(analysis_dir):
+        os.makedirs(analysis_dir)
 
-def models_genes_cog_pca(cog_analysis_file: str, analysis_dir: str):
-    factors = ('organism', 'organism_id', 'template', 'method')
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 2',
+             title='COG Genes Analysis',
+             factor='template')
 
-    df = models_genes_cog_dataframe(cog_analysis_file)
-    df = scaling(df, factors, 0)
-    pca = pca_analysis(df, factors=factors, components=2)
-    plot_pca(workdir=analysis_dir, dataframe=pca, pc1='PC 1', pc2='PC 2',
-             factors=('organism', 'template', 'method'), content='Models Genes COG')
+    plot_pca(workdir=analysis_dir,
+             dataframe=pca_df,
+             pca=pca,
+             c1='PC 1',
+             c2='PC 3',
+             title='COG Genes Analysis',
+             factor='template')
 
 
 if __name__ == '__main__':
-    # rxns_pca(models_dir=os.path.join(os.getcwd(), 'models'),
-    #          analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
-    #          filter_exchanges=True,
-    #          read=os.path.join(os.getcwd(), 'model_content_analysis', 'reactions_analysis.xlsx'))
-    #
-    # mets_pca(models_dir=os.path.join(os.getcwd(), 'models'),
-    #          analysis_dir=os.path.join(os.getcwd(), 'model_content_analysis'),
-    #          filter_exchanges=True,
-    #          read=os.path.join(os.getcwd(), 'model_content_analysis', 'metabolites_analysis.xlsx'),)
+    base_dir = os.getcwd()
+    organisms_cog_file = os.path.join(base_dir, 'comparative_func_analysis', 'genomes_cog_analysis.tsv')
+    models_genes_cog_file = os.path.join(base_dir, 'comparative_func_analysis', 'models_cog_analysis.tsv')
+    comparative_dir = os.path.join(base_dir, 'comparative_func_analysis')
+    models_base_dir = os.path.join(base_dir, 'models')
+    models_content_dir = os.path.join(base_dir, 'model_content_analysis')
+    reactions_dir = os.path.join(base_dir, 'model_content_analysis', 'reactions.tsv')
+    metabolites_dir = os.path.join(base_dir, 'model_content_analysis', 'metabolites.tsv')
 
-    # cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'genomes_cog_analysis.tsv'),
-    #         os.path.join(os.getcwd(), 'comparative_func_analysis'))
+    # organisms_analysis(cog_file=organisms_cog_file,
+    #                    analysis_dir=comparative_dir)
 
-    models_genes_cog_pca(os.path.join(os.getcwd(), 'comparative_func_analysis', 'models_cog_analysis.tsv'),
-                         os.path.join(os.getcwd(), 'comparative_func_analysis'))
+    reactions_analysis(models_dir=models_base_dir,
+                       analysis_dir=models_content_dir,
+                       filter_exchanges=True,
+                       read=reactions_dir)
+
+    metabolites_analysis(models_dir=models_base_dir,
+                         analysis_dir=models_content_dir,
+                         filter_exchanges=True,
+                         read=metabolites_dir)
+
+    # genes_analysis(cog_file=models_genes_cog_file,
+    #                analysis_dir=comparative_dir)
