@@ -35,21 +35,18 @@ ModelAnalysis = namedtuple('ModelAnalysis',
 def parse_organism_annotation(model_annotation):
     if len(model_annotation) > 1:
 
-        organism, *_ = model_annotation
+        organism = model_annotation[0]
 
-        if 'tuber' in organism or 'Mtub' in organism:
+        if 'tuberculosis' in organism.lower():
             return 'Mycobacterium tuberculosis'
 
-        elif 'thermo' in organism or 'Sthe' in organism:
+        elif 'thermophilus' in organism.lower():
             return 'Streptococcus thermophilus'
 
-        elif 'fasti' in organism or 'Xfas' in organism:
+        elif 'fastidiosa' in organism.lower():
             return 'Xylella fastidiosa'
 
-        else:
-            return 'carveme'
-
-    return '_'.join(model_annotation)
+    return
 
 
 def parse_organism_id(organism_name):
@@ -63,27 +60,27 @@ def parse_organism_id(organism_name):
 def parse_template_annotation(model_annotation):
     if len(model_annotation) > 1:
 
-        _, template, *_ = model_annotation
+        template = model_annotation[1]
 
-        if 'all' in template:
+        if 'all' in template.lower():
             return 'all'
 
-        elif 'random' in template:
+        elif 'random' in template.lower():
             return 'random'
 
-        elif 'select' in template:
+        elif 'select' in template.lower():
             return 'select'
 
-        else:
+        elif 'carveme' in template.lower():
             return 'carveme'
 
-    return '_'.join(model_annotation)
+    return
 
 
 def parse_method_annotation(model_annotation):
     if len(model_annotation) > 1:
 
-        *_, method = model_annotation
+        method = model_annotation[2]
 
         if 'permissive' in method:
             return 'permissive'
@@ -91,10 +88,10 @@ def parse_method_annotation(model_annotation):
         elif 'restrictive' in method:
             return 'restrictive'
 
-        else:
+        elif 'carveme' in method.lower():
             return 'carveme'
 
-    return '_'.join(model_annotation)
+    return
 
 
 def read_models(workdir: str) -> List[ModelAnalysis]:
@@ -109,14 +106,12 @@ def read_models(workdir: str) -> List[ModelAnalysis]:
 
         if model_name.endswith('.xml') or model_name.endswith('.sbml'):
             model_path = os.path.join(workdir, model_name)
-
             model: Model = read_sbml_model(model_path)
 
-            name = model_name.replace('model_', '').replace('.xml', '').replace('.sbml', '')
+            model_id = model_name.replace('model_', '').replace('.xml', '').replace('.sbml', '')
 
-            model_annotation = name.split('_')
+            model_annotation = model_id.split('_')
 
-            model_id = name
             organism = parse_organism_annotation(model_annotation)
             organism_id = parse_organism_id(organism)
             template = parse_template_annotation(model_annotation)
@@ -211,3 +206,16 @@ def parse_metabolite(metabolite: Metabolite, filter_boundaries: bool = True) -> 
         return
 
     return parse_metabolite_id(metabolite.id)
+
+
+def get_explained_variance_idx(component):
+    if '1' in component:
+        return 0
+
+    elif '2' in component:
+        return 1
+
+    elif '3' in component:
+        return 2
+
+    return 3
