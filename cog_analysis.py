@@ -5,26 +5,24 @@ from typing import List
 
 import numpy as np
 import pandas as pd
-from progressbar import ProgressBar
 
 from pca_analysis import ModelAnalysis
 from utils import read_models
 
 
-def run_recognizer():
-    for file in glob.glob('bit-analysis/comparative_func_analysis/faas/*.faa'):
+def run_recognizer(work_dir):
+    for file in glob.glob(f'{work_dir}/faas/*.faa'):
         output_folder = file.split('/')[-1].split('.faa')[0]
-        command = 'recognizer.py -f {} -o bit_analysis/recognizer_outs/{} -rd resources_directory --remove-spaces -dbs COG KOG'.format(
-            file, output_folder)
+        command = f'recognizer.py -f {file} -o {work_dir}/recognizer_outs/{output_folder} -rd resources_directory --remove-spaces -dbs COG KOG'
         print(command)
         subprocess.run(command.split())
 
     cog_protein_descriptions = dict()
 
-    for file in glob.glob('bit_analysis/recognizer_outs/*/COG_report.tsv'):
-        name = file.split('/')[2];
+    for file in glob.glob(f'{work_dir}/recognizer_outs/*/COG_report.tsv'):
+        name = file.split('/')[2]
         print(name)
-        data = pd.read_csv(f'bit_analysis/recognizer_outs/{name}/COG_report.tsv', sep='\t')
+        data = pd.read_csv(f'{work_dir}/recognizer_outs/{name}/COG_report.tsv', sep='\t')
         data = data[data['evalue'] < 10e-10]
         cog_protein_descriptions[name] = data[data['COG general functional category'] == 'METABOLISM']['DB ID'].tolist()
 
@@ -42,8 +40,7 @@ def boolean_matrix(dictionary):
     result = result.transpose()
     for k, v in dictionary.items():
         print(k)
-        pbar = ProgressBar()
-        for prot in pbar(v):
+        for prot in v:
             result.loc[k][prot] = 1
     return result
 
@@ -60,23 +57,23 @@ def distance_matrix(df):
     return result
 
 
-def genomes_cog_analysis():
-    cpd = run_recognizer()
+def genomes_cog_analysis(work_dir):
+    cpd = run_recognizer(work_dir)
     b_matrix = boolean_matrix(cpd)
-    b_matrix.to_csv('bit_analysis/boolean_matrix.tsv', sep='\t')
+    b_matrix.to_csv(f'{work_dir}/genomes_cog_analysis.tsv', sep='\t')
     d_matrix = distance_matrix(b_matrix)
-    d_matrix.to_csv('bit_analysis/distance_matrix.tsv', sep='\t')
+    d_matrix.to_csv(f'{work_dir}/genomes_distance_matrix.tsv', sep='\t')
 
 
-def models_cog_analysis():
+def models_cog_analysis(work_dir):
     id2species = {'Mtub': 'Mycobacterium_tuberculosis',
                   'Sthe': 'Streptococcus_thermophilus',
                   'Xfas': 'Xylella_fastidiosa'}
 
     id2model = {
-        'Mtub': pd.read_csv('bit_analysis/recognizer_outs/Mycobacterium_tuberculosis/COG_report.tsv', sep='\t'),
-        'Sthe': pd.read_csv('bit_analysis/recognizer_outs/Streptococcus_thermophilus/COG_report.tsv', sep='\t'),
-        'Xfas': pd.read_csv('bit_analysis/recognizer_outs/Xylella_fastidiosa/COG_report.tsv', sep='\t')
+        'Mtub': pd.read_csv(f'{work_dir}/recognizer_outs/Mycobacterium_tuberculosis/COG_report.tsv', sep='\t'),
+        'Sthe': pd.read_csv(f'{work_dir}/recognizer_outs/Streptococcus_thermophilus/COG_report.tsv', sep='\t'),
+        'Xfas': pd.read_csv(f'{work_dir}/recognizer_outs/Xylella_fastidiosa/COG_report.tsv', sep='\t')
     }
 
     refseq2cog = dict()
@@ -86,7 +83,7 @@ def models_cog_analysis():
         df.index = ['_'.join(ide.split('_')[:2]).split('.')[0] for ide in df['qseqid']]
         refseq2cog[k] = df
 
-    mod2reac = pd.read_csv('bit-analysis/comparative_func_analysis/models_genes.tsv', sep='\t')
+    mod2reac = pd.read_csv(f'{work_dir}/models_genes.tsv', sep='\t')
     mod2reac['model_genes'] = mod2reac['model_genes'].str.split(',')
     mod2reac['cogs'] = [np.nan] * len(mod2reac)
 
@@ -99,8 +96,8 @@ def models_cog_analysis():
             if ide in refseq2cog[prefix].index])
 
     mod2cogs = {mod2reac.iloc[i]['model_id']: mod2reac.iloc[i]['cogs'].split(',') for i in range(len(mod2reac))}
-    bmatrix = boolean_matrix(mod2cogs, mod2cogs.keys())
-    bmatrix.to_csv('bit_analysis/models_bmatrix.tsv', sep='\t')
+    bmatrix = boolean_matrix(mod2cogs)
+    bmatrix.to_csv(f'{work_dir}/models_cog_analysis.tsv', sep='\t')
 
 
 def models_genes_dataframe(models: List[ModelAnalysis]):
@@ -126,10 +123,7 @@ def write_models_genes(models_dir: str, analysis_dir: str):
 
 
 if __name__ == '__main__':
-    # base_dir = os.getcwd()
-    # models_dir = os.path.join(base_dir, 'models')
-    # analysis_dir = os.path.join(base_dir, 'comparative_func_analysis')
-    # write_models_genes(models_dir, analysis_dir)
-
-    genomes_cog_analysis()
-    models_cog_analysis()
+    base_dir = os.path.dirname(os.path.realpath(__file__))
+    genomes_cog_analysis(f'{base_dir}/comparative_func_analysis')
+    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'comparative_func_analysis'))
+    models_cog_analysis(f'{base_dir}/comparative_func_analysis')
