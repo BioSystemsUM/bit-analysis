@@ -243,7 +243,7 @@ def models_statistics(models_list):
         data.append(line)
 
     df = pd.DataFrame(data, columns=columns)
-    df.to_csv('statistics.csv')
+    df.to_csv('models/models_statistics.tsv', sep='\t')
 
 
 if __name__ == '__main__':

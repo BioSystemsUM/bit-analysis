@@ -1,0 +1,51 @@
+permissive										
+	Organism	Genes	Reactions	Exchanges	Metabolites	Extracellular Metabolites				
+All	Mtub	1260	2292	0	2656	0				
+Select	Mtub	589	1136	155	1310	155				
+Random1	Mtub	570	1415	312	1546	312				
+Random2	Mtub	526	1225	552	1788	552				
+Random3	Mtub	576	1571	445	2047	445				
+Random4	Mtub	628	1671	402	1942	402				
+Random5	Mtub	573	1264	398	1755	398				
+All	Sthe	579	3232	0	3411	0				
+Select	Sthe	481	1162	306	1247	306				
+Random1	Sthe	417	1119	218	1435	218				
+Random2	Sthe	333	854	200	980	200				
+Random3	Sthe	404	1264	467	1737	467				
+Random4	Sthe	437	1174	450	1587	450				
+Random5	Sthe	338	1003	166	1057	166				
+All	Xfas	581	3419	1	3482	1				
+Select	Xfas	374	983	186	1057	186				
+Random1	Xfas	446	1759	480	2356	480				
+Random2	Xfas	428	1279	396	1569	396				
+Random3	Xfas	367	1299	229	1581	229				
+Random4	Xfas	59	545	519	1296	519				
+Random5	Xfas	378	1248	318	1531	318				
+restrictive										
+	Organism	Genes	Reactions	Exchanges	Metabolites	Extracellular Metabolites				
+All	Mtub	1197	1702	0	1985	0				
+Select	Mtub	529	750	0	856	0				
+Random1	Mtub	507	714	0	829	0				
+Random2	Mtub	464	737	0	877	0				
+Random3	Mtub	527	811	0	943	0				
+Random4	Mtub	575	934	0	1110	0				
+Random5	Mtub	514	748	0	962	0				
+All	Sthe	553	2458	0	2633	0				
+Select	Sthe	461	839	0	907	0				
+Random1	Sthe	397	632	0	803	0				
+Random2	Sthe	298	539	0	635	0				
+Random3	Sthe	378	702	0	860	0				
+Random4	Sthe	410	719	0	825	0				
+Random5	Sthe	317	494	0	611	0				
+All	Xfas	553	2512	1	2705	1				
+Select	Xfas	334	544	0	639	0				
+Random1	Xfas	423	934	0	1238	0				
+Random2	Xfas	403	786	0	908	0				
+Random3	Xfas	333	639	0	847	0				
+Random4	Xfas	56	110	0	207	0				
+Random5	Xfas	355	583	0	694	0				
+carveme										
+	Organism	Genes	Reactions	Exchanges	Metabolites	Extracellular Metabolites				
+	Mtub	944	1330	154	1087	0				
+	Sthe	518	998	164	807	0				
+	Xfas	557	1570	213	1270	0				
