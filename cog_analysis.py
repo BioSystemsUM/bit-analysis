@@ -1,13 +1,14 @@
+import glob
 import os
+import subprocess
 from typing import List
 
-import pandas as pd
-import subprocess
-import glob
 import numpy as np
-
+import pandas as pd
 from progressbar import ProgressBar
-from pca_analysis import ModelAnalysis, read_models
+
+from pca_analysis import ModelAnalysis
+from utils import read_models
 
 
 def run_recognizer():
@@ -118,11 +119,17 @@ def models_genes_dataframe(models: List[ModelAnalysis]):
     return df
 
 
+def write_models_genes(models_dir: str, analysis_dir: str):
+    models_analysis = read_models(models_dir)
+    models_genes_df = models_genes_dataframe(models_analysis)
+    models_genes_df.to_csv(os.path.join(analysis_dir, 'models_genes.tsv'), sep='\t', index_label='model_id')
+
+
 if __name__ == '__main__':
-    # models_analysis = read_models(os.path.join(os.getcwd(), 'models'))
-    # models_genes_df = models_genes_dataframe(models_analysis)
-    # models_genes_df.to_csv(os.path.join(os.getcwd(), 'comparative_func_analysis', 'models_genes.tsv'),
-    #                        sep='\t', index_label='model_id')
+    # base_dir = os.getcwd()
+    # models_dir = os.path.join(base_dir, 'models')
+    # analysis_dir = os.path.join(base_dir, 'comparative_func_analysis')
+    # write_models_genes(models_dir, analysis_dir)
 
     genomes_cog_analysis()
     models_cog_analysis()
