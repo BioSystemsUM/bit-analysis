@@ -7,7 +7,6 @@ import glob
 import numpy as np
 
 from progressbar import ProgressBar
-
 from pca_analysis import ModelAnalysis, read_models
 
 
@@ -19,29 +18,23 @@ def run_recognizer():
         print(command)
         subprocess.run(command.split())
 
-    report = pd.read_excel('bit_analysis/report.xlsx')
-    dbs = {report.iloc[i]['name']: report.iloc[i]['domain'] for i in range(len(report))}
     cog_protein_descriptions = dict()
-    names = list()
 
-    pbar = ProgressBar()
-    for file in pbar(glob.glob('bit_analysis/recognizer_outs/*/COG_report.tsv')):
-        name = file.split('/')[2];
-        names.append(name)
-        data = pd.read_csv(f'bit_analysis/recognizer_outs/{name}/COG_report.tsv',
-                           sep='\t')  # (f'bit_analysis/recognizer_outs/{name}/{dbs[name].upper()}_report.tsv')
+    for file in glob.glob('bit_analysis/recognizer_outs/*/COG_report.tsv'):
+        name = file.split('/')[2]; print(name)
+        data = pd.read_csv(f'bit_analysis/recognizer_outs/{name}/COG_report.tsv', sep='\t')
+        data = data[data['evalue'] < 10e-10]
         cog_protein_descriptions[name] = data[data['COG general functional category'] == 'METABOLISM']['DB ID'].tolist()
-        # functions = set(data[f'{dbs[name].upper()} protein description'])
 
     return cog_protein_descriptions
 
 
-def boolean_matrix(dictionary, names):
+def boolean_matrix(dictionary):
     cpd = list()
     for v in dictionary.values():
         cpd += v
     result = pd.DataFrame(index=range(len(set(cpd))))
-    for name in names:
+    for name in list(dictionary.keys()):
         result = pd.concat([result, pd.Series([0] * len(set(cpd)), name=name)], axis=1)
     result.index = set(cpd)
     result = result.transpose()
@@ -66,11 +59,12 @@ def distance_matrix(df):
 
 def genomes_cog_analysis():
     cpd = run_recognizer()
-    b_matrix = boolean_matrix(cpd, list(cpd.keys()))
+    b_matrix = boolean_matrix(cpd)
+    b_matrix.to_csv('bit_analysis/boolean_matrix.tsv', sep='\t')
     d_matrix = distance_matrix(b_matrix)
-    d_matrix.to_csv('distance_matrix.tsv', sep='\t')
+    d_matrix.to_csv('bit_analysis/distance_matrix.tsv', sep='\t')
 
-def models_cog_analysis(recognizer_results):
+def models_cog_analysis():
     id2species = {'Mtub':'Mycobacterium_tuberculosis',
                   'Sthe':'Streptococcus_thermophilus',
                   'Xfas':'Xylella_fastidiosa'}
@@ -127,5 +121,6 @@ if __name__ == '__main__':
     # models_genes_df.to_csv(os.path.join(os.getcwd(), 'comparative_func_analysis', 'models_genes.tsv'),
     #                        sep='\t', index_label='model_id')
 
+    genomes_cog_analysis()
     models_cog_analysis()
 
