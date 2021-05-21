@@ -102,13 +102,13 @@ def run(models_list, analysis='Reactions', group='organism'):
             label = '$\it{' + org[0][0] + '. ' + org[1] + '}$'
             if label not in labels:
                 labels.append(label)
-        png_name = 'venns_diagrams/' + analysis + '_' + models_list[0].method + '_' + models_list[0].template + '.png'
+        png_name = 'model_analysis/venn/' + analysis + '_' + models_list[0].method + '_' + models_list[0].template + '.png'
 
     elif group == 'template':
         for model in models_list:
             if model.template not in labels:
                 labels.append(model.template)
-        png_name = 'venns_diagrams/' + models_list[0].organism_id + '_' + analysis + '_' \
+        png_name = 'model_analysis/venn/' + models_list[0].organism_id + '_' + analysis + '_' \
                    + models_list[0].method + '.png'
 
     else:
@@ -117,7 +117,7 @@ def run(models_list, analysis='Reactions', group='organism'):
                 labels.append(model.method)
             else:
                 labels.append('bit_' + model.template)
-        png_name = 'venns_diagrams/' + 'bitVScarveme' + '_' + models_list[0].organism_id + '_' + analysis + '_' + \
+        png_name = 'model_analysis/venn/' + 'bitVScarveme' + '_' + models_list[0].organism_id + '_' + analysis + '_' + \
                    models_list[1].method + '.png'
 
     create_venn(values=venn_values, labels=labels, filename=png_name, title=analysis)
@@ -170,7 +170,7 @@ def run_cogs(dataset):
         org = organism.split('_')
         label = '$\it{' + org[0][0] + '. ' + org[1] + '}$'
         labels.append(label)
-    create_venn(values=common, labels=labels, filename='venns_diagrams/COGs_org.png', title='COGs')
+    create_venn(values=common, labels=labels, filename='model_analysis/venn/COGs_org.png', title='COGs')
 
 
 # Create Venn's Diagrams for all permissive models
@@ -243,7 +243,7 @@ def models_statistics(models_list):
         data.append(line)
 
     df = pd.DataFrame(data, columns=columns)
-    df.to_csv('models/models_statistics.tsv', sep='\t')
+    df.to_csv('model_analysis/models_statistics.tsv', sep='\t')
 
 
 if __name__ == '__main__':
@@ -281,7 +281,7 @@ if __name__ == '__main__':
     run_organism(models_list=models, organism='Xfas', method='restrictive')
 
     # RUN FOR COGS
-    run_cogs('comparative_func_analysis/protagonists2cogs.tsv')
+    run_cogs('comparative_analysis/protagonists2cogs.tsv')
 
     # COMPARISON bit vs CARVE ME
     compare_carveme_bit(models_list=models, organism='Mtub', method='permissive')

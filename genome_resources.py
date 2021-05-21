@@ -586,7 +586,7 @@ def main(workdir: str = None,
                                       verbose=verbose)
 
         if not workdir:
-            workdir = os.path.join(os.getcwd(), 'organisms_rna')
+            workdir = os.path.join(os.getcwd(), 'resources')
 
             if not os.path.exists(workdir):
                 os.makedirs(workdir)
@@ -603,7 +603,7 @@ def main(workdir: str = None,
     if unpack:
 
         if not workdir:
-            workdir = os.path.join(os.getcwd(), 'organisms_rna')
+            workdir = os.path.join(os.getcwd(), 'resources')
 
             if not os.path.exists(workdir):
                 os.makedirs(workdir)
@@ -613,7 +613,7 @@ def main(workdir: str = None,
 
 if __name__ == '__main__':
 
-    directory = os.path.join(os.getcwd(), 'comparative_func_analysis')
+    directory = os.path.join(os.getcwd(), 'resources')
 
     if not os.path.exists(directory):
         os.makedirs(directory)

@@ -413,25 +413,25 @@ def genes_analysis(cog_file: str, analysis_dir: str, method: str = 'permissive')
 if __name__ == '__main__':
     base_dir = os.getcwd()
     models_base_dir = os.path.join(base_dir, 'models')
-    comparative_dir = os.path.join(base_dir, 'comparative_func_analysis')
-    models_content_dir = os.path.join(base_dir, 'model_content_analysis')
+    comparative_dir = os.path.join(base_dir, 'comparative_analysis')
+    models_analysis_dir = os.path.join(base_dir, 'model_analysis')
 
     organisms_cog_file = os.path.join(comparative_dir, 'genomes_cog_analysis.tsv')
     models_genes_cog_file = os.path.join(comparative_dir, 'models_cog_analysis.tsv')
 
-    reactions_dir = os.path.join(models_content_dir, 'reactions.tsv')
-    metabolites_dir = os.path.join(models_content_dir, 'metabolites.tsv')
+    reactions_dir = os.path.join(models_analysis_dir, 'reactions.tsv')
+    metabolites_dir = os.path.join(models_analysis_dir, 'metabolites.tsv')
 
     organisms_analysis(cog_file=organisms_cog_file,
                        analysis_dir=comparative_dir)
 
     reactions_analysis(models_dir=models_base_dir,
-                       analysis_dir=models_content_dir,
+                       analysis_dir=models_analysis_dir,
                        filter_boundaries=True,
                        write=reactions_dir)
 
     metabolites_analysis(models_dir=models_base_dir,
-                         analysis_dir=models_content_dir,
+                         analysis_dir=models_analysis_dir,
                          filter_boundaries=True,
                          write=metabolites_dir)
 

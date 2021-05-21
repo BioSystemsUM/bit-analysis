@@ -124,6 +124,6 @@ def write_models_genes(models_dir: str, analysis_dir: str):
 
 if __name__ == '__main__':
     base_dir = os.path.dirname(os.path.realpath(__file__))
-    genomes_cog_analysis(f'{base_dir}/comparative_func_analysis')
-    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'comparative_func_analysis'))
-    models_cog_analysis(f'{base_dir}/comparative_func_analysis')
+    genomes_cog_analysis(f'{base_dir}/comparative_analysis')
+    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'comparative_analysis'))
+    models_cog_analysis(f'{base_dir}/comparative_analysis')
