@@ -65,15 +65,11 @@ def genomes_cog_analysis(work_dir):
     d_matrix.to_csv(f'{work_dir}/genomes_distance_matrix.tsv', sep='\t')
 
 
-def models_cog_analysis(work_dir):
-    id2species = {'Mtub': 'Mycobacterium_tuberculosis',
-                  'Sthe': 'Streptococcus_thermophilus',
-                  'Xfas': 'Xylella_fastidiosa'}
-
+def models_cog_analysis(work_dir, models_dir):
     id2model = {
-        'Mtub': pd.read_csv(f'{work_dir}/recognizer_outs/Mycobacterium_tuberculosis/COG_report.tsv', sep='\t'),
-        'Sthe': pd.read_csv(f'{work_dir}/recognizer_outs/Streptococcus_thermophilus/COG_report.tsv', sep='\t'),
-        'Xfas': pd.read_csv(f'{work_dir}/recognizer_outs/Xylella_fastidiosa/COG_report.tsv', sep='\t')
+        'Mtuberculosis': pd.read_csv(f'{work_dir}/recognizer_outs/Mycobacterium_tuberculosis/COG_report.tsv', sep='\t'),
+        'Sthermophilus': pd.read_csv(f'{work_dir}/recognizer_outs/Streptococcus_thermophilus/COG_report.tsv', sep='\t'),
+        'Xfastidiosa': pd.read_csv(f'{work_dir}/recognizer_outs/Xylella_fastidiosa/COG_report.tsv', sep='\t')
     }
 
     refseq2cog = dict()
@@ -83,7 +79,7 @@ def models_cog_analysis(work_dir):
         df.index = ['_'.join(ide.split('_')[:2]).split('.')[0] for ide in df['qseqid']]
         refseq2cog[k] = df
 
-    mod2reac = pd.read_csv(f'{work_dir}/models_genes.tsv', sep='\t')
+    mod2reac = pd.read_csv(f'{models_dir}/models_genes.tsv', sep='\t')
     mod2reac['model_genes'] = mod2reac['model_genes'].str.split(',')
     mod2reac['cogs'] = [np.nan] * len(mod2reac)
 
@@ -97,7 +93,7 @@ def models_cog_analysis(work_dir):
 
     mod2cogs = {mod2reac.iloc[i]['model_id']: mod2reac.iloc[i]['cogs'].split(',') for i in range(len(mod2reac))}
     bmatrix = boolean_matrix(mod2cogs)
-    bmatrix.to_csv(f'{work_dir}/models_cog_analysis.tsv', sep='\t')
+    bmatrix.to_csv(f'{models_dir}/models_cog_analysis.tsv', sep='\t')
 
 
 def models_genes_dataframe(models: List[ModelAnalysis]):
@@ -124,6 +120,6 @@ def write_models_genes(models_dir: str, analysis_dir: str):
 
 if __name__ == '__main__':
     base_dir = os.path.dirname(os.path.realpath(__file__))
-    genomes_cog_analysis(f'{base_dir}/comparative_analysis')
-    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'comparative_analysis'))
-    models_cog_analysis(f'{base_dir}/comparative_analysis')
+    genomes_cog_analysis(f'{base_dir}/genomes_analysis')
+    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'genomes_analysis'))
+    models_cog_analysis(f'{base_dir}/genomes_analysis', f'{base_dir}/model_analysis/pca_cogs')
