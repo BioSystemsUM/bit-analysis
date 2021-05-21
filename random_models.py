@@ -4,7 +4,7 @@ from collections import defaultdict
 
 import pandas as pd
 
-from genomes_analysis import read_bigg_models, get_organisms
+from genome_resources import read_bigg_models, get_organisms
 
 random.seed(2)
 
