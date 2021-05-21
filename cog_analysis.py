@@ -38,8 +38,8 @@ def boolean_matrix(dictionary):
         result = pd.concat([result, pd.Series([0] * len(set(cpd)), name=name)], axis=1)
     result.index = set(cpd)
     result = result.transpose()
+    print(f'Generating boolean matrix for {len(dictionary.values())} rows.')
     for k, v in dictionary.items():
-        print(k)
         for prot in v:
             result.loc[k][prot] = 1
     return result
@@ -102,7 +102,14 @@ def models_genes_dataframe(models: List[ModelAnalysis]):
     for model_analysis in models:
         index.append(model_analysis.model.id)
 
-        model_genes = ','.join([gene.id for gene in model_analysis.model.genes])
+        if 'carveme' in model_analysis.model_id.lower():
+
+            model_genes = ','.join([gene.id[:-2] for gene in model_analysis.model.genes])
+
+        else:
+
+            model_genes = ','.join([gene.id for gene in model_analysis.model.genes])
+
         genes.append(model_genes)
 
     df = pd.DataFrame(data=genes,
