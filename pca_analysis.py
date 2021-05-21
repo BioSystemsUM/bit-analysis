@@ -271,12 +271,18 @@ def reactions_analysis(models_dir: str,
     if not os.path.exists(analysis_dir):
         os.makedirs(analysis_dir)
 
+    if method == 'permissive':
+        title = 'Reactions restrictive analysis'
+
+    else:
+        title = 'Reactions permissive analysis'
+
     plot_pca(workdir=analysis_dir,
              dataframe=pca_df,
              pca=pca,
              c1='PC 1',
              c2='PC 2',
-             title='Reactions Analysis',
+             title=title,
              factor='template')
 
     plot_pca(workdir=analysis_dir,
@@ -284,24 +290,8 @@ def reactions_analysis(models_dir: str,
              pca=pca,
              c1='PC 1',
              c2='PC 3',
-             title='Reactions Analysis',
+             title=title,
              factor='template')
-
-    plot_pca(workdir=analysis_dir,
-             dataframe=pca_df,
-             pca=pca,
-             c1='PC 1',
-             c2='PC 2',
-             title='Reactions Analysis',
-             factor='method')
-
-    plot_pca(workdir=analysis_dir,
-             dataframe=pca_df,
-             pca=pca,
-             c1='PC 1',
-             c2='PC 3',
-             title='Reactions Analysis',
-             factor='method')
 
 
 def metabolites_analysis(models_dir: str,
@@ -332,12 +322,18 @@ def metabolites_analysis(models_dir: str,
     if not os.path.exists(analysis_dir):
         os.makedirs(analysis_dir)
 
+    if method == 'permissive':
+        title = 'Metabolites restrictive analysis'
+
+    else:
+        title = 'Metabolites permissive analysis'
+
     plot_pca(workdir=analysis_dir,
              dataframe=pca_df,
              pca=pca,
              c1='PC 1',
              c2='PC 2',
-             title='Metabolites Analysis',
+             title=title,
              factor='template')
 
     plot_pca(workdir=analysis_dir,
@@ -345,24 +341,8 @@ def metabolites_analysis(models_dir: str,
              pca=pca,
              c1='PC 1',
              c2='PC 3',
-             title='Metabolites Analysis',
+             title=title,
              factor='template')
-
-    plot_pca(workdir=analysis_dir,
-             dataframe=pca_df,
-             pca=pca,
-             c1='PC 1',
-             c2='PC 2',
-             title='Metabolites Analysis',
-             factor='method')
-
-    plot_pca(workdir=analysis_dir,
-             dataframe=pca_df,
-             pca=pca,
-             c1='PC 1',
-             c2='PC 3',
-             title='Metabolites Analysis',
-             factor='method')
 
 
 def genes_analysis(cog_file: str, analysis_dir: str, method: str = 'permissive'):
@@ -377,12 +357,18 @@ def genes_analysis(cog_file: str, analysis_dir: str, method: str = 'permissive')
     if not os.path.exists(analysis_dir):
         os.makedirs(analysis_dir)
 
+    if method == 'permissive':
+        title = 'Genes COG restrictive analysis'
+
+    else:
+        title = 'Genes COG permissive analysis'
+
     plot_pca(workdir=analysis_dir,
              dataframe=pca_df,
              pca=pca,
              c1='PC 1',
              c2='PC 2',
-             title='COG Genes Analysis',
+             title=title,
              factor='template')
 
     plot_pca(workdir=analysis_dir,
@@ -390,31 +376,15 @@ def genes_analysis(cog_file: str, analysis_dir: str, method: str = 'permissive')
              pca=pca,
              c1='PC 1',
              c2='PC 3',
-             title='COG Genes Analysis',
+             title=title,
              factor='template')
-
-    plot_pca(workdir=analysis_dir,
-             dataframe=pca_df,
-             pca=pca,
-             c1='PC 1',
-             c2='PC 2',
-             title='COG Genes Analysis',
-             factor='method')
-
-    plot_pca(workdir=analysis_dir,
-             dataframe=pca_df,
-             pca=pca,
-             c1='PC 1',
-             c2='PC 3',
-             title='COG Genes Analysis',
-             factor='method')
 
 
 if __name__ == '__main__':
     base_dir = os.getcwd()
     models_base_dir = os.path.join(base_dir, 'models')
     comparative_dir = os.path.join(base_dir, 'comparative_analysis')
-    models_analysis_dir = os.path.join(base_dir, 'model_analysis')
+    models_analysis_dir = os.path.join(base_dir, 'model_analysis', 'pca')
 
     organisms_cog_file = os.path.join(comparative_dir, 'genomes_cog_analysis.tsv')
     models_genes_cog_file = os.path.join(comparative_dir, 'models_cog_analysis.tsv')
@@ -428,12 +398,12 @@ if __name__ == '__main__':
     reactions_analysis(models_dir=models_base_dir,
                        analysis_dir=models_analysis_dir,
                        filter_boundaries=True,
-                       write=reactions_dir)
+                       read=reactions_dir)
 
     metabolites_analysis(models_dir=models_base_dir,
                          analysis_dir=models_analysis_dir,
                          filter_boundaries=True,
-                         write=metabolites_dir)
+                         read=metabolites_dir)
 
     # genes_analysis(cog_file=models_genes_cog_file,
     #                analysis_dir=comparative_dir)
