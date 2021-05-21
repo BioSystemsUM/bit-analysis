@@ -383,7 +383,7 @@ def genes_analysis(cog_file: str, analysis_dir: str, method: str = 'permissive')
 if __name__ == '__main__':
     base_dir = os.getcwd()
     models_base_dir = os.path.join(base_dir, 'models')
-    comparative_dir = os.path.join(base_dir, 'comparative_analysis')
+    comparative_dir = os.path.join(base_dir, 'genomes_analysis')
     models_analysis_dir = os.path.join(base_dir, 'model_analysis', 'pca')
 
     organisms_cog_file = os.path.join(comparative_dir, 'genomes_cog_analysis.tsv')

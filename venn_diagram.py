@@ -281,7 +281,7 @@ if __name__ == '__main__':
     run_organism(models_list=models, organism='Xfas', method='restrictive')
 
     # RUN FOR COGS
-    run_cogs('comparative_analysis/protagonists2cogs.tsv')
+    run_cogs('genomes_analysis/protagonists2cogs.tsv')
 
     # COMPARISON bit vs CARVE ME
     compare_carveme_bit(models_list=models, organism='Mtub', method='permissive')
