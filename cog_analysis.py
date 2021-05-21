@@ -102,7 +102,14 @@ def models_genes_dataframe(models: List[ModelAnalysis]):
     for model_analysis in models:
         index.append(model_analysis.model.id)
 
-        model_genes = ','.join([gene.id for gene in model_analysis.model.genes])
+        if 'carveme' in model_analysis.model_id.lower():
+
+            model_genes = ','.join([gene.id[:-2] for gene in model_analysis.model.genes])
+
+        else:
+
+            model_genes = ','.join([gene.id for gene in model_analysis.model.genes])
+
         genes.append(model_genes)
 
     df = pd.DataFrame(data=genes,
@@ -120,6 +127,6 @@ def write_models_genes(models_dir: str, analysis_dir: str):
 
 if __name__ == '__main__':
     base_dir = os.path.dirname(os.path.realpath(__file__))
-    genomes_cog_analysis(f'{base_dir}/genomes_analysis')
-    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'genomes_analysis'))
-    models_cog_analysis(f'{base_dir}/genomes_analysis', f'{base_dir}/model_analysis/pca_cogs')
+    # genomes_cog_analysis(f'{base_dir}/genomes_analysis')
+    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'model_analysis', 'pca_cogs'))
+    # models_cog_analysis(f'{base_dir}/genomes_analysis', f'{base_dir}/model_analysis/pca_cogs')
