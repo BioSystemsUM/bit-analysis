@@ -2,7 +2,7 @@ import glob
 import os
 import subprocess
 from typing import List
-
+from progressbar import ProgressBar
 import numpy as np
 import pandas as pd
 
@@ -38,8 +38,8 @@ def boolean_matrix(dictionary):
         result = pd.concat([result, pd.Series([0] * len(set(cpd)), name=name)], axis=1)
     result.index = set(cpd)
     result = result.transpose()
+    print(f'Generating boolean matrix for {len(dictionary.values())} rows.')
     for k, v in dictionary.items():
-        print(k)
         for prot in v:
             result.loc[k][prot] = 1
     return result
@@ -66,34 +66,34 @@ def genomes_cog_analysis(work_dir):
 
 
 def models_cog_analysis(work_dir, models_dir):
-    id2model = {
-        'Mtuberculosis': pd.read_csv(f'{work_dir}/recognizer_outs/Mycobacterium_tuberculosis/COG_report.tsv', sep='\t'),
-        'Sthermophilus': pd.read_csv(f'{work_dir}/recognizer_outs/Streptococcus_thermophilus/COG_report.tsv', sep='\t'),
-        'Xfastidiosa': pd.read_csv(f'{work_dir}/recognizer_outs/Xylella_fastidiosa/COG_report.tsv', sep='\t')
-    }
+id2model = {
+    'Mtuberculosis': pd.read_csv(f'{work_dir}/recognizer_outs/Mycobacterium_tuberculosis/COG_report.tsv', sep='\t'),
+    'Sthermophilus': pd.read_csv(f'{work_dir}/recognizer_outs/Streptococcus_thermophilus/COG_report.tsv', sep='\t'),
+    'Xfastidiosa': pd.read_csv(f'{work_dir}/recognizer_outs/Xylella_fastidiosa/COG_report.tsv', sep='\t')
+}
 
-    refseq2cog = dict()
+refseq2cog = dict()
 
-    for k, v in id2model.items():
-        df = v[['qseqid', 'DB ID']]
-        df.index = ['_'.join(ide.split('_')[:2]).split('.')[0] for ide in df['qseqid']]
-        refseq2cog[k] = df
+for k, v in id2model.items():
+    df = v[['qseqid', 'DB ID']]
+    df.index = ['_'.join(ide.split('_')[:2]).split('.')[0] for ide in df['qseqid']]
+    refseq2cog[k] = df
 
-    mod2reac = pd.read_csv(f'{models_dir}/models_genes.tsv', sep='\t')
-    mod2reac['model_genes'] = mod2reac['model_genes'].str.split(',')
-    mod2reac['cogs'] = [np.nan] * len(mod2reac)
+mod2reac = pd.read_csv(f'{models_dir}/models_genes.tsv', sep='\t')
+mod2reac['model_genes'] = mod2reac['model_genes'].str.split(',')
+mod2reac['cogs'] = [np.nan] * len(mod2reac)
 
-    for i in range(len(mod2reac)):
-        prefix = mod2reac.iloc[i]['model_id'][:4]
-        print(prefix)
-        refseq2cog[prefix].drop_duplicates(inplace=True)
-        mod2reac.loc[mod2reac.index[i], 'cogs'] = ','.join([
-            refseq2cog[prefix].loc[ide]['DB ID'] for ide in mod2reac.iloc[i]['model_genes']
-            if ide in refseq2cog[prefix].index])
+print(f'Generating COG analysis for {len(mod2reac)} models.')
+for i in range(len(mod2reac)):
+    prefix = mod2reac.iloc[i]['model_id'].split('_')[0]
+    refseq2cog[prefix].drop_duplicates(inplace=True)
+    mod2reac.loc[mod2reac.index[i], 'cogs'] = ','.join([
+        refseq2cog[prefix].loc[ide]['DB ID'] for ide in mod2reac.iloc[i]['model_genes']
+        if ide in refseq2cog[prefix].index])
 
-    mod2cogs = {mod2reac.iloc[i]['model_id']: mod2reac.iloc[i]['cogs'].split(',') for i in range(len(mod2reac))}
-    bmatrix = boolean_matrix(mod2cogs)
-    bmatrix.to_csv(f'{models_dir}/models_cog_analysis.tsv', sep='\t')
+mod2cogs = {mod2reac.iloc[i]['model_id']: mod2reac.iloc[i]['cogs'].split(',') for i in range(len(mod2reac))}
+bmatrix = boolean_matrix(mod2cogs)
+bmatrix.to_csv(f'{models_dir}/models_cog_analysis.tsv', sep='\t')
 
 
 def models_genes_dataframe(models: List[ModelAnalysis]):
@@ -120,6 +120,6 @@ def write_models_genes(models_dir: str, analysis_dir: str):
 
 if __name__ == '__main__':
     base_dir = os.path.dirname(os.path.realpath(__file__))
-    genomes_cog_analysis(f'{base_dir}/genomes_analysis')
-    write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'genomes_analysis'))
+    #genomes_cog_analysis(f'{base_dir}/genomes_analysis')
+    #write_models_genes(os.path.join(base_dir, 'models'), os.path.join(base_dir, 'genomes_analysis'))
     models_cog_analysis(f'{base_dir}/genomes_analysis', f'{base_dir}/model_analysis/pca_cogs')
