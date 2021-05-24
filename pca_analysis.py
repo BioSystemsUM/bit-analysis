@@ -87,8 +87,12 @@ def models_genes_cog_dataframe(file_path: str) -> pd.DataFrame:
 
         organism = parse_organism_annotation(model_annotation)
         organism_id = parse_organism_id(organism)
-        template = parse_template_annotation(model_annotation)
         method = parse_method_annotation(model_annotation)
+
+        template, random_id = parse_template_annotation(model_annotation)
+
+        if template == 'random':
+            organism_id = f'{organism_id}{random_id}'
 
         organisms.append(organism)
         organisms_id.append(organism_id)
@@ -385,9 +389,10 @@ if __name__ == '__main__':
     models_base_dir = os.path.join(base_dir, 'models')
     comparative_dir = os.path.join(base_dir, 'genomes_analysis')
     models_analysis_dir = os.path.join(base_dir, 'model_analysis', 'pca')
+    cogs_analysis_dir = os.path.join(base_dir, 'model_analysis', 'pca_cogs')
 
     organisms_cog_file = os.path.join(comparative_dir, 'genomes_cog_analysis.tsv')
-    models_genes_cog_file = os.path.join(comparative_dir, 'models_cog_analysis.tsv')
+    models_genes_cog_file = os.path.join(cogs_analysis_dir, 'models_cog_analysis.tsv')
 
     reactions_dir = os.path.join(models_analysis_dir, 'reactions.tsv')
     metabolites_dir = os.path.join(models_analysis_dir, 'metabolites.tsv')
@@ -398,12 +403,12 @@ if __name__ == '__main__':
     reactions_analysis(models_dir=models_base_dir,
                        analysis_dir=models_analysis_dir,
                        filter_boundaries=True,
-                       read=reactions_dir)
+                       write=reactions_dir)
 
     metabolites_analysis(models_dir=models_base_dir,
                          analysis_dir=models_analysis_dir,
                          filter_boundaries=True,
-                         read=metabolites_dir)
+                         write=metabolites_dir)
 
-    # genes_analysis(cog_file=models_genes_cog_file,
-    #                analysis_dir=comparative_dir)
+    genes_analysis(cog_file=models_genes_cog_file,
+                   analysis_dir=cogs_analysis_dir)

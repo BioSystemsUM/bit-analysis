@@ -63,16 +63,16 @@ def parse_template_annotation(model_annotation):
         template = model_annotation[1]
 
         if 'all' in template.lower():
-            return 'all'
+            return 'all', None
 
         elif 'random' in template.lower():
-            return 'random'
+            return 'random', template.lower().replace('random', '')
 
         elif 'select' in template.lower():
-            return 'select'
+            return 'select', None
 
         elif 'carveme' in template.lower():
-            return 'carveme'
+            return 'carveme', None
 
     return
 
@@ -114,7 +114,11 @@ def read_models(workdir: str) -> List[ModelAnalysis]:
 
             organism = parse_organism_annotation(model_annotation)
             organism_id = parse_organism_id(organism)
-            template = parse_template_annotation(model_annotation)
+            template, random_id = parse_template_annotation(model_annotation)
+
+            if template == 'random':
+                organism_id = f'{organism_id}{random_id}'
+
             method = parse_method_annotation(model_annotation)
 
             model.id = model_id
