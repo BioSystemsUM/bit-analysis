@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<!-- Created by merlin - www.merlin-sysbio.org version 4.0.7.1-SNAPSHOT-beta on 2021-05-20 at 20:02:08 BST with JSBML version 1.5. -->
+<!-- Created by merlin - www.merlin-sysbio.org version 4.0.7.1-SNAPSHOT-beta on 2021-05-24 at 14:55:07 BST with JSBML version 1.5. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" fbc:required="false" groups:required="false" level="3" version="1" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1">
-  <model fbc:strict="true" id="model_updatedBiggDatabase" metaid="c351d81a-8f0a-4327-8809-1fd777ad9006" name="model_updatedBiggDatabase">
+  <model fbc:strict="true" id="model_updatedBiggDatabase" metaid="_3059ff54-86eb-4d59-9850-cf1d91f5153c" name="model_updatedBiggDatabase">
     <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c351d81a-8f0a-4327-8809-1fd777ad9006">
+	<rdf:Description rdf:about="#_3059ff54-86eb-4d59-9850-cf1d91f5153c">
 	<bqbiol:hasTaxon>
 	<rdf:Bag>
 	<rdf:li rdf:resource=""/>
@@ -18,15 +18,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087940">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087940"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -35,15 +35,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087549">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087549"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -52,15 +52,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004091185">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004091185"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -69,15 +69,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089874">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089874"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -86,15 +86,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004083473">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004083473"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -103,15 +103,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088767">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088767"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -120,15 +120,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004084446">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004084446"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -137,15 +137,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_012382734">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_012382734"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -154,15 +154,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_011098136">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_011098136"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -171,15 +171,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_011097554">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_011097554"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -188,15 +188,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087594">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087594"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -205,15 +205,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087174">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087174"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -222,15 +222,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572980">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572980"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -239,15 +239,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_012382421">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_012382421"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -256,15 +256,32 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_014607396">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_014607396"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </fbc:geneProduct>
+      <fbc:geneProduct fbc:id="G_WP_004090371" fbc:label="WP_004090371" metaid="G_WP_004090371">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#G_WP_004090371">
+              <bqbiol:is>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004090371"/>
+	</rdf:Bag>
+	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -273,15 +290,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572827">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572827"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -290,15 +307,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089639">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089639"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -307,15 +324,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572788">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572788"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -324,15 +341,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088422">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088422"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -341,15 +358,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089785">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089785"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -358,15 +375,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_012382419">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_012382419"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -375,15 +392,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572877">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572877"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -392,15 +409,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088277">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088277"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -409,15 +426,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_011098278">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_011098278"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -426,15 +443,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_011098005">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_011098005"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -443,15 +460,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089174">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089174"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -460,15 +477,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004085070">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004085070"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -477,15 +494,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089628">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089628"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -494,15 +511,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088137">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088137"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -511,15 +528,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_011097772">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_011097772"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -528,15 +545,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088681">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088681"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -545,15 +562,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_038231721">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_038231721"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -562,15 +579,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572864">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572864"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -579,15 +596,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089106">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089106"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -596,15 +613,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004085289">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004085289"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -613,15 +630,32 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087997">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087997"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </fbc:geneProduct>
+      <fbc:geneProduct fbc:id="G_WP_004090370" fbc:label="WP_004090370" metaid="G_WP_004090370">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#G_WP_004090370">
+              <bqbiol:is>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004090370"/>
+	</rdf:Bag>
+	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -630,15 +664,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004090561">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004090561"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -647,15 +681,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_011097914">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_011097914"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -664,15 +698,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572908">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572908"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -681,15 +715,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089000">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089000"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -698,15 +732,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004083578">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004083578"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -715,15 +749,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088421">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088421"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -732,15 +766,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572957">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572957"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -749,15 +783,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004083513">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004083513"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -766,15 +800,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089784">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089784"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -783,15 +817,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004572911">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004572911"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -800,15 +834,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087859">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087859"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -817,15 +851,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088276">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088276"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -834,15 +868,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087589">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087589"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -851,15 +885,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004090618">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004090618"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -868,15 +902,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004088043">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004088043"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -885,15 +919,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087874">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087874"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -902,15 +936,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004089347">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004089347"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -919,15 +953,15 @@
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
 	<rdf:Description rdf:about="#G_WP_004087620">
-              <bqbiol:encodes>
-	<rdf:Bag/>
-	</bqbiol:encodes>
-	
-	<bqbiol:is>
+              <bqbiol:is>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ncbiprotein/WP_004087620"/>
 	</rdf:Bag>
 	</bqbiol:is>
+	
+	<bqbiol:encodes>
+	<rdf:Bag/>
+	</bqbiol:encodes>
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
@@ -1233,10 +1267,10 @@
       <parameter constant="true" id="R_PGI__cytop_ub" name="g6p_c⇌f6p_c upper bound" value="1000"/>
     </listOfParameters>
     <listOfReactions>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK7__cytop" metaid="_9079f737-c739-449a-a130-426af2350ce1" name="atp_c+dcdp_c⇌adp_c+dctp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK7__cytop" metaid="bc4b3cbe-cd4d-4e6d-804f-ca46a4cca081" name="atp_c+dcdp_c⇌adp_c+dctp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9079f737-c739-449a-a130-426af2350ce1">
+	<rdf:Description rdf:about="#bc4b3cbe-cd4d-4e6d-804f-ca46a4cca081">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -1257,10 +1291,10 @@
           <speciesReference constant="true" species="M_dctp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK8__cytop" metaid="_606c76d3-5859-4f05-a5b4-91fa44981942" name="atp_c+dadp_c⇌adp_c+datp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK8__cytop" metaid="_4fbb8452-2522-48b0-8f8f-f1bbeedde515" name="atp_c+dadp_c⇌adp_c+datp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_606c76d3-5859-4f05-a5b4-91fa44981942">
+	<rdf:Description rdf:about="#_4fbb8452-2522-48b0-8f8f-f1bbeedde515">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -1281,10 +1315,10 @@
           <speciesReference constant="true" species="M_datp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK6__cytop" metaid="_74ff15db-a02b-4740-bca7-28777646128f" name="atp_c+dudp_c⇌adp_c+dutp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK6__cytop" metaid="_3eab62ca-70a0-4399-ba00-d6a8abf2eba3" name="atp_c+dudp_c⇌adp_c+dutp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_74ff15db-a02b-4740-bca7-28777646128f">
+	<rdf:Description rdf:about="#_3eab62ca-70a0-4399-ba00-d6a8abf2eba3">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -1305,10 +1339,10 @@
           <speciesReference constant="true" species="M_dutp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_TKT2__cytop_lb" fbc:upperFluxBound="R_TKT2__cytop_ub" id="R_TKT2__cytop" metaid="f67af28b-9c11-498f-84dc-29f1a2bf9716" name="e4p_c+xu5p__D_c⇌f6p_c+g3p_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_TKT2__cytop_lb" fbc:upperFluxBound="R_TKT2__cytop_ub" id="R_TKT2__cytop" metaid="_0c6c223f-3250-4193-8fbe-b139df67e2b8" name="e4p_c+xu5p__D_c⇌f6p_c+g3p_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f67af28b-9c11-498f-84dc-29f1a2bf9716">
+	<rdf:Description rdf:about="#_0c6c223f-3250-4193-8fbe-b139df67e2b8">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.2.1.1"/>
@@ -1329,10 +1363,10 @@
           <speciesReference constant="true" species="M_f6p_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_TKT1__cytop_lb" fbc:upperFluxBound="R_TKT1__cytop_ub" id="R_TKT1__cytop" metaid="_3c5597dc-04fc-4f02-ad4f-98b4c76f7b77" name="r5p_c+xu5p__D_c⇌g3p_c+s7p_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_TKT1__cytop_lb" fbc:upperFluxBound="R_TKT1__cytop_ub" id="R_TKT1__cytop" metaid="de13a9d9-a0a6-4de7-85c4-0582f357c01a" name="r5p_c+xu5p__D_c⇌g3p_c+s7p_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3c5597dc-04fc-4f02-ad4f-98b4c76f7b77">
+	<rdf:Description rdf:about="#de13a9d9-a0a6-4de7-85c4-0582f357c01a">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.2.1.1"/>
@@ -1353,10 +1387,10 @@
           <speciesReference constant="true" species="M_s7p_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ASNTA__cytop" metaid="e68243e0-10d5-4918-8acb-ab9473ee5432" name="akg_c+asn__L_c⇌glu__L_c+aksuc_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ASNTA__cytop" metaid="_77b0cadf-a935-499b-8ec6-2e4be9851d00" name="akg_c+asn__L_c⇌glu__L_c+aksuc_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e68243e0-10d5-4918-8acb-ab9473ee5432">
+	<rdf:Description rdf:about="#_77b0cadf-a935-499b-8ec6-2e4be9851d00">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -1377,10 +1411,10 @@
           <speciesReference constant="true" species="M_aksuc_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK5__cytop" metaid="_212dfee2-e5d4-4ccc-84a2-23301afd5b59" name="atp_c+dgdp_c⇌adp_c+dgtp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK5__cytop" metaid="_7e947c7f-a1a0-415c-8043-d6cf67f0a970" name="atp_c+dgdp_c⇌adp_c+dgtp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_212dfee2-e5d4-4ccc-84a2-23301afd5b59">
+	<rdf:Description rdf:about="#_7e947c7f-a1a0-415c-8043-d6cf67f0a970">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -1401,10 +1435,10 @@
           <speciesReference constant="true" species="M_dgtp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GMPS2__cytop_ub" id="R_GMPS2__cytop" metaid="_7c756fc9-88ae-4f65-88a8-da2027ba3fbd" name="atp_c+gln__L_c+h2o_c+xmp_c→amp_c+glu__L_c+gmp_c+2.0h_c+ppi_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GMPS2__cytop_ub" id="R_GMPS2__cytop" metaid="aedbfd26-34cc-46a9-9128-cc0b0958887b" name="atp_c+gln__L_c+h2o_c+xmp_c→amp_c+glu__L_c+gmp_c+2.0h_c+ppi_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7c756fc9-88ae-4f65-88a8-da2027ba3fbd">
+	<rdf:Description rdf:about="#aedbfd26-34cc-46a9-9128-cc0b0958887b">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.5.2"/>
@@ -1430,10 +1464,10 @@
           <speciesReference constant="true" species="M_ppi_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GDR_nadp_h__cytop" metaid="_472d1490-5e03-4dbc-a5ef-fc919ef74419" name="gthox_h+h_h+nadph_h⇌2.0gthrd_h+nadp_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GDR_nadp_h__cytop" metaid="_71115f06-492b-4437-a9c8-c34c26283cbd" name="gthox_h+h_h+nadph_h⇌2.0gthrd_h+nadp_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_472d1490-5e03-4dbc-a5ef-fc919ef74419">
+	<rdf:Description rdf:about="#_71115f06-492b-4437-a9c8-c34c26283cbd">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.8.1.7"/>
@@ -1455,10 +1489,10 @@
           <speciesReference constant="true" species="M_gthrd_h__h" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_PYK__cytop_ub" id="R_PYK__cytop" metaid="cd9fc7ca-3969-45c0-87a8-d7e1b2c41152" name="adp_c+h_c+pep_c→atp_c+pyr_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_PYK__cytop_ub" id="R_PYK__cytop" metaid="_71f8ae8d-bb32-4ef4-9de2-4b21166bf09c" name="adp_c+h_c+pep_c→atp_c+pyr_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#cd9fc7ca-3969-45c0-87a8-d7e1b2c41152">
+	<rdf:Description rdf:about="#_71f8ae8d-bb32-4ef4-9de2-4b21166bf09c">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.1.40"/>
@@ -1480,10 +1514,10 @@
           <speciesReference constant="true" species="M_atp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GLNS__cytop_ub" id="R_GLNS__cytop" metaid="_55146a25-6ec6-4ef7-813b-47bd94fbab7a" name="atp_c+glu__L_c+nh4_c→adp_c+gln__L_c+h_c+pi_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GLNS__cytop_ub" id="R_GLNS__cytop" metaid="_701f9c70-c44b-40dd-a886-bb9e9ff2c6d1" name="atp_c+glu__L_c+nh4_c→adp_c+gln__L_c+h_c+pi_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_55146a25-6ec6-4ef7-813b-47bd94fbab7a">
+	<rdf:Description rdf:about="#_701f9c70-c44b-40dd-a886-bb9e9ff2c6d1">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.1.2"/>
@@ -1507,10 +1541,10 @@
           <speciesReference constant="true" species="M_gln__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_PMPK__cytop" metaid="_2dbe0c32-e050-4286-aa07-99a779fe0617" name="4ampm_c+atp_c→2mahmp_c+adp_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_PMPK__cytop" metaid="_2ce7385c-fc9a-4786-aeea-ecf11eaa5cbb" name="4ampm_c+atp_c→2mahmp_c+adp_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2dbe0c32-e050-4286-aa07-99a779fe0617">
+	<rdf:Description rdf:about="#_2ce7385c-fc9a-4786-aeea-ecf11eaa5cbb">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.7"/>
@@ -1531,10 +1565,10 @@
           <speciesReference constant="true" species="M_2mahmp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GLYK__cytop_ub" id="R_GLYK__cytop" metaid="_25afe560-f2f6-4e26-9b3a-f2b387ccbe30" name="atp_c+glyc_c→adp_c+glyc3p_c+h_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GLYK__cytop_ub" id="R_GLYK__cytop" metaid="cf5bd97a-8663-425e-b33e-76695e084201" name="atp_c+glyc_c→adp_c+glyc3p_c+h_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_25afe560-f2f6-4e26-9b3a-f2b387ccbe30">
+	<rdf:Description rdf:about="#cf5bd97a-8663-425e-b33e-76695e084201">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.1.30"/>
@@ -1556,10 +1590,10 @@
           <speciesReference constant="true" species="M_glyc3p_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_EHGLAT__cytop" metaid="_1f2a5c5a-50ec-4b46-a718-741b9e9677ce" name="akg_c+e4hglu_c→glu__L_c+4h2oglt_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_EHGLAT__cytop" metaid="_6df7bc0c-66d2-478d-b7a5-cd197c7388f8" name="akg_c+e4hglu_c→glu__L_c+4h2oglt_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_1f2a5c5a-50ec-4b46-a718-741b9e9677ce">
+	<rdf:Description rdf:about="#_6df7bc0c-66d2-478d-b7a5-cd197c7388f8">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.23"/>
@@ -1580,10 +1614,10 @@
           <speciesReference constant="true" species="M_4h2oglt_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_IMPD__cytop_ub" id="R_IMPD__cytop" metaid="_8fb14482-38d1-4c4e-9a6e-2d80dc1bd444" name="h2o_c+imp_c+nad_c→h_c+nadh_c+xmp_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_IMPD__cytop_ub" id="R_IMPD__cytop" metaid="fffc0c77-1429-42b2-aadb-994c733afae3" name="h2o_c+imp_c+nad_c→h_c+nadh_c+xmp_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8fb14482-38d1-4c4e-9a6e-2d80dc1bd444">
+	<rdf:Description rdf:about="#fffc0c77-1429-42b2-aadb-994c733afae3">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.205"/>
@@ -1606,10 +1640,10 @@
           <speciesReference constant="true" species="M_xmp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_DADK__cytop" metaid="_163871f4-4d69-410a-96a1-912ca5e2efee" name="atp_c+damp_c⇌adp_c+dadp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_DADK__cytop" metaid="_18de39a3-cdaa-46ff-b835-13d1f686e0e2" name="atp_c+damp_c⇌adp_c+dadp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_163871f4-4d69-410a-96a1-912ca5e2efee">
+	<rdf:Description rdf:about="#_18de39a3-cdaa-46ff-b835-13d1f686e0e2">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.3"/>
@@ -1632,10 +1666,10 @@
           <speciesReference constant="true" species="M_dadp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_MCOATA_1__cytop" metaid="_64d68ac4-b0fe-4f8c-85f8-8b9c047e7e5e" name="ACP_h+malcoa_h⇌coa_h+malACP_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_MCOATA_1__cytop" metaid="_2d4e299a-af3c-4e49-93aa-c3dfa14e73ac" name="ACP_h+malcoa_h⇌coa_h+malACP_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_64d68ac4-b0fe-4f8c-85f8-8b9c047e7e5e">
+	<rdf:Description rdf:about="#_2d4e299a-af3c-4e49-93aa-c3dfa14e73ac">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.3.1.86"/>
@@ -1658,10 +1692,10 @@
           <speciesReference constant="true" species="M_coa_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_SUCOASm__cytop" metaid="_288a058a-0022-4c68-b17b-d480ba48c31b" name="atp_m+coa_m+succ_m⇌adp_m+pi_m+succoa_m" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_SUCOASm__cytop" metaid="_09d1a777-fe62-4283-863d-3c566aa405f9" name="atp_m+coa_m+succ_m⇌adp_m+pi_m+succoa_m" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_288a058a-0022-4c68-b17b-d480ba48c31b">
+	<rdf:Description rdf:about="#_09d1a777-fe62-4283-863d-3c566aa405f9">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/6.2.1.5"/>
@@ -1670,7 +1704,13 @@
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
-              <listOfReactants>
+              <fbc:geneProductAssociation xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2">
+          <fbc:and>
+            <fbc:geneProductRef fbc:geneProduct="G_WP_004090371"/>
+            <fbc:geneProductRef fbc:geneProduct="G_WP_004090370"/>
+          </fbc:and>
+        </fbc:geneProductAssociation>
+        <listOfReactants>
           <speciesReference constant="true" species="M_succ_m__m" stoichiometry="1"/>
           <speciesReference constant="true" species="M_coa_m__m" stoichiometry="1"/>
           <speciesReference constant="true" species="M_atp_m__m" stoichiometry="1"/>
@@ -1681,10 +1721,10 @@
           <speciesReference constant="true" species="M_pi_m__m" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_RPE__cytop_lb" fbc:upperFluxBound="R_RPE__cytop_ub" id="R_RPE__cytop" metaid="_81d5db81-ad7d-4bd9-87ec-57e5044cd72f" name="ru5p__D_c⇌xu5p__D_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_RPE__cytop_lb" fbc:upperFluxBound="R_RPE__cytop_ub" id="R_RPE__cytop" metaid="_721946f9-eb58-4f52-84f1-7058983858cd" name="ru5p__D_c⇌xu5p__D_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_81d5db81-ad7d-4bd9-87ec-57e5044cd72f">
+	<rdf:Description rdf:about="#_721946f9-eb58-4f52-84f1-7058983858cd">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.1.3.1"/>
@@ -1703,10 +1743,10 @@
           <speciesReference constant="true" species="M_xu5p__D_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_LCYSTAT__cytop" metaid="_8ffe699a-4913-4787-b99d-e5ea5a6142a5" name="akg_c+Lcyst_c⇌glu__L_c+3spyr_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_LCYSTAT__cytop" metaid="_91bc8238-f8af-4f8d-b12c-0575ebf2bc4f" name="akg_c+Lcyst_c⇌glu__L_c+3spyr_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8ffe699a-4913-4787-b99d-e5ea5a6142a5">
+	<rdf:Description rdf:about="#_91bc8238-f8af-4f8d-b12c-0575ebf2bc4f">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.1"/>
@@ -1727,10 +1767,10 @@
           <speciesReference constant="true" species="M_3spyr_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GTHOr__cytop_ub" id="R_GTHOr__cytop" metaid="_423552f0-40ff-45c1-9429-403fe2063946" name="gthox_c+h_c+nadph_c→2.0gthrd_c+nadp_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GTHOr__cytop_ub" id="R_GTHOr__cytop" metaid="_28c94729-659e-443f-ba7e-a7fb5a0a0111" name="gthox_c+h_c+nadph_c→2.0gthrd_c+nadp_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_423552f0-40ff-45c1-9429-403fe2063946">
+	<rdf:Description rdf:about="#_28c94729-659e-443f-ba7e-a7fb5a0a0111">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.8.1.7"/>
@@ -1752,10 +1792,10 @@
           <speciesReference constant="true" species="M_gthrd_c__c" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_G6PI3__cytop" metaid="_78171195-7ec2-4b93-9b52-fa1fb0f5a144" name="g6p_B_c⇌f6p_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_G6PI3__cytop" metaid="ce775780-014e-4142-ab13-3c10c0d54546" name="g6p_B_c⇌f6p_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_78171195-7ec2-4b93-9b52-fa1fb0f5a144">
+	<rdf:Description rdf:about="#ce775780-014e-4142-ab13-3c10c0d54546">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.3.1.9"/>
@@ -1774,10 +1814,10 @@
           <speciesReference constant="true" species="M_f6p_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_NDPK3__cytop_lb" fbc:upperFluxBound="R_NDPK3__cytop_ub" id="R_NDPK3__cytop" metaid="_8a4fc225-1372-4114-bff1-bb7631bd8d73" name="atp_c+cdp_c⇌adp_c+ctp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_NDPK3__cytop_lb" fbc:upperFluxBound="R_NDPK3__cytop_ub" id="R_NDPK3__cytop" metaid="b440e093-810a-471a-8871-08731e9a183f" name="atp_c+cdp_c⇌adp_c+ctp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8a4fc225-1372-4114-bff1-bb7631bd8d73">
+	<rdf:Description rdf:about="#b440e093-810a-471a-8871-08731e9a183f">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -1798,10 +1838,10 @@
           <speciesReference constant="true" species="M_ctp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_NDPK1__cytop_lb" fbc:upperFluxBound="R_NDPK1__cytop_ub" id="R_NDPK1__cytop" metaid="_0e80ceda-0948-481f-8146-7d9b8700ffff" name="atp_c+gdp_c⇌adp_c+gtp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_NDPK1__cytop_lb" fbc:upperFluxBound="R_NDPK1__cytop_ub" id="R_NDPK1__cytop" metaid="_9240d525-8154-4979-8c09-21116b3cac0d" name="atp_c+gdp_c⇌adp_c+gtp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0e80ceda-0948-481f-8146-7d9b8700ffff">
+	<rdf:Description rdf:about="#_9240d525-8154-4979-8c09-21116b3cac0d">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -1822,10 +1862,10 @@
           <speciesReference constant="true" species="M_gtp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR140_1__cytop" metaid="_815b4f4c-2fe1-475e-8b9b-6f74ba2eef23" name="3omrsACP_h+h_h+nadph_h⇌3hmrsACP_h+nadp_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR140_1__cytop" metaid="d2d28ce2-18a9-4d66-bcf2-28961f941f95" name="3omrsACP_h+h_h+nadph_h⇌3hmrsACP_h+nadp_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_815b4f4c-2fe1-475e-8b9b-6f74ba2eef23">
+	<rdf:Description rdf:about="#d2d28ce2-18a9-4d66-bcf2-28961f941f95">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.100"/>
@@ -1855,10 +1895,10 @@
           <speciesReference constant="true" species="M_3hmrsACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_RPI__cytop_lb" fbc:upperFluxBound="R_RPI__cytop_ub" id="R_RPI__cytop" metaid="_9ae55e56-f468-4bd2-8786-ba4d710c9a47" name="r5p_c⇌ru5p__D_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_RPI__cytop_lb" fbc:upperFluxBound="R_RPI__cytop_ub" id="R_RPI__cytop" metaid="_81b07f60-2358-412b-a2e3-b28ac22b97c3" name="r5p_c⇌ru5p__D_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9ae55e56-f468-4bd2-8786-ba4d710c9a47">
+	<rdf:Description rdf:about="#_81b07f60-2358-412b-a2e3-b28ac22b97c3">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.3.1.6"/>
@@ -1877,10 +1917,10 @@
           <speciesReference constant="true" species="M_ru5p__D_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_TRDR__cytop" metaid="_2ace2310-98e5-40ac-bba0-6a09a44d3625" name="h_c+nadph_c+trdox_c→nadp_c+trdrd_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_TRDR__cytop" metaid="_781dc3a4-0492-4c9a-bcaf-7e452c34f8c0" name="h_c+nadph_c+trdox_c→nadp_c+trdrd_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2ace2310-98e5-40ac-bba0-6a09a44d3625">
+	<rdf:Description rdf:about="#_781dc3a4-0492-4c9a-bcaf-7e452c34f8c0">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.6.4.5"/>
@@ -1903,10 +1943,10 @@
           <speciesReference constant="true" species="M_trdrd_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS120_h__cytop" metaid="_84b2cea9-01a7-43d8-970c-af8274d92f2c" name="dcaACP_h+h_h+malACP_h→3oddecACP_h+ACP_h+co2_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS120_h__cytop" metaid="b57b11a8-23aa-495d-8d27-c4fdac01ff68" name="dcaACP_h+h_h+malACP_h→3oddecACP_h+ACP_h+co2_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_84b2cea9-01a7-43d8-970c-af8274d92f2c">
+	<rdf:Description rdf:about="#b57b11a8-23aa-495d-8d27-c4fdac01ff68">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -1929,10 +1969,10 @@
           <speciesReference constant="true" species="M_3oddecACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_ASPCT__cytop" metaid="f8afb230-1d70-4ae5-8d11-3825e0fab0ab" name="asp__L_c+cbp_c→cbasp_c+h_c+pi_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_ASPCT__cytop" metaid="_9e2d7c02-c669-41dc-aed2-2e51e612271a" name="asp__L_c+cbp_c→cbasp_c+h_c+pi_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f8afb230-1d70-4ae5-8d11-3825e0fab0ab">
+	<rdf:Description rdf:about="#_9e2d7c02-c669-41dc-aed2-2e51e612271a">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.3.2"/>
@@ -1954,10 +1994,10 @@
           <speciesReference constant="true" species="M_cbasp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_MTHGXLt__cytop" metaid="_1c803a61-abe8-4e96-b184-1dbd4d5f4a18" name="mthgxl_c⇌mthgxl_e" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_MTHGXLt__cytop" metaid="_1f2cdf31-f76f-45d5-8862-6ae824df4e61" name="mthgxl_c⇌mthgxl_e" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_1c803a61-abe8-4e96-b184-1dbd4d5f4a18">
+	<rdf:Description rdf:about="#_1f2cdf31-f76f-45d5-8862-6ae824df4e61">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -1976,10 +2016,10 @@
           <speciesReference constant="true" species="M_mthgxl_e__e" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS40_h__cytop" metaid="_4e5ab33d-e92d-467b-9cf6-e68cbb805e77" name="acACP_h+h_h+malACP_h→ACP_h+actACP_h+co2_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS40_h__cytop" metaid="_038b8b2e-196d-48e8-a4e2-b0feb70267a4" name="acACP_h+h_h+malACP_h→ACP_h+actACP_h+co2_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_4e5ab33d-e92d-467b-9cf6-e68cbb805e77">
+	<rdf:Description rdf:about="#_038b8b2e-196d-48e8-a4e2-b0feb70267a4">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2005,10 +2045,10 @@
           <speciesReference constant="true" species="M_ACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_GLYCt__cytop_lb" fbc:upperFluxBound="R_GLYCt__cytop_ub" id="R_GLYCt__cytop" metaid="_92cf4db7-78f1-43ec-9a27-ef56f1eabf4d" name="glyc_c⇌glyc_e" reversible="true">
+      <reaction fbc:lowerFluxBound="R_GLYCt__cytop_lb" fbc:upperFluxBound="R_GLYCt__cytop_ub" id="R_GLYCt__cytop" metaid="_110ea129-6678-455f-a459-acd560978cd9" name="glyc_c⇌glyc_e" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_92cf4db7-78f1-43ec-9a27-ef56f1eabf4d">
+	<rdf:Description rdf:about="#_110ea129-6678-455f-a459-acd560978cd9">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2027,10 +2067,10 @@
           <speciesReference constant="true" species="M_glyc_e__e" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_FBA__cytop_lb" fbc:upperFluxBound="R_FBA__cytop_ub" id="R_FBA__cytop" metaid="ea12b595-f0a9-4cce-be82-6e3ac470ffda" name="fdp_c⇌dhap_c+g3p_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_FBA__cytop_lb" fbc:upperFluxBound="R_FBA__cytop_ub" id="R_FBA__cytop" metaid="c673dca6-b495-4070-896d-9f15f17cca37" name="fdp_c⇌dhap_c+g3p_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ea12b595-f0a9-4cce-be82-6e3ac470ffda">
+	<rdf:Description rdf:about="#c673dca6-b495-4070-896d-9f15f17cca37">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.1.2.13"/>
@@ -2050,10 +2090,10 @@
           <speciesReference constant="true" species="M_dhap_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_UNK3__cytop_ub" id="R_UNK3__cytop" metaid="_81909e13-f0cc-4093-a334-df47bfa9e011" name="glu__L_c+2kmb_c→akg_c+met__L_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_UNK3__cytop_ub" id="R_UNK3__cytop" metaid="bc53d905-4d5e-4760-ab84-0a8a82289e3d" name="glu__L_c+2kmb_c→akg_c+met__L_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_81909e13-f0cc-4093-a334-df47bfa9e011">
+	<rdf:Description rdf:about="#bc53d905-4d5e-4760-ab84-0a8a82289e3d">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.57"/>
@@ -2075,10 +2115,10 @@
           <speciesReference constant="true" species="M_met__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_ADSS__cytop" metaid="_8154149f-6e6e-4455-82f1-04cce82d5955" name="asp__L_c+gtp_c+imp_c→dcamp_c+gdp_c+2.0h_c+pi_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_ADSS__cytop" metaid="_68bc74c7-c67d-4251-9c2c-46acf988c5c8" name="asp__L_c+gtp_c+imp_c→dcamp_c+gdp_c+2.0h_c+pi_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8154149f-6e6e-4455-82f1-04cce82d5955">
+	<rdf:Description rdf:about="#_68bc74c7-c67d-4251-9c2c-46acf988c5c8">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.4.4"/>
@@ -2102,10 +2142,10 @@
           <speciesReference constant="true" species="M_dcamp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_ACONTb__cytop_lb" fbc:upperFluxBound="R_ACONTb__cytop_ub" id="R_ACONTb__cytop" metaid="_7d4631d8-f546-4185-9f49-9bac1e59b522" name="acon_C_c+h2o_c⇌icit_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_ACONTb__cytop_lb" fbc:upperFluxBound="R_ACONTb__cytop_ub" id="R_ACONTb__cytop" metaid="_34d5449d-9bd1-483b-a634-3fffb0b73180" name="acon_C_c+h2o_c⇌icit_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7d4631d8-f546-4185-9f49-9bac1e59b522">
+	<rdf:Description rdf:about="#_34d5449d-9bd1-483b-a634-3fffb0b73180">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.2.1.3"/>
@@ -2125,10 +2165,10 @@
           <speciesReference constant="true" species="M_icit_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK7__cytop" metaid="_09024788-b3f4-412f-90fa-4f9e10ab3456" name="his__L_c+2kmb_c→met__L_c+impyr_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK7__cytop" metaid="b8168292-c64d-4243-9ba6-f3fd7857ff33" name="his__L_c+2kmb_c→met__L_c+impyr_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_09024788-b3f4-412f-90fa-4f9e10ab3456">
+	<rdf:Description rdf:about="#b8168292-c64d-4243-9ba6-f3fd7857ff33">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2149,10 +2189,10 @@
           <speciesReference constant="true" species="M_impyr_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK6__cytop" metaid="_8bdaf109-6b6c-4460-9564-2c1a1bee9c03" name="trp__L_c+2kmb_c→met__L_c+indpyr_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK6__cytop" metaid="_59d8d602-9b72-41c9-b6ee-91ec433a48ca" name="trp__L_c+2kmb_c→met__L_c+indpyr_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8bdaf109-6b6c-4460-9564-2c1a1bee9c03">
+	<rdf:Description rdf:about="#_59d8d602-9b72-41c9-b6ee-91ec433a48ca">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2173,10 +2213,10 @@
           <speciesReference constant="true" species="M_met__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_GK1__cytop_lb" fbc:upperFluxBound="R_GK1__cytop_ub" id="R_GK1__cytop" metaid="ecd48125-e9e5-43ac-aa19-0af38d2c447b" name="atp_c+gmp_c⇌adp_c+gdp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_GK1__cytop_lb" fbc:upperFluxBound="R_GK1__cytop_ub" id="R_GK1__cytop" metaid="_3c531b14-b7fc-44ab-bef9-7515727dc13d" name="atp_c+gmp_c⇌adp_c+gdp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ecd48125-e9e5-43ac-aa19-0af38d2c447b">
+	<rdf:Description rdf:about="#_3c531b14-b7fc-44ab-bef9-7515727dc13d">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.8"/>
@@ -2197,10 +2237,10 @@
           <speciesReference constant="true" species="M_gdp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_AHCi__cytop_lb" fbc:upperFluxBound="R_AHCi__cytop_ub" id="R_AHCi__cytop" metaid="b867182a-89b5-47e5-b84a-838e87b8e6db" name="ahcys_c+h2o_c⇌adn_c+hcys__L_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_AHCi__cytop_lb" fbc:upperFluxBound="R_AHCi__cytop_ub" id="R_AHCi__cytop" metaid="ecd60f9e-9f4e-4975-aaa4-70fd89e97671" name="ahcys_c+h2o_c⇌adn_c+hcys__L_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b867182a-89b5-47e5-b84a-838e87b8e6db">
+	<rdf:Description rdf:about="#ecd60f9e-9f4e-4975-aaa4-70fd89e97671">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/3.3.1.1"/>
@@ -2221,10 +2261,10 @@
           <speciesReference constant="true" species="M_adn_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ORNTA__cytop" metaid="f0cf3260-b553-4830-b488-5f1653d62b51" name="akg_c+orn_c⇌glu__L_c+glu5sa_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ORNTA__cytop" metaid="_57c3690e-fb40-4a9d-b4c0-fad919d467b1" name="akg_c+orn_c⇌glu__L_c+glu5sa_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f0cf3260-b553-4830-b488-5f1653d62b51">
+	<rdf:Description rdf:about="#_57c3690e-fb40-4a9d-b4c0-fad919d467b1">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.13"/>
@@ -2248,10 +2288,10 @@
           <speciesReference constant="true" species="M_glu5sa_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GHMT2rm__cytop" metaid="_7ffe7158-7a44-47b4-8b36-d5e2a486f1bd" name="ser__L_m+thf_m⇌gly_m+h2o_m+mlthf_m" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GHMT2rm__cytop" metaid="_4a619b41-5883-4adb-b38e-64770a952611" name="ser__L_m+thf_m⇌gly_m+h2o_m+mlthf_m" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7ffe7158-7a44-47b4-8b36-d5e2a486f1bd">
+	<rdf:Description rdf:about="#_4a619b41-5883-4adb-b38e-64770a952611">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.1"/>
@@ -2273,10 +2313,10 @@
           <speciesReference constant="true" species="M_h2o_m__m" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_SPMS__cytop_ub" id="R_SPMS__cytop" metaid="_51ec79ab-42ad-4c5f-b283-6a0d270f85fb" name="ametam_c+ptrc_c→5mta_c+h_c+spmd_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_SPMS__cytop_ub" id="R_SPMS__cytop" metaid="_6ca340b5-bc2d-414e-8f02-26339b5b9f01" name="ametam_c+ptrc_c→5mta_c+h_c+spmd_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_51ec79ab-42ad-4c5f-b283-6a0d270f85fb">
+	<rdf:Description rdf:about="#_6ca340b5-bc2d-414e-8f02-26339b5b9f01">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.5.1.16"/>
@@ -2298,10 +2338,10 @@
           <speciesReference constant="true" species="M_5mta_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_G6PI__cytop" metaid="_92c905ff-de14-4ce9-8da4-d0d6fb2731a0" name="g6p_c→g6p_B_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_G6PI__cytop" metaid="_1ee83a60-0555-40a4-9991-a5d6f1f221d2" name="g6p_c→g6p_B_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_92c905ff-de14-4ce9-8da4-d0d6fb2731a0">
+	<rdf:Description rdf:about="#_1ee83a60-0555-40a4-9991-a5d6f1f221d2">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.3.1.9"/>
@@ -2321,10 +2361,10 @@
           <speciesReference constant="true" species="M_g6p_B_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_METAT__cytop_ub" id="R_METAT__cytop" metaid="_0f867aca-1f35-4e19-a998-2404b6ab7734" name="atp_c+h2o_c+met__L_c→amet_c+pi_c+ppi_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_METAT__cytop_ub" id="R_METAT__cytop" metaid="f3abbe44-885c-465f-b047-09c99c6fd6ab" name="atp_c+h2o_c+met__L_c→amet_c+pi_c+ppi_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0f867aca-1f35-4e19-a998-2404b6ab7734">
+	<rdf:Description rdf:about="#f3abbe44-885c-465f-b047-09c99c6fd6ab">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.5.1.6"/>
@@ -2347,10 +2387,10 @@
           <speciesReference constant="true" species="M_amet_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_H2Ot__cytop_lb" fbc:upperFluxBound="R_H2Ot__cytop_ub" id="R_H2Ot__cytop" metaid="_2268363d-73ae-4535-b4b6-e5eed49f493b" name="h2o_e⇌h2o_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_H2Ot__cytop_lb" fbc:upperFluxBound="R_H2Ot__cytop_ub" id="R_H2Ot__cytop" metaid="ddbcb3d0-ba3c-4326-8247-f36f7dcf8935" name="h2o_e⇌h2o_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2268363d-73ae-4535-b4b6-e5eed49f493b">
+	<rdf:Description rdf:about="#ddbcb3d0-ba3c-4326-8247-f36f7dcf8935">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2369,10 +2409,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GRX__cytop" metaid="_33726c40-9157-479b-b83b-096c074a46c9" name="grxrd_c+h2o2_c→grxox_c+2.0h2o_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GRX__cytop" metaid="_6fe9de1d-303c-4f25-9ce5-619bffb2aa8c" name="grxrd_c+h2o2_c→grxox_c+2.0h2o_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_33726c40-9157-479b-b83b-096c074a46c9">
+	<rdf:Description rdf:about="#_6fe9de1d-303c-4f25-9ce5-619bffb2aa8c">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2393,10 +2433,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS100_h__cytop" metaid="_78581cfc-59d5-410c-82e5-4ea78eaf8e5e" name="h_h+malACP_h+ocACP_h→3odecACP_h+ACP_h+co2_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS100_h__cytop" metaid="a5158d42-ba90-4d7a-b5c8-b0b6f953b4ef" name="h_h+malACP_h+ocACP_h→3odecACP_h+ACP_h+co2_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_78581cfc-59d5-410c-82e5-4ea78eaf8e5e">
+	<rdf:Description rdf:about="#a5158d42-ba90-4d7a-b5c8-b0b6f953b4ef">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2419,10 +2459,10 @@
           <speciesReference constant="true" species="M_ACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GLYOX__cytop_ub" id="R_GLYOX__cytop" metaid="_55c93e70-1b7a-4375-a116-5667250d4179" name="h2o_c+lgt__S_c→gthrd_c+h_c+lac__D_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GLYOX__cytop_ub" id="R_GLYOX__cytop" metaid="ae55f740-bae7-4028-a53e-d31866eb02cd" name="h2o_c+lgt__S_c→gthrd_c+h_c+lac__D_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_55c93e70-1b7a-4375-a116-5667250d4179">
+	<rdf:Description rdf:about="#ae55f740-bae7-4028-a53e-d31866eb02cd">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/3.1.2.6"/>
@@ -2444,10 +2484,10 @@
           <speciesReference constant="true" species="M_gthrd_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_FCLTm__cytop" metaid="_60217f7f-04df-46c4-b970-96abe493a670" name="fe2_m+ppp9_m→2.0h_m+pheme_m" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_FCLTm__cytop" metaid="_09836249-5df3-40dd-9d29-61651d964866" name="fe2_m+ppp9_m→2.0h_m+pheme_m" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_60217f7f-04df-46c4-b970-96abe493a670">
+	<rdf:Description rdf:about="#_09836249-5df3-40dd-9d29-61651d964866">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.99.1.1"/>
@@ -2468,10 +2508,10 @@
           <speciesReference constant="true" species="M_pheme_m__m" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_NDPK2__cytop_lb" fbc:upperFluxBound="R_NDPK2__cytop_ub" id="R_NDPK2__cytop" metaid="c59b11a4-64dd-4392-98c5-9a2e26da75d9" name="atp_c+udp_c⇌adp_c+utp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_NDPK2__cytop_lb" fbc:upperFluxBound="R_NDPK2__cytop_ub" id="R_NDPK2__cytop" metaid="_3d36d8e1-1182-420c-a57b-d330d17a06e8" name="atp_c+udp_c⇌adp_c+utp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c59b11a4-64dd-4392-98c5-9a2e26da75d9">
+	<rdf:Description rdf:about="#_3d36d8e1-1182-420c-a57b-d330d17a06e8">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -2492,10 +2532,10 @@
           <speciesReference constant="true" species="M_adp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_PGK__cytop_lb" fbc:upperFluxBound="R_PGK__cytop_ub" id="R_PGK__cytop" metaid="_78edb1b7-1592-442a-b7e4-d8a22e31e079" name="3pg_c+atp_c⇌13dpg_c+adp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_PGK__cytop_lb" fbc:upperFluxBound="R_PGK__cytop_ub" id="R_PGK__cytop" metaid="_20355bde-54fc-4bdd-a99d-a42610c3db32" name="3pg_c+atp_c⇌13dpg_c+adp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_78edb1b7-1592-442a-b7e4-d8a22e31e079">
+	<rdf:Description rdf:about="#_20355bde-54fc-4bdd-a99d-a42610c3db32">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.2.3"/>
@@ -2516,10 +2556,10 @@
           <speciesReference constant="true" species="M_adp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GTHP_api__cytop" metaid="_6aa5f544-38ed-475a-80a5-322becc715c7" name="2.0gthrd_h+h2o2_h⇌gthox_h+2.0h2o_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GTHP_api__cytop" metaid="_88a1e788-dd9a-4d4b-aa89-c6af6175e952" name="2.0gthrd_h+h2o2_h⇌gthox_h+2.0h2o_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_6aa5f544-38ed-475a-80a5-322becc715c7">
+	<rdf:Description rdf:about="#_88a1e788-dd9a-4d4b-aa89-c6af6175e952">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2540,10 +2580,10 @@
           <speciesReference constant="true" species="M_h2o_h__h" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UPPDC2_1__cytop" metaid="_8008e70a-d248-4967-82ea-e57129f19f4a" name="4.0h_h+uppg1_h→4.0co2_h+cpppg1_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UPPDC2_1__cytop" metaid="a69d210c-c17a-4a1c-8f8b-8f08d3aa9292" name="4.0h_h+uppg1_h→4.0co2_h+cpppg1_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8008e70a-d248-4967-82ea-e57129f19f4a">
+	<rdf:Description rdf:about="#a69d210c-c17a-4a1c-8f8b-8f08d3aa9292">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.1.1.37"/>
@@ -2564,10 +2604,10 @@
           <speciesReference constant="true" species="M_co2_h__h" stoichiometry="4"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ACN_a_m__cytop" metaid="_3274c369-71d1-4786-b7d7-cdc5db9fc940" name="h2o_m+acon_C_m⇌cit_m" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ACN_a_m__cytop" metaid="_89a26d00-8259-45fc-919a-63bcd30d2401" name="h2o_m+acon_C_m⇌cit_m" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3274c369-71d1-4786-b7d7-cdc5db9fc940">
+	<rdf:Description rdf:about="#_89a26d00-8259-45fc-919a-63bcd30d2401">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2587,10 +2627,10 @@
           <speciesReference constant="true" species="M_cit_m__m" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR120_1__cytop" metaid="_994c6a35-79f7-47c6-9cb9-582db62a0a9b" name="3oddecACP_h+h_h+nadph_h⇌3hddecACP_h+nadp_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR120_1__cytop" metaid="_9f7f9e85-ab2b-44c2-a707-4c561c993932" name="3oddecACP_h+h_h+nadph_h⇌3hddecACP_h+nadp_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_994c6a35-79f7-47c6-9cb9-582db62a0a9b">
+	<rdf:Description rdf:about="#_9f7f9e85-ab2b-44c2-a707-4c561c993932">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.100"/>
@@ -2620,10 +2660,10 @@
           <speciesReference constant="true" species="M_3hddecACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS160_h__cytop" metaid="_051625ed-39aa-464f-a138-40d15eb52bae" name="h_h+malACP_h+myrsACP_h→3opalmACP_h+ACP_h+co2_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS160_h__cytop" metaid="bb796df5-9ad4-4caf-a29e-3306e990c5f6" name="h_h+malACP_h+myrsACP_h→3opalmACP_h+ACP_h+co2_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_051625ed-39aa-464f-a138-40d15eb52bae">
+	<rdf:Description rdf:about="#bb796df5-9ad4-4caf-a29e-3306e990c5f6">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2646,10 +2686,10 @@
           <speciesReference constant="true" species="M_ACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_G3PD1__cytop" metaid="_276f0456-0b69-4a4e-92f0-9ec3d32395e4" name="dhap_h+h_h+nadh_h⇌glyc3p_h+nad_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_G3PD1__cytop" metaid="cc880f3c-dba9-4bf8-94a2-c65fa9469720" name="dhap_h+h_h+nadh_h⇌glyc3p_h+nad_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_276f0456-0b69-4a4e-92f0-9ec3d32395e4">
+	<rdf:Description rdf:about="#cc880f3c-dba9-4bf8-94a2-c65fa9469720">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.94"/>
@@ -2672,10 +2712,10 @@
           <speciesReference constant="true" species="M_nad_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR60_1__cytop" metaid="b3b860a8-53f7-4747-8693-7a9391407e03" name="3ohexACP_h+h_h+nadph_h⇌3hhexACP_h+nadp_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR60_1__cytop" metaid="b7ea0164-8a5a-4f01-8149-14664bc6f868" name="3ohexACP_h+h_h+nadph_h⇌3hhexACP_h+nadp_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b3b860a8-53f7-4747-8693-7a9391407e03">
+	<rdf:Description rdf:about="#b7ea0164-8a5a-4f01-8149-14664bc6f868">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.100"/>
@@ -2705,10 +2745,10 @@
           <speciesReference constant="true" species="M_nadp_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ADSL2r__cytop" metaid="_0b039d50-eba4-4683-a17f-dcca58d88acd" name="25aics_c⇌aicar_c+fum_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ADSL2r__cytop" metaid="_75cc1c12-2cbc-4c9a-b75e-fb2b0d459e65" name="25aics_c⇌aicar_c+fum_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0b039d50-eba4-4683-a17f-dcca58d88acd">
+	<rdf:Description rdf:about="#_75cc1c12-2cbc-4c9a-b75e-fb2b0d459e65">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.3.2.2"/>
@@ -2728,10 +2768,10 @@
           <speciesReference constant="true" species="M_fum_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS80_h__cytop" metaid="a8c14d59-cb15-4f43-9cad-2a232e26ac02" name="h_h+hexACP_h+malACP_h→3ooctACP_h+ACP_h+co2_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS80_h__cytop" metaid="d1b03ff0-bbb7-4500-8d0c-7b45d4afcf86" name="h_h+hexACP_h+malACP_h→3ooctACP_h+ACP_h+co2_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a8c14d59-cb15-4f43-9cad-2a232e26ac02">
+	<rdf:Description rdf:about="#d1b03ff0-bbb7-4500-8d0c-7b45d4afcf86">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -2754,10 +2794,10 @@
           <speciesReference constant="true" species="M_3ooctACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_0_bound" id="R_SPODM__cytop" metaid="_74e24aaf-27d9-493c-854a-cfab902256fa" name="2.0h_c+2.0o2s_c⇌h2o2_c+o2_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_0_bound" id="R_SPODM__cytop" metaid="_09ca725e-e9de-4030-b958-707d579e31b5" name="2.0h_c+2.0o2s_c⇌h2o2_c+o2_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_74e24aaf-27d9-493c-854a-cfab902256fa">
+	<rdf:Description rdf:about="#_09ca725e-e9de-4030-b958-707d579e31b5">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.15.1.1"/>
@@ -2781,10 +2821,10 @@
           <speciesReference constant="true" species="M_o2_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_G3PD1ir__cytop" metaid="d1a20485-d403-47d0-a6ee-96b6c3235242" name="dhap_c+h_c+nadh_c→glyc3p_c+nad_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_G3PD1ir__cytop" metaid="_756340f9-fe10-401f-a5df-c460bcc6cc55" name="dhap_c+h_c+nadh_c→glyc3p_c+nad_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d1a20485-d403-47d0-a6ee-96b6c3235242">
+	<rdf:Description rdf:about="#_756340f9-fe10-401f-a5df-c460bcc6cc55">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.94"/>
@@ -2807,10 +2847,10 @@
           <speciesReference constant="true" species="M_nad_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GMAND__cytop" metaid="b113fc3c-72e1-4187-98b9-dedffc4fc6cf" name="gdpmann_c→gdpddman_c+h2o_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GMAND__cytop" metaid="_49593181-4a10-4236-babf-0e0016f4b315" name="gdpmann_c→gdpddman_c+h2o_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b113fc3c-72e1-4187-98b9-dedffc4fc6cf">
+	<rdf:Description rdf:about="#_49593181-4a10-4236-babf-0e0016f4b315">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.2.1.47"/>
@@ -2830,10 +2870,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_THIORDXi__cytop" metaid="_6b6be04b-adad-4608-bc11-680c6b725cb9" name="h2o2_c+trdrd_c→2.0h2o_c+trdox_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_THIORDXi__cytop" metaid="d65f81e1-cb6d-45dd-9fb7-849028192596" name="h2o2_c+trdrd_c→2.0h2o_c+trdox_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_6b6be04b-adad-4608-bc11-680c6b725cb9">
+	<rdf:Description rdf:about="#d65f81e1-cb6d-45dd-9fb7-849028192596">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.11.1.16"/>
@@ -2855,10 +2895,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ACOATA_1__cytop" metaid="dd44c56e-c37d-4399-a51b-d74f51e2d092" name="accoa_h+ACP_h⇌acACP_h+coa_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ACOATA_1__cytop" metaid="_3ccb3625-ad79-481c-a55e-b4453343b37b" name="accoa_h+ACP_h⇌acACP_h+coa_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#dd44c56e-c37d-4399-a51b-d74f51e2d092">
+	<rdf:Description rdf:about="#_3ccb3625-ad79-481c-a55e-b4453343b37b">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.3.1.180"/>
@@ -2884,10 +2924,10 @@
           <speciesReference constant="true" species="M_coa_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GNK__cytop" metaid="be372702-8341-4794-aa29-9dc184eaaf6a" name="atp_c+glcn_c→6pgc_c+adp_c+h_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GNK__cytop" metaid="cc06f3d3-344f-4cef-b0ba-3de0f84fe038" name="atp_c+glcn_c→6pgc_c+adp_c+h_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#be372702-8341-4794-aa29-9dc184eaaf6a">
+	<rdf:Description rdf:about="#cc06f3d3-344f-4cef-b0ba-3de0f84fe038">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.1.12"/>
@@ -2909,10 +2949,10 @@
           <speciesReference constant="true" species="M_6pgc_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GF6PTA__cytop" metaid="_8ce0fd09-f922-46e9-8bf4-d3fe1d5b7127" name="f6p_c+gln__L_c→gam6p_c+glu__L_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GF6PTA__cytop" metaid="_7f34be04-fe77-41b7-abe8-806c7d23d05c" name="f6p_c+gln__L_c→gam6p_c+glu__L_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8ce0fd09-f922-46e9-8bf4-d3fe1d5b7127">
+	<rdf:Description rdf:about="#_7f34be04-fe77-41b7-abe8-806c7d23d05c">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.16"/>
@@ -2933,10 +2973,10 @@
           <speciesReference constant="true" species="M_glu__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_GAPD__cytop_lb" fbc:upperFluxBound="R_GAPD__cytop_ub" id="R_GAPD__cytop" metaid="e145887b-dee1-435e-ba36-06393231f33b" name="g3p_c+nad_c+pi_c⇌13dpg_c+h_c+nadh_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_GAPD__cytop_lb" fbc:upperFluxBound="R_GAPD__cytop_ub" id="R_GAPD__cytop" metaid="_4e97bb0b-f6ef-40f2-871f-ded8414b9110" name="g3p_c+nad_c+pi_c⇌13dpg_c+h_c+nadh_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e145887b-dee1-435e-ba36-06393231f33b">
+	<rdf:Description rdf:about="#_4e97bb0b-f6ef-40f2-871f-ded8414b9110">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.2.1.59"/>
@@ -2960,10 +3000,10 @@
           <speciesReference constant="true" species="M_nadh_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GTHPm__cytop" metaid="_008b9786-8f2b-4fe4-a6fb-b04ab213b0e8" name="2.0gthrd_m+h2o2_m⇌gthox_m+2.0h2o_m" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GTHPm__cytop" metaid="_6ecd3ba2-a8c4-4ba9-a1fa-16f62e739a52" name="2.0gthrd_m+h2o2_m⇌gthox_m+2.0h2o_m" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_008b9786-8f2b-4fe4-a6fb-b04ab213b0e8">
+	<rdf:Description rdf:about="#_6ecd3ba2-a8c4-4ba9-a1fa-16f62e739a52">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.11.1.9"/>
@@ -2984,10 +3024,10 @@
           <speciesReference constant="true" species="M_h2o_m__m" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_TRPTA__cytop" metaid="_9276841b-9866-45d9-b2ae-f89ffb416699" name="akg_c+trp__L_c⇌glu__L_c+indpyr_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_TRPTA__cytop" metaid="e82af248-41f7-4abf-9f48-94208bf80482" name="akg_c+trp__L_c⇌glu__L_c+indpyr_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9276841b-9866-45d9-b2ae-f89ffb416699">
+	<rdf:Description rdf:about="#e82af248-41f7-4abf-9f48-94208bf80482">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.27"/>
@@ -3008,10 +3048,10 @@
           <speciesReference constant="true" species="M_glu__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GTHPi__cytop_ub" id="R_GTHPi__cytop" metaid="_3fc3fba7-aa83-4e83-91d8-5957c1cb8108" name="2.0gthrd_c+h2o2_c→gthox_c+2.0h2o_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_GTHPi__cytop_ub" id="R_GTHPi__cytop" metaid="_13690731-f80a-4cf9-92f0-bbdd55e5f8be" name="2.0gthrd_c+h2o2_c→gthox_c+2.0h2o_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3fc3fba7-aa83-4e83-91d8-5957c1cb8108">
+	<rdf:Description rdf:about="#_13690731-f80a-4cf9-92f0-bbdd55e5f8be">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.11.1.9"/>
@@ -3035,10 +3075,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_TPIh__cytop" metaid="_9bf1c46a-5dbd-4a81-a588-3a7a4baf1113" name="dhap_h⇌g3p_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_TPIh__cytop" metaid="cc980101-d909-4c2e-b90d-4c50514b9e6e" name="dhap_h⇌g3p_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9bf1c46a-5dbd-4a81-a588-3a7a4baf1113">
+	<rdf:Description rdf:about="#cc980101-d909-4c2e-b90d-4c50514b9e6e">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.3.1.1"/>
@@ -3057,10 +3097,10 @@
           <speciesReference constant="true" species="M_g3p_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_THFAT__cytop" metaid="_95e0066b-d36c-4454-bf5a-dd4898e8db34" name="h2o_c+methf_c→5fthf_c+h_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_THFAT__cytop" metaid="_4a90e94e-e757-467a-9c95-ff91ce8f9034" name="h2o_c+methf_c→5fthf_c+h_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_95e0066b-d36c-4454-bf5a-dd4898e8db34">
+	<rdf:Description rdf:about="#_4a90e94e-e757-467a-9c95-ff91ce8f9034">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.10"/>
@@ -3081,10 +3121,10 @@
           <speciesReference constant="true" species="M_5fthf_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GLYCK2__cytop" metaid="a800b58b-b0dd-41a8-bf2d-f114a0cdec10" name="atp_c+glyc__R_c→2pg_c+adp_c+h_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GLYCK2__cytop" metaid="c599f83c-4153-491c-8939-03ddf608d858" name="atp_c+glyc__R_c→2pg_c+adp_c+h_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a800b58b-b0dd-41a8-bf2d-f114a0cdec10">
+	<rdf:Description rdf:about="#c599f83c-4153-491c-8939-03ddf608d858">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.1.165"/>
@@ -3107,10 +3147,10 @@
           <speciesReference constant="true" species="M_2pg_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_SPRMS__cytop_ub" id="R_SPRMS__cytop" metaid="d99f8f8d-92f9-40f0-957d-571ebee13ece" name="ametam_c+spmd_c→5mta_c+h_c+sprm_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="R_SPRMS__cytop_ub" id="R_SPRMS__cytop" metaid="_019bf61e-40dc-4f92-8d11-dd1ef1cc53a6" name="ametam_c+spmd_c→5mta_c+h_c+sprm_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d99f8f8d-92f9-40f0-957d-571ebee13ece">
+	<rdf:Description rdf:about="#_019bf61e-40dc-4f92-8d11-dd1ef1cc53a6">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.5.1.22"/>
@@ -3133,10 +3173,10 @@
           <speciesReference constant="true" species="M_5mta_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_HMPK1__cytop" metaid="_933cc234-1c6e-4930-98c3-65e6545a2d91" name="4ahmmp_c+atp_c→4ampm_c+adp_c+h_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_HMPK1__cytop" metaid="a339f9a4-48db-446f-81f1-e9b408ab37c2" name="4ahmmp_c+atp_c→4ampm_c+adp_c+h_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_933cc234-1c6e-4930-98c3-65e6545a2d91">
+	<rdf:Description rdf:about="#a339f9a4-48db-446f-81f1-e9b408ab37c2">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.1.49"/>
@@ -3158,10 +3198,10 @@
           <speciesReference constant="true" species="M_4ampm_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ADSL1r__cytop" metaid="c89a2f1b-6a3a-4ff0-9a37-0f7cdcaae60e" name="dcamp_c⇌amp_c+fum_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ADSL1r__cytop" metaid="c7a1668b-b706-4fb0-895b-6c3f62a2976b" name="dcamp_c⇌amp_c+fum_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c89a2f1b-6a3a-4ff0-9a37-0f7cdcaae60e">
+	<rdf:Description rdf:about="#c7a1668b-b706-4fb0-895b-6c3f62a2976b">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.3.2.2"/>
@@ -3181,10 +3221,10 @@
           <speciesReference constant="true" species="M_fum_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS140_h__cytop" metaid="_68517f7b-cb7d-497a-8577-49a0d19e0a41" name="ddcaACP_h+h_h+malACP_h→3omrsACP_h+ACP_h+co2_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS140_h__cytop" metaid="_29d3ff78-831f-4d2c-b69c-83f6e2522506" name="ddcaACP_h+h_h+malACP_h→3omrsACP_h+ACP_h+co2_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_68517f7b-cb7d-497a-8577-49a0d19e0a41">
+	<rdf:Description rdf:about="#_29d3ff78-831f-4d2c-b69c-83f6e2522506">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3207,10 +3247,10 @@
           <speciesReference constant="true" species="M_3omrsACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK4__cytop" metaid="b9068df0-4ad5-4fbb-9780-dc380181f32a" name="tyr__L_c+2kmb_c→34hpp_c+met__L_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK4__cytop" metaid="e339d87d-3de1-47a0-b365-6ba00ff396df" name="tyr__L_c+2kmb_c→34hpp_c+met__L_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b9068df0-4ad5-4fbb-9780-dc380181f32a">
+	<rdf:Description rdf:about="#e339d87d-3de1-47a0-b365-6ba00ff396df">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3231,10 +3271,10 @@
           <speciesReference constant="true" species="M_34hpp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS60_h__cytop" metaid="_463c2647-f1eb-4fee-a855-eb970b4b6f7c" name="butACP_h+h_h+malACP_h→3ohexACP_h+ACP_h+co2_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAS60_h__cytop" metaid="_659dcd96-7df0-469f-9163-8ec0af9eb0aa" name="butACP_h+h_h+malACP_h→3ohexACP_h+ACP_h+co2_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_463c2647-f1eb-4fee-a855-eb970b4b6f7c">
+	<rdf:Description rdf:about="#_659dcd96-7df0-469f-9163-8ec0af9eb0aa">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3257,10 +3297,10 @@
           <speciesReference constant="true" species="M_3ohexACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GHMT2rc__cytop" metaid="_39155e7f-7e64-462c-b46a-357d65ccabd7" name="ser__L_h+thf_h⇌gly_h+h2o_h+mlthf_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GHMT2rc__cytop" metaid="_945552d5-7a59-4125-8761-e30f0a33863f" name="ser__L_h+thf_h⇌gly_h+h2o_h+mlthf_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_39155e7f-7e64-462c-b46a-357d65ccabd7">
+	<rdf:Description rdf:about="#_945552d5-7a59-4125-8761-e30f0a33863f">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3282,10 +3322,10 @@
           <speciesReference constant="true" species="M_h2o_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_DGK1__cytop" metaid="f6a0636b-d707-4f35-bbdd-3edba3f50dd9" name="atp_c+dgmp_c⇌adp_c+dgdp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_DGK1__cytop" metaid="f9229c00-e392-4489-bcb9-5d14679dc322" name="atp_c+dgmp_c⇌adp_c+dgdp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f6a0636b-d707-4f35-bbdd-3edba3f50dd9">
+	<rdf:Description rdf:about="#f9229c00-e392-4489-bcb9-5d14679dc322">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.8"/>
@@ -3308,10 +3348,10 @@
           <speciesReference constant="true" species="M_dgdp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_FMETDF_1__cytop" metaid="d2ee9f77-5624-4fdb-959c-7daf96aefc2c" name="h2o_c+fmet__L_c→for_c+met__L_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_FMETDF_1__cytop" metaid="e9cc6ff5-8428-48b5-9bb7-22c5c0ccdde3" name="h2o_c+fmet__L_c→for_c+met__L_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d2ee9f77-5624-4fdb-959c-7daf96aefc2c">
+	<rdf:Description rdf:about="#e9cc6ff5-8428-48b5-9bb7-22c5c0ccdde3">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3332,10 +3372,10 @@
           <speciesReference constant="true" species="M_met__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_ACONTa__cytop_lb" fbc:upperFluxBound="R_ACONTa__cytop_ub" id="R_ACONTa__cytop" metaid="_85a8071d-87ac-4621-a72a-19c09f3e261a" name="cit_c⇌acon_C_c+h2o_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_ACONTa__cytop_lb" fbc:upperFluxBound="R_ACONTa__cytop_ub" id="R_ACONTa__cytop" metaid="_12b9c1c1-d619-49d0-ba87-88297af8b69c" name="cit_c⇌acon_C_c+h2o_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_85a8071d-87ac-4621-a72a-19c09f3e261a">
+	<rdf:Description rdf:about="#_12b9c1c1-d619-49d0-ba87-88297af8b69c">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.2.1.3"/>
@@ -3355,10 +3395,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UPPDC1_1__cytop" metaid="ba229da7-4d10-4e9a-a4e5-7f177e4eedf0" name="4.0h_h+uppg3_h→4.0co2_h+cpppg3_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UPPDC1_1__cytop" metaid="_2a545d00-6921-42fb-a945-af3fbce62d12" name="4.0h_h+uppg3_h→4.0co2_h+cpppg3_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ba229da7-4d10-4e9a-a4e5-7f177e4eedf0">
+	<rdf:Description rdf:about="#_2a545d00-6921-42fb-a945-af3fbce62d12">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.1.1.37"/>
@@ -3379,10 +3419,10 @@
           <speciesReference constant="true" species="M_co2_h__h" stoichiometry="4"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_PHETA1__cytop_lb" fbc:upperFluxBound="R_PHETA1__cytop_ub" id="R_PHETA1__cytop" metaid="c478c7fd-cef3-4270-aa45-32bdea81218b" name="akg_c+phe__L_c⇌glu__L_c+phpyr_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_PHETA1__cytop_lb" fbc:upperFluxBound="R_PHETA1__cytop_ub" id="R_PHETA1__cytop" metaid="_644b8e55-a9c3-46dd-942e-481149c193f1" name="akg_c+phe__L_c⇌glu__L_c+phpyr_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c478c7fd-cef3-4270-aa45-32bdea81218b">
+	<rdf:Description rdf:about="#_644b8e55-a9c3-46dd-942e-481149c193f1">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.57"/>
@@ -3406,10 +3446,10 @@
           <speciesReference constant="true" species="M_glu__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ASPTA__cytop" metaid="f3a8635f-4a9a-4275-be28-10e04dbd0427" name="akg_c+asp__L_c⇌glu__L_c+oaa_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ASPTA__cytop" metaid="aebab00d-998b-4046-8618-2da980bf31ac" name="akg_c+asp__L_c⇌glu__L_c+oaa_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f3a8635f-4a9a-4275-be28-10e04dbd0427">
+	<rdf:Description rdf:about="#aebab00d-998b-4046-8618-2da980bf31ac">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.1"/>
@@ -3430,10 +3470,10 @@
           <speciesReference constant="true" species="M_oaa_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_ENO__cytop_lb" fbc:upperFluxBound="R_ENO__cytop_ub" id="R_ENO__cytop" metaid="f4674b9c-38f6-4793-a665-a4d8bec440b9" name="2pg_c⇌h2o_c+pep_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_ENO__cytop_lb" fbc:upperFluxBound="R_ENO__cytop_ub" id="R_ENO__cytop" metaid="bb576156-80f9-48a8-9469-315d210bc5ec" name="2pg_c⇌h2o_c+pep_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f4674b9c-38f6-4793-a665-a4d8bec440b9">
+	<rdf:Description rdf:about="#bb576156-80f9-48a8-9469-315d210bc5ec">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/4.2.1.11"/>
@@ -3453,10 +3493,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR100_1__cytop" metaid="_336bb4f7-312b-40ec-a29a-bada6f9af35a" name="3odecACP_h+h_h+nadph_h⇌3hdecACP_h+nadp_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR100_1__cytop" metaid="_6bf197b0-239b-4dfd-8ce7-1fbdbd4540d9" name="3odecACP_h+h_h+nadph_h⇌3hdecACP_h+nadp_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_336bb4f7-312b-40ec-a29a-bada6f9af35a">
+	<rdf:Description rdf:about="#_6bf197b0-239b-4dfd-8ce7-1fbdbd4540d9">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.100"/>
@@ -3486,10 +3526,10 @@
           <speciesReference constant="true" species="M_3hdecACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR40c__cytop" metaid="_087d5522-3448-4dec-88a8-c72250c91a79" name="actACP_h+h_h+nadph_h⇌nadp_h+3haACP_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR40c__cytop" metaid="_88c0fc68-f591-4e7c-8011-3143f82c24a0" name="actACP_h+h_h+nadph_h⇌nadp_h+3haACP_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_087d5522-3448-4dec-88a8-c72250c91a79">
+	<rdf:Description rdf:about="#_88c0fc68-f591-4e7c-8011-3143f82c24a0">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3517,10 +3557,10 @@
           <speciesReference constant="true" species="M_3haACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_ADK1__cytop_lb" fbc:upperFluxBound="R_ADK1__cytop_ub" id="R_ADK1__cytop" metaid="_01f73ad0-3af0-4ab6-8c34-fd86323c606b" name="amp_c+atp_c⇌2.0adp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_ADK1__cytop_lb" fbc:upperFluxBound="R_ADK1__cytop_ub" id="R_ADK1__cytop" metaid="_8c9460cd-378a-4171-a47d-24dedd6d37ee" name="amp_c+atp_c⇌2.0adp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_01f73ad0-3af0-4ab6-8c34-fd86323c606b">
+	<rdf:Description rdf:about="#_8c9460cd-378a-4171-a47d-24dedd6d37ee">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.3"/>
@@ -3540,10 +3580,10 @@
           <speciesReference constant="true" species="M_adp_c__c" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GLYOXc__cytop" metaid="_4ef2b9a3-3a2c-4572-88f7-c1a171e5acab" name="h2o_h+lgt__S_h→gthrd_h+h_h+lac__D_h" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_GLYOXc__cytop" metaid="dfb0aa0d-4db0-42cd-a987-5512d7851f32" name="h2o_h+lgt__S_h→gthrd_h+h_h+lac__D_h" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_4ef2b9a3-3a2c-4572-88f7-c1a171e5acab">
+	<rdf:Description rdf:about="#dfb0aa0d-4db0-42cd-a987-5512d7851f32">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3565,10 +3605,10 @@
           <speciesReference constant="true" species="M_gthrd_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3SALATAi__cytop" metaid="b0a8a3ff-11e6-4f55-8340-cdc6c35f1bfd" name="3sala_c+akg_c+h_c⇌glu__L_c+3snpyr_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3SALATAi__cytop" metaid="e6d259fa-4615-4a1e-9e75-3be21ca1e1ea" name="3sala_c+akg_c+h_c⇌glu__L_c+3snpyr_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b0a8a3ff-11e6-4f55-8340-cdc6c35f1bfd">
+	<rdf:Description rdf:about="#e6d259fa-4615-4a1e-9e75-3be21ca1e1ea">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.1"/>
@@ -3590,10 +3630,10 @@
           <speciesReference constant="true" species="M_glu__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_PLRX__cytop" metaid="_966fdef7-ab63-4672-83d2-ee38489a36e2" name="h2o2_c+plrxrd_c→2.0h2o_c+plrxox_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_PLRX__cytop" metaid="_1624e519-5d06-454c-8ffe-051f89375681" name="h2o2_c+plrxrd_c→2.0h2o_c+plrxox_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_966fdef7-ab63-4672-83d2-ee38489a36e2">
+	<rdf:Description rdf:about="#_1624e519-5d06-454c-8ffe-051f89375681">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3614,10 +3654,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="2"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_TYRTA__cytop" metaid="dbc139e6-bc18-4869-b6c3-f50e3dc53c65" name="akg_c+tyr__L_c⇌34hpp_c+glu__L_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_TYRTA__cytop" metaid="_30863e8d-e32f-4cb8-a93e-6e5e09c04319" name="akg_c+tyr__L_c⇌34hpp_c+glu__L_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#dbc139e6-bc18-4869-b6c3-f50e3dc53c65">
+	<rdf:Description rdf:about="#_30863e8d-e32f-4cb8-a93e-6e5e09c04319">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.6.1.57"/>
@@ -3641,10 +3681,10 @@
           <speciesReference constant="true" species="M_34hpp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GHMT2r__cytop" metaid="f3edeba4-c48a-4642-a016-2d7242d933cf" name="ser__L_c+thf_c⇌gly_c+h2o_c+mlthf_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_GHMT2r__cytop" metaid="_3558d7d3-f6e4-4ccd-809c-1bc4ee93d3cf" name="ser__L_c+thf_c⇌gly_c+h2o_c+mlthf_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f3edeba4-c48a-4642-a016-2d7242d933cf">
+	<rdf:Description rdf:about="#_3558d7d3-f6e4-4ccd-809c-1bc4ee93d3cf">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.1.2.1"/>
@@ -3666,10 +3706,10 @@
           <speciesReference constant="true" species="M_h2o_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_AKGDm__cytop" metaid="_831aaf13-0cf4-49c7-8cbf-5113d2190304" name="akg_m+coa_m+nad_m→co2_m+nadh_m+succoa_m" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_AKGDm__cytop" metaid="d764034e-8b16-4623-9da2-1632f74710b2" name="akg_m+coa_m+nad_m→co2_m+nadh_m+succoa_m" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_831aaf13-0cf4-49c7-8cbf-5113d2190304">
+	<rdf:Description rdf:about="#d764034e-8b16-4623-9da2-1632f74710b2">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.3.1.61"/>
@@ -3695,10 +3735,10 @@
           <speciesReference constant="true" species="M_nadh_m__m" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_PGM__cytop_lb" fbc:upperFluxBound="R_PGM__cytop_ub" id="R_PGM__cytop" metaid="_03e1fa0d-ed36-4d72-95c0-8e46e84d74a1" name="2pg_c⇌3pg_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_PGM__cytop_lb" fbc:upperFluxBound="R_PGM__cytop_ub" id="R_PGM__cytop" metaid="_3f4c27fb-7535-4ae3-ba1b-89307bece643" name="2pg_c⇌3pg_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_03e1fa0d-ed36-4d72-95c0-8e46e84d74a1">
+	<rdf:Description rdf:about="#_3f4c27fb-7535-4ae3-ba1b-89307bece643">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.4.2.1"/>
@@ -3719,10 +3759,10 @@
           <speciesReference constant="true" species="M_3pg_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_TPI__cytop_lb" fbc:upperFluxBound="R_TPI__cytop_ub" id="R_TPI__cytop" metaid="f3a5b019-d755-4cee-a29d-8e5c44c38f9a" name="dhap_c⇌g3p_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_TPI__cytop_lb" fbc:upperFluxBound="R_TPI__cytop_ub" id="R_TPI__cytop" metaid="_9da36ce9-2f2b-4fbb-98ee-9960fe4ac637" name="dhap_c⇌g3p_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f3a5b019-d755-4cee-a29d-8e5c44c38f9a">
+	<rdf:Description rdf:about="#_9da36ce9-2f2b-4fbb-98ee-9960fe4ac637">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.3.1.1"/>
@@ -3741,10 +3781,10 @@
           <speciesReference constant="true" species="M_g3p_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK4__cytop" metaid="_527b8444-3185-435b-957d-77b977aa39e3" name="atp_c+dtdp_c⇌adp_c+dttp_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_NDPK4__cytop" metaid="_9316ed32-9b4b-42ad-af49-27e03d2d8b54" name="atp_c+dtdp_c⇌adp_c+dttp_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_527b8444-3185-435b-957d-77b977aa39e3">
+	<rdf:Description rdf:about="#_9316ed32-9b4b-42ad-af49-27e03d2d8b54">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/2.7.4.6"/>
@@ -3765,10 +3805,10 @@
           <speciesReference constant="true" species="M_dttp_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ACN_b_m__cytop" metaid="be9c307c-08ad-44ab-ab63-7a992801ceac" name="h2o_m+acon_C_m⇌icit_m" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_ACN_b_m__cytop" metaid="d66a4d3b-be9c-4174-8641-9fb1d74fc902" name="h2o_m+acon_C_m⇌icit_m" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#be9c307c-08ad-44ab-ab63-7a992801ceac">
+	<rdf:Description rdf:about="#d66a4d3b-be9c-4174-8641-9fb1d74fc902">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3788,10 +3828,10 @@
           <speciesReference constant="true" species="M_icit_m__m" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_SUCOAS1m__cytop" metaid="cbd34174-755e-4fcb-8a56-4a74d8ef8889" name="coa_m+gtp_m+succ_m⇌gdp_m+pi_m+succoa_m" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_SUCOAS1m__cytop" metaid="_4ac977f4-08c3-43f5-8881-76ba4892594a" name="coa_m+gtp_m+succ_m⇌gdp_m+pi_m+succoa_m" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#cbd34174-755e-4fcb-8a56-4a74d8ef8889">
+	<rdf:Description rdf:about="#_4ac977f4-08c3-43f5-8881-76ba4892594a">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/6.2.1.4"/>
@@ -3800,7 +3840,13 @@
 	</rdf:Description>
 	</rdf:RDF>
 	</annotation>
-              <listOfReactants>
+              <fbc:geneProductAssociation xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2">
+          <fbc:and>
+            <fbc:geneProductRef fbc:geneProduct="G_WP_004090371"/>
+            <fbc:geneProductRef fbc:geneProduct="G_WP_004090370"/>
+          </fbc:and>
+        </fbc:geneProductAssociation>
+        <listOfReactants>
           <speciesReference constant="true" species="M_succ_m__m" stoichiometry="1"/>
           <speciesReference constant="true" species="M_coa_m__m" stoichiometry="1"/>
           <speciesReference constant="true" species="M_gtp_m__m" stoichiometry="1"/>
@@ -3811,10 +3857,10 @@
           <speciesReference constant="true" species="M_gdp_m__m" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR160_1__cytop" metaid="ae2cbbb7-c529-4e79-a7bb-15a745f1048b" name="3opalmACP_h+h_h+nadph_h⇌3hpalmACP_h+nadp_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR160_1__cytop" metaid="_5db17bd8-73bb-4a03-8d6c-7547100abdf5" name="3opalmACP_h+h_h+nadph_h⇌3hpalmACP_h+nadp_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ae2cbbb7-c529-4e79-a7bb-15a745f1048b">
+	<rdf:Description rdf:about="#_5db17bd8-73bb-4a03-8d6c-7547100abdf5">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.100"/>
@@ -3844,10 +3890,10 @@
           <speciesReference constant="true" species="M_3hpalmACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_DHAt__cytop" metaid="_55b4e5ae-8859-4701-bd73-af44eeb0c78f" name="dha_e⇌dha_c" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_DHAt__cytop" metaid="_14718948-8e7d-4283-ad5c-693d248ded9a" name="dha_e⇌dha_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_55b4e5ae-8859-4701-bd73-af44eeb0c78f">
+	<rdf:Description rdf:about="#_14718948-8e7d-4283-ad5c-693d248ded9a">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3866,10 +3912,10 @@
           <speciesReference constant="true" species="M_dha_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_NH4t__cytop_lb" fbc:upperFluxBound="R_NH4t__cytop_ub" id="R_NH4t__cytop" metaid="_8e31beac-174c-4964-b0aa-f525e9a11e7e" name="nh4_e⇌nh4_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_NH4t__cytop_lb" fbc:upperFluxBound="R_NH4t__cytop_ub" id="R_NH4t__cytop" metaid="_41448a06-382b-435f-971a-2c97c3c2da50" name="nh4_e⇌nh4_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8e31beac-174c-4964-b0aa-f525e9a11e7e">
+	<rdf:Description rdf:about="#_41448a06-382b-435f-971a-2c97c3c2da50">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3888,10 +3934,10 @@
           <speciesReference constant="true" species="M_nh4_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="R_PGI__cytop_lb" fbc:upperFluxBound="R_PGI__cytop_ub" id="R_PGI__cytop" metaid="ded84dcb-313b-43ba-9d6a-a2145a7a372b" name="g6p_c⇌f6p_c" reversible="true">
+      <reaction fbc:lowerFluxBound="R_PGI__cytop_lb" fbc:upperFluxBound="R_PGI__cytop_ub" id="R_PGI__cytop" metaid="_8b544f5e-7022-4733-9438-8a46d25fd596" name="g6p_c⇌f6p_c" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ded84dcb-313b-43ba-9d6a-a2145a7a372b">
+	<rdf:Description rdf:about="#_8b544f5e-7022-4733-9438-8a46d25fd596">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/5.3.1.9"/>
@@ -3910,10 +3956,10 @@
           <speciesReference constant="true" species="M_f6p_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR80_1__cytop" metaid="_5355e2a8-0317-48ab-b190-ff8ae261b0f3" name="3ooctACP_h+h_h+nadph_h⇌3hoctACP_h+nadp_h" reversible="true">
+      <reaction fbc:lowerFluxBound="merlin_defaulLB" fbc:upperFluxBound="merlin_defaulUB" id="R_3OAR80_1__cytop" metaid="bd3a6fa1-ec2f-4032-a15b-df7bad38c097" name="3ooctACP_h+h_h+nadph_h⇌3hoctACP_h+nadp_h" reversible="true">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_5355e2a8-0317-48ab-b190-ff8ae261b0f3">
+	<rdf:Description rdf:about="#bd3a6fa1-ec2f-4032-a15b-df7bad38c097">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/1.1.1.100"/>
@@ -3943,10 +3989,10 @@
           <speciesReference constant="true" species="M_3hoctACP_h__h" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK5_1__cytop" metaid="_5486b241-d168-418c-bd06-72753a4453aa" name="phe__L_c+2kmb_c→met__L_c+phpyr_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_UNK5_1__cytop" metaid="_1de2aa3e-4f56-44f0-9580-adf2d3a4286e" name="phe__L_c+2kmb_c→met__L_c+phpyr_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_5486b241-d168-418c-bd06-72753a4453aa">
+	<rdf:Description rdf:about="#_1de2aa3e-4f56-44f0-9580-adf2d3a4286e">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/"/>
@@ -3967,10 +4013,10 @@
           <speciesReference constant="true" species="M_met__L_c__c" stoichiometry="1"/>
         </listOfProducts>
       </reaction>
-      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_ASNS1__cytop" metaid="_35e89ffc-73ea-4299-95a5-0edad004d03e" name="asp__L_c+atp_c+gln__L_c+h2o_c→amp_c+asn__L_c+glu__L_c+h_c+ppi_c" reversible="false">
+      <reaction fbc:lowerFluxBound="merlin_0_bound" fbc:upperFluxBound="merlin_defaulUB" id="R_ASNS1__cytop" metaid="_284e248a-dd49-4e99-8ea2-952ab3a6baa8" name="asp__L_c+atp_c+gln__L_c+h2o_c→amp_c+asn__L_c+glu__L_c+h_c+ppi_c" reversible="false">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_35e89ffc-73ea-4299-95a5-0edad004d03e">
+	<rdf:Description rdf:about="#_284e248a-dd49-4e99-8ea2-952ab3a6baa8">
 	<bqbiol:isRelatedTo>
 	<rdf:Bag>
 	<rdf:li rdf:resource="http://identifiers.org/ec-code/6.3.5.4"/>
