@@ -102,7 +102,8 @@ def run(models_list, analysis='Reactions', group='organism'):
             label = '$\it{' + org[0][0] + '. ' + org[1] + '}$'
             if label not in labels:
                 labels.append(label)
-        png_name = 'model_analysis/venn/' + analysis + '_' + models_list[0].method + '_' + models_list[0].template + '.png'
+        png_name = 'model_analysis/venn/' + analysis + '_' + models_list[0].method + '_' \
+                   + models_list[0].template + '.png'
 
     elif group == 'template':
         for model in models_list:
@@ -159,7 +160,7 @@ def run_random(models_list, analysis='Reactions', group='organism'):
 
 
 # Create Venn's Diagram for COGs analysis
-def run_cogs(dataset):
+def run_cogs_genomes(dataset):
     df = pd.read_csv(dataset, sep='\t', header=0)
     organisms = df['organism'].tolist()
     cogs = df['cogs'].tolist()
@@ -204,8 +205,8 @@ def run_restrictive(models_list, analysis='Reactions'):
 def run_organism(models_list, organism, method):
     group = [model for model in models_list if model.organism_id == organism
              and model.method == method]
-    run(models_list=group, analysis='Reactions', group='template')
-    run(models_list=group, analysis='Metabolites', group='template')
+    # run(models_list=group, analysis='Reactions', group='template')
+    # run(models_list=group, analysis='Metabolites', group='template')
     run(models_list=group, analysis='Genes', group='template')
 
 
@@ -246,6 +247,27 @@ def models_statistics(models_list):
     df.to_csv('model_analysis/models_statistics.tsv', sep='\t')
 
 
+def run_cogs_models(dataset, method='restrictive'):
+    df = pd.read_csv(dataset, sep='\t', header=0)
+    subdf = df.loc[df['model_id'].str.contains("selected") & df['model_id'].str.contains(method)]
+    subdf = subdf.where(subdf != 1, subdf.columns.to_series(), axis=1)
+    model_ids = subdf['model_id'].to_list()
+    cogs = []
+    for ind, row in subdf.iterrows():
+        cogs.append(row.to_list()[1:])
+    cogs = [list(filter(lambda a: a != 0, cog)) for cog in cogs]
+
+    common = find_common(cogs[0], cogs[1], cogs[2])
+
+    labels = []
+    for name in model_ids:
+        org = name.split('_')[0]
+        label = '$\it{' + org[0] + '. ' + org[1:] + '}$'
+        labels.append(label)
+
+    create_venn(values=common, labels=labels, filename='model_analysis/venn/COGs_model.png', title='COGs')
+
+
 if __name__ == '__main__':
     # read all models
     models = read_models(os.path.join(os.getcwd(), 'models'))
@@ -281,7 +303,8 @@ if __name__ == '__main__':
     run_organism(models_list=models, organism='Xfas', method='restrictive')
 
     # RUN FOR COGS
-    run_cogs('genomes_analysis/protagonists2cogs.tsv')
+    run_cogs_genomes('genomes_analysis/protagonists2cogs.tsv')
+    run_cogs_models('model_analysis/pca_cogs/models_cog_analysis.tsv', method='restrictive')
 
     # COMPARISON bit vs CARVE ME
     compare_carveme_bit(models_list=models, organism='Mtub', method='permissive')
