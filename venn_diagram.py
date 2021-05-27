@@ -203,20 +203,20 @@ def run_restrictive(models_list, analysis='Reactions'):
 
 # Create Venn's Diagrams for all models of an organism
 def run_organism(models_list, organism, method):
-    group = [model for model in models_list if model.organism_id == organism
+    group = [model for model in models_list if organism in model.organism_id
              and model.method == method]
-    # run(models_list=group, analysis='Reactions', group='template')
+    run(models_list=group, analysis='Reactions', group='template')
     # run(models_list=group, analysis='Metabolites', group='template')
-    run(models_list=group, analysis='Genes', group='template')
+    # run(models_list=group, analysis='Genes', group='template')
 
 
 # Compares CarveMe and bit selected models
 def compare_carveme_bit(models_list, organism, method):
     group = []
     for model in models_list:
-        if model.organism_id == organism and model.method == 'carveme':
+        if organism in model.organism_id and model.method == 'carveme':
             group.append(model)
-        if model.organism_id == organism and model.method == method and model.template == 'select':
+        if organism in model.organism_id and model.method == method and model.template == 'select':
             group.append(model)
 
     run(models_list=group, analysis='Reactions', group='method')
