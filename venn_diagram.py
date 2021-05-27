@@ -247,9 +247,10 @@ def models_statistics(models_list):
     df.to_csv('model_analysis/models_statistics.tsv', sep='\t')
 
 
-def run_cogs_models(dataset, method='restrictive'):
+def run_cogs_models(dataset, method='restrictive', template='selected',
+                    filename='model_analysis/venn/COGs_select_models.png'):
     df = pd.read_csv(dataset, sep='\t', header=0)
-    subdf = df.loc[df['model_id'].str.contains("selected") & df['model_id'].str.contains(method)]
+    subdf = df.loc[df['model_id'].str.contains(template) & df['model_id'].str.contains(method)]
     subdf = subdf.where(subdf != 1, subdf.columns.to_series(), axis=1)
     model_ids = subdf['model_id'].to_list()
     cogs = []
@@ -265,55 +266,62 @@ def run_cogs_models(dataset, method='restrictive'):
         label = '$\it{' + org[0] + '. ' + org[1:] + '}$'
         labels.append(label)
 
-    create_venn(values=common, labels=labels, filename='model_analysis/venn/COGs_model.png', title='COGs')
+    create_venn(values=common, labels=labels, filename=filename, title='COGs')
 
 
 if __name__ == '__main__':
-    # read all models
-    models = read_models(os.path.join(os.getcwd(), 'models'))
-
-    # COMPARISON BETWEEN ORGANISMS
-
-    # PERMISSIVE MODELS
-    run_permissive(models_list=models, analysis='Reactions')
-    run_permissive(models_list=models, analysis='Metabolites')
-
-    # RESTRICTIVE MODELS
-    run_restrictive(models_list=models, analysis='Reactions')
-    run_restrictive(models_list=models, analysis='Metabolites')
-
-    # CARVEME MODELS
-    carveme = [model for model in models if 'carveme' in model.method]
-
-    run(models_list=carveme, analysis="Reactions", group='organism')
-    run(models_list=carveme, analysis="Metabolites", group='organism')
-
-    # COMPARISON FOR EACH ORGANISM
-
-    # M. tuberculosis
-    run_organism(models_list=models, organism='Mtub', method='permissive')
-    run_organism(models_list=models, organism='Mtub', method='restrictive')
-
-    # S. thermophilus
-    run_organism(models_list=models, organism='Sthe', method='permissive')
-    run_organism(models_list=models, organism='Sthe', method='restrictive')
-
-    # X. fastidiosa
-    run_organism(models_list=models, organism='Xfas', method='permissive')
-    run_organism(models_list=models, organism='Xfas', method='restrictive')
-
-    # RUN FOR COGS
-    run_cogs_genomes('genomes_analysis/protagonists2cogs.tsv')
-    run_cogs_models('model_analysis/pca_cogs/models_cog_analysis.tsv', method='restrictive')
-
-    # COMPARISON bit vs CARVE ME
-    compare_carveme_bit(models_list=models, organism='Mtub', method='permissive')
-    compare_carveme_bit(models_list=models, organism='Sthe', method='permissive')
-    compare_carveme_bit(models_list=models, organism='Xfas', method='permissive')
-
-    compare_carveme_bit(models_list=models, organism='Mtub', method='restrictive')
-    compare_carveme_bit(models_list=models, organism='Sthe', method='restrictive')
-    compare_carveme_bit(models_list=models, organism='Xfas', method='restrictive')
-
-    # create table
-    models_statistics(models_list=models)
+    # # read all models
+    # models = read_models(os.path.join(os.getcwd(), 'models'))
+    #
+    # # COMPARISON BETWEEN ORGANISMS
+    #
+    # # PERMISSIVE MODELS
+    # run_permissive(models_list=models, analysis='Reactions')
+    # run_permissive(models_list=models, analysis='Metabolites')
+    #
+    # # RESTRICTIVE MODELS
+    # run_restrictive(models_list=models, analysis='Reactions')
+    # run_restrictive(models_list=models, analysis='Metabolites')
+    #
+    # # CARVEME MODELS
+    # carveme = [model for model in models if 'carveme' in model.method]
+    #
+    # run(models_list=carveme, analysis="Reactions", group='organism')
+    # run(models_list=carveme, analysis="Metabolites", group='organism')
+    #
+    # # COMPARISON FOR EACH ORGANISM
+    #
+    # # M. tuberculosis
+    # run_organism(models_list=models, organism='Mtub', method='permissive')
+    # run_organism(models_list=models, organism='Mtub', method='restrictive')
+    #
+    # # S. thermophilus
+    # run_organism(models_list=models, organism='Sthe', method='permissive')
+    # run_organism(models_list=models, organism='Sthe', method='restrictive')
+    #
+    # # X. fastidiosa
+    # run_organism(models_list=models, organism='Xfas', method='permissive')
+    # run_organism(models_list=models, organism='Xfas', method='restrictive')
+    #
+    # # RUN FOR COGS
+    # run_cogs_genomes('genomes_analysis/protagonists2cogs.tsv')
+    run_cogs_models('model_analysis/pca_cogs/models_cog_analysis.tsv',
+                    method='restrictive',
+                    template='selected',
+                    filename='model_analysis/venn/COGs_select_models.png')
+    run_cogs_models('model_analysis/pca_cogs/models_cog_analysis.tsv',
+                    method='carveme',
+                    template='carveme',
+                    filename='model_analysis/venn/COGs_carveme_models.png')
+    #
+    # # COMPARISON bit vs CARVE ME
+    # compare_carveme_bit(models_list=models, organism='Mtub', method='permissive')
+    # compare_carveme_bit(models_list=models, organism='Sthe', method='permissive')
+    # compare_carveme_bit(models_list=models, organism='Xfas', method='permissive')
+    #
+    # compare_carveme_bit(models_list=models, organism='Mtub', method='restrictive')
+    # compare_carveme_bit(models_list=models, organism='Sthe', method='restrictive')
+    # compare_carveme_bit(models_list=models, organism='Xfas', method='restrictive')
+    #
+    # # create table
+    # models_statistics(models_list=models)
