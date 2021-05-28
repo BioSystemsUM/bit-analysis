@@ -1,0 +1,14 @@
+2021-04-29 14:02:35,916 __main__ INFO handshake requested!
+2021-04-29 14:02:35,962 __main__ INFO Submission in progress...
+2021-04-29 14:02:35,969 __main__ DEBUG directories reset complete
+2021-04-29 14:02:36,007 __main__ INFO saving file /workdir/workerSubmissions//params.txt
+2021-04-29 14:02:36,008 __main__ INFO saving file /workdir/workerSubmissions//idGenes.txt
+2021-04-29 14:02:36,008 __main__ INFO saving file /workdir/workerSubmissions//protein.faa
+2021-04-29 14:02:36,018 __main__ INFO returning code 102!
+2021-04-29 16:02:45,955 __main__ INFO handshake requested!
+2021-04-29 16:02:45,970 __main__ INFO Submission in progress...
+2021-04-29 16:02:45,971 __main__ DEBUG directories reset complete
+2021-04-29 16:02:46,013 __main__ INFO saving file /workdir/workerSubmissions//params.txt
+2021-04-29 16:02:46,014 __main__ INFO saving file /workdir/workerSubmissions//idGenes.txt
+2021-04-29 16:02:46,014 __main__ INFO saving file /workdir/workerSubmissions//protein.faa
+2021-04-29 16:02:46,019 __main__ INFO returning code 102!

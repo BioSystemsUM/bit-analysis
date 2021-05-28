@@ -1,0 +1,12 @@
+2020-04-10 16:35:25,528 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2020-04-10 16:35:25,529 __main__ INFO Blast process is Starting
+2020-04-10 16:35:25,529 __main__ INFO The results path is /workdir/resultsWorker//
+2020-04-10 16:35:25,529 __main__ INFO Run blast is starting
+2020-04-10 16:35:25,529 __main__ INFO /workdir/resultsWorker//
+2020-04-10 16:36:51,044 __main__ INFO Blast ran well and the GPRsResults.txt file is going to be created.
+2020-04-10 16:36:51,045 __main__ INFO The processing directory was removed succefully.
+2020-04-10 16:36:51,045 __main__ INFO ['/workdir/resultsWorker//GPRsResults.txt', '/workdir/resultsWorker//tables.tgz']
+2020-04-10 16:36:51,046 __main__ INFO writing each file one by one
+2020-04-10 16:36:51,046 __main__ INFO /workdir/resultsWorker//GPRsResults.txt
+2020-04-10 16:36:51,046 __main__ INFO /workdir/resultsWorker//tables.tgz
+2020-04-10 16:36:51,086 __main__ INFO The zip file was generated successfully.

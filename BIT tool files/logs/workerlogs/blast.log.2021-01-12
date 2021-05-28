@@ -1,0 +1,34 @@
+2021-01-12 17:28:23,828 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2021-01-12 17:28:23,842 __main__ INFO Blast process is Starting
+2021-01-12 17:28:23,842 __main__ INFO The results path is /workdir/resultsWorker//
+2021-01-12 17:28:23,842 __main__ INFO Run blast is starting
+2021-01-12 17:28:23,842 __main__ INFO /workdir/resultsWorker//
+2021-01-12 17:30:36,318 __main__ INFO Blast ran well and the GPRsResults.txt file is going to be created.
+2021-01-12 17:30:36,319 __main__ INFO The processing directory was removed succefully.
+2021-01-12 17:30:36,319 __main__ INFO ['/workdir/resultsWorker//GPRsResults.txt', '/workdir/resultsWorker//tables.tgz']
+2021-01-12 17:30:36,319 __main__ INFO writing each file one by one
+2021-01-12 17:30:36,319 __main__ INFO /workdir/resultsWorker//GPRsResults.txt
+2021-01-12 17:30:36,320 __main__ INFO /workdir/resultsWorker//tables.tgz
+2021-01-12 17:30:36,356 __main__ INFO The zip file was generated successfully.
+2021-01-12 19:25:20,017 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2021-01-12 19:25:20,017 __main__ INFO Blast process is Starting
+2021-01-12 19:25:20,017 __main__ INFO The results path is /workdir/resultsWorker//
+2021-01-12 19:25:20,017 __main__ INFO Run blast is starting
+2021-01-12 19:25:20,018 __main__ INFO /workdir/resultsWorker//
+2021-01-12 19:25:46,002 __main__ INFO Blast ran well and the GPRsResults.txt file is going to be created.
+2021-01-12 19:25:46,003 __main__ INFO The processing directory was removed succefully.
+2021-01-12 19:25:46,003 __main__ INFO []
+2021-01-12 19:25:46,003 __main__ INFO writing each file one by one
+2021-01-12 19:25:46,003 __main__ INFO The zip file was generated successfully.
+2021-01-12 19:53:41,607 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2021-01-12 19:53:41,608 __main__ INFO Blast process is Starting
+2021-01-12 19:53:41,608 __main__ INFO The results path is /workdir/resultsWorker//
+2021-01-12 19:53:41,608 __main__ INFO Run blast is starting
+2021-01-12 19:53:41,608 __main__ INFO /workdir/resultsWorker//
+2021-01-12 19:55:38,018 __main__ INFO Blast ran well and the GPRsResults.txt file is going to be created.
+2021-01-12 19:55:38,019 __main__ INFO The processing directory was removed succefully.
+2021-01-12 19:55:38,019 __main__ INFO ['/workdir/resultsWorker//GPRsResults.txt', '/workdir/resultsWorker//tables.tgz']
+2021-01-12 19:55:38,019 __main__ INFO writing each file one by one
+2021-01-12 19:55:38,019 __main__ INFO /workdir/resultsWorker//GPRsResults.txt
+2021-01-12 19:55:38,019 __main__ INFO /workdir/resultsWorker//tables.tgz
+2021-01-12 19:55:38,044 __main__ INFO The zip file was generated successfully.
