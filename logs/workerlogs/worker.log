@@ -1,0 +1,31 @@
+2021-05-07 08:25:27,618 __main__ INFO handshake requested!
+2021-05-07 08:25:27,632 __main__ INFO Submission in progress...
+2021-05-07 08:25:27,633 __main__ DEBUG directories reset complete
+2021-05-07 08:25:27,670 __main__ INFO saving file /workdir/workerSubmissions//params.txt
+2021-05-07 08:25:27,670 __main__ INFO saving file /workdir/workerSubmissions//idGenes.txt
+2021-05-07 08:25:27,670 __main__ INFO saving file /workdir/workerSubmissions//protein.faa
+2021-05-07 08:25:27,675 __main__ INFO returning code 102!
+2021-05-07 14:31:26,514 __main__ INFO handshake requested!
+2021-05-07 14:33:46,623 __main__ INFO handshake requested!
+2021-05-07 14:33:46,634 __main__ INFO Submission in progress...
+2021-05-07 14:33:46,635 __main__ DEBUG directories reset complete
+2021-05-07 14:33:46,858 __main__ INFO saving file /workdir/workerSubmissions//params.txt
+2021-05-07 14:33:46,859 __main__ INFO saving file /workdir/workerSubmissions//idGenes.txt
+2021-05-07 14:33:46,859 __main__ INFO saving file /workdir/workerSubmissions//protein.faa
+2021-05-07 14:33:46,862 __main__ INFO returning code 102!
+2021-05-07 15:01:13,207 __main__ INFO handshake requested!
+2021-05-07 15:01:48,255 __main__ INFO handshake requested!
+2021-05-07 15:01:48,266 __main__ INFO Submission in progress...
+2021-05-07 15:01:48,266 __main__ DEBUG directories reset complete
+2021-05-07 15:01:48,298 __main__ INFO saving file /workdir/workerSubmissions//params.txt
+2021-05-07 15:01:48,298 __main__ INFO saving file /workdir/workerSubmissions//idGenes.txt
+2021-05-07 15:01:48,299 __main__ INFO saving file /workdir/workerSubmissions//protein.faa
+2021-05-07 15:01:48,303 __main__ INFO returning code 102!
+2021-05-07 17:24:14,637 __main__ INFO handshake requested!
+2021-05-07 17:25:24,717 __main__ INFO handshake requested!
+2021-05-07 17:25:24,730 __main__ INFO Submission in progress...
+2021-05-07 17:25:24,730 __main__ DEBUG directories reset complete
+2021-05-07 17:25:24,776 __main__ INFO saving file /workdir/workerSubmissions//params.txt
+2021-05-07 17:25:24,776 __main__ INFO saving file /workdir/workerSubmissions//idGenes.txt
+2021-05-07 17:25:24,777 __main__ INFO saving file /workdir/workerSubmissions//protein.faa
+2021-05-07 17:25:24,782 __main__ INFO returning code 102!

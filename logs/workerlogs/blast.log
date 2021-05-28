@@ -1,0 +1,20 @@
+2021-05-07 08:25:27,716 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2021-05-07 08:25:27,716 __main__ INFO Blast process is Starting
+2021-05-07 08:25:27,716 __main__ INFO The results path is /workdir/resultsWorker//
+2021-05-07 08:25:27,717 __main__ INFO Run blast is starting
+2021-05-07 08:25:27,717 __main__ INFO /workdir/resultsWorker//
+2021-05-07 14:33:46,885 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2021-05-07 14:33:46,885 __main__ INFO Blast process is Starting
+2021-05-07 14:33:46,886 __main__ INFO The results path is /workdir/resultsWorker//
+2021-05-07 14:33:46,886 __main__ INFO Run blast is starting
+2021-05-07 14:33:46,886 __main__ INFO /workdir/resultsWorker//
+2021-05-07 15:01:48,346 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2021-05-07 15:01:48,346 __main__ INFO Blast process is Starting
+2021-05-07 15:01:48,346 __main__ INFO The results path is /workdir/resultsWorker//
+2021-05-07 15:01:48,346 __main__ INFO Run blast is starting
+2021-05-07 15:01:48,346 __main__ INFO /workdir/resultsWorker//
+2021-05-07 17:25:24,833 __main__ INFO Calling blast method with these parameters: /workdir/workerSubmissions/ /workdir/resultsWorker/
+2021-05-07 17:25:24,834 __main__ INFO Blast process is Starting
+2021-05-07 17:25:24,834 __main__ INFO The results path is /workdir/resultsWorker//
+2021-05-07 17:25:24,834 __main__ INFO Run blast is starting
+2021-05-07 17:25:24,834 __main__ INFO /workdir/resultsWorker//
