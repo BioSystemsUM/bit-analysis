@@ -1,0 +1,7 @@
+2
+iCN900;iIT341;iIS312_Epimastigote
+1E-20
+50
+0.75
+False
+False
