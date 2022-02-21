@@ -1,4 +1,5 @@
 import pandas
+import pandas as pd
 
 from ModelsComparisonMetrics import ModelsComparisonMetrics
 from utils import Utils, Type
@@ -48,12 +49,18 @@ def getMtuberculosis_models() -> dict:
                                   "random5 model": Mtuberculosis_random5_restrictive_model,
                                   }
     for key, model in Mtuberculosis_models.items():
-        if key in ("all model", "selected model", "random1 model", "random2 model", "random3 model", "random4 model", "random5 model"):
-            for reaction in model.reactions:
+        to_remove = []
+        if len(model.exchanges) > 0:
+            model.remove_reactions(model.exchanges)
+        for reaction in model.reactions:
+            if len(reaction.genes) == 0:
+                to_remove.append(reaction)
+            if key in ("all model", "selected model", "random1 model", "random2 model", "random3 model", "random4 model", "random5 model"):
                 try:
                     reaction.id = reaction.id.split("__")[0]
                 except:
                     print(key)
+        model.remove_reactions(to_remove)
     return Mtuberculosis_models
 
 def getSthermophilus_models() -> dict:
@@ -62,28 +69,34 @@ def getSthermophilus_models() -> dict:
     Sthermophilus_all_restrictive_model = read_sbml_model("../models/BIT/Restrictive/model_Sthermophilus_all_restrictive.xml")
     Sthermophilus_selected_restrictive_model = read_sbml_model("../models/BIT/Restrictive/model_Sthermophilus_selected_restrictive.xml")
     Sthermophilus_random1_restrictive_model = read_sbml_model("../models/BIT/Restrictive/model_Sthermophilus_random1_restrictive.xml")
-    Mtuberculosis_random2_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random2_restrictive.xml")
-    Mtuberculosis_random3_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random3_restrictive.xml")
-    Mtuberculosis_random4_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random4_restrictive.xml")
-    Mtuberculosis_random5_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random5_restrictive.xml")
+    Sthermophilus_random2_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random2_restrictive.xml")
+    Sthermophilus_random3_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random3_restrictive.xml")
+    Sthermophilus_random4_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random4_restrictive.xml")
+    Sthermophilus_random5_restrictive_model = read_sbml_model("../models/BIT/restrictive/model_Sthermophilus_random5_restrictive.xml")
 
     Sthermophilus_models = {"carveme model": Sthermophilus_carveme_model,
                             "reference model": Sthermophilus_curated_model,
                             "all model": Sthermophilus_all_restrictive_model,
                             "selected model": Sthermophilus_selected_restrictive_model,
                             "random1 model": Sthermophilus_random1_restrictive_model,
-                            "random2 model": Mtuberculosis_random2_restrictive_model,
-                            "random3 model": Mtuberculosis_random3_restrictive_model,
-                            "random4 model": Mtuberculosis_random4_restrictive_model,
-                            "random5 model": Mtuberculosis_random5_restrictive_model,
+                            "random2 model": Sthermophilus_random2_restrictive_model,
+                            "random3 model": Sthermophilus_random3_restrictive_model,
+                            "random4 model": Sthermophilus_random4_restrictive_model,
+                            "random5 model": Sthermophilus_random5_restrictive_model,
                             }
     for key, model in Sthermophilus_models.items():
-        if key in ("all model", "selected model", "random1 model", "random2 model", "random3 model", "random4 model", "random5 model"):
-            for reaction in model.reactions:
+        to_remove = []
+        if len(model.exchanges) > 0:
+            model.remove_reactions(model.exchanges)
+        for reaction in model.reactions:
+            if len(reaction.genes) == 0:
+                to_remove.append(reaction)
+            if key in ("all model", "selected model", "random1 model", "random2 model", "random3 model", "random4 model", "random5 model"):
                 try:
                     reaction.id = reaction.id.split("__")[0]
                 except:
                     print(key)
+        model.remove_reactions(to_remove)
     return Sthermophilus_models
 
 def getXfastidiosa_models() -> dict:
@@ -108,18 +121,27 @@ def getXfastidiosa_models() -> dict:
                             "random5 model": Xfastidiosa_random5_restrictive_model,
                             }
     for key, model in Xfastidiosa_models.items():
-        if key in ("all model", "selected model", "random1 model", "random2 model", "random3 model", "random4 model", "random5 model"):
-            for reaction in model.reactions:
+        to_remove = []
+        if len(model.exchanges) > 0:
+            model.remove_reactions(model.exchanges)
+        for reaction in model.reactions:
+            if len(reaction.genes) == 0:
+                to_remove.append(reaction)
+            if key in ("all model", "selected model", "random1 model", "random2 model", "random3 model", "random4 model", "random5 model"):
                 try:
                     reaction.id = reaction.id.split("__")[0]
                 except:
                     print(key)
+        model.remove_reactions(to_remove)
     return Xfastidiosa_models
-
 
 def resultsGeneration_Mtuberculosis () -> None:
     Mtuberculosis_models = getMtuberculosis_models()
     modelsComparisonMetrics = ModelsComparisonMetrics(Mtuberculosis_models)
+
+    reaction_sets = getReactionSets(models=Mtuberculosis_models)
+    modelsComparisonMetrics.set_reaction_sets(reaction_sets=reaction_sets)
+
     # modelsComparisonMetrics.draw_venn_diagram(Type.GENES, "./results/Mtuberculosis-genes-venn-diagram.jpeg")
     # modelsComparisonMetrics.draw_venn_diagram(Type.METABOLITES, "./results/Mtuberculosis-metabolites-venn-diagram.jpeg")
     # modelsComparisonMetrics.draw_venn_diagram(Type.REACTIONS, "./results/Mtuberculosis-reactions-venn-diagram.jpeg")
@@ -131,8 +153,7 @@ def resultsGeneration_Mtuberculosis () -> None:
     # gene_sets = getGeneSets(models=Mtuberculosis_models)
     # modelsComparisonMetrics.set_gene_sets(gene_sets=gene_sets)
 
-    reaction_sets = getReactionSets(models=Mtuberculosis_models)
-    modelsComparisonMetrics.set_reaction_sets(reaction_sets=reaction_sets)
+
 
     jaccard_distances_genes = modelsComparisonMetrics.calculate_jaccard_distances(
         reference_model_name="reference model",
@@ -141,6 +162,17 @@ def resultsGeneration_Mtuberculosis () -> None:
         reference_model_name="reference model",
         type=Type.REACTIONS)
 
+    number_of_reactions = {}
+    for key, value in reaction_sets.items():
+        number_of_reactions[key] = len(value)
+
+    df = pd.DataFrame.from_dict(number_of_reactions, orient='index')
+    df_ratio = pd.DataFrame.from_dict(ratios_genes, orient='index')
+    df_jaccard = pd.DataFrame.from_dict(jaccard_distances_genes, orient='index')
+    df = df.merge(df_ratio, left_index=True, right_index=True)
+    df = df.merge(df_jaccard, left_index=True, right_index=True)
+    df.columns = ['Number of reactions', 'Ratio', 'Jaccard Distance']
+    df.to_excel('results/Mtuberculosis-Reactions_assessment.xlsx')
     # gene_sets.pop("reference model")
     # modelsComparisonMetrics.set_gene_sets(gene_sets=gene_sets)
     genes_dotplot_path = "results/Mtuberculosis-reactions-dot-plot.jpeg"
@@ -170,6 +202,17 @@ def resultsGeneration_Sthermophilus () -> None:
         reference_model_name="reference model",
         type=Type.REACTIONS)
 
+    number_of_reactions = {}
+    for key, value in reaction_sets.items():
+        number_of_reactions[key] = len(value)
+    df = pd.DataFrame.from_dict(number_of_reactions, orient='index')
+    df_ratio = pd.DataFrame.from_dict(ratios_genes, orient='index')
+    df_jaccard = pd.DataFrame.from_dict(jaccard_distances_genes, orient='index')
+    df = df.merge(df_ratio, left_index=True, right_index=True)
+    df = df.merge(df_jaccard, left_index=True, right_index=True)
+    df.columns = ['Number of reactions', 'Ratio', 'Jaccard Distance']
+    df.to_excel('results/Sthermophilus-Reactions_assessment.xlsx')
+
     genes_dotplot_path = "results/Sthermophilus-reactions-dot-plot.jpeg"
     modelsComparisonMetrics.draw_dot_plot(jaccard_distances=jaccard_distances_genes,
                                           ratios=ratios_genes,
@@ -195,6 +238,17 @@ def resultsGeneration_Xfastidiosa () -> None:
     ratios_genes = modelsComparisonMetrics.calculate_ratios(
         reference_model_name="reference model",
         type=Type.REACTIONS)
+
+    number_of_reactions = {}
+    for key, value in reaction_sets.items():
+        number_of_reactions[key] = len(value)
+    df = pd.DataFrame.from_dict(number_of_reactions, orient='index')
+    df_ratio = pd.DataFrame.from_dict(ratios_genes, orient='index')
+    df_jaccard = pd.DataFrame.from_dict(jaccard_distances_genes, orient='index')
+    df = df.merge(df_ratio, left_index=True, right_index=True)
+    df = df.merge(df_jaccard, left_index=True, right_index=True)
+    df.columns = ['Number of reactions', 'Ratio', 'Jaccard Distance']
+    df.to_excel('results/Xfastidiosa-Reactions_assessment.xlsx')
 
     genes_dotplot_path = "results/Xfastidiosa-reactions-dot-plot.jpeg"
     modelsComparisonMetrics.draw_dot_plot(jaccard_distances=jaccard_distances_genes,

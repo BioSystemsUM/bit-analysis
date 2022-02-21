@@ -1,6 +1,7 @@
 Organism	Tool	Number of Genes	Number of Reactions	Number of Metabolites
-Mycobacterium tuberculosis	carveme	944	1487	1087
-Mycobacterium tuberculosis	reference	1008	1226	998
+Mycobacterium tuberculosis	carveme	944	970	1087
+Mycobacterium tuberculosis	reference	1008	893	998
 Mycobacterium tuberculosis	BIT	1131	1702	1985
 Mycobacterium tuberculosis	BIT	527	750	856
 Mycobacterium tuberculosis	BIT	506	714	829
+Mycobacterium tuberculosis	BIT	464	737	877
