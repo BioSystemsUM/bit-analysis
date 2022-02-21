@@ -228,9 +228,7 @@ class ModelsComparisonMetrics:
 
             data = self.metabolite_sets
 
-        matplotlib.pyplot.clf() #YlGn_r
-
-        venndiagram = None
+        matplotlib.pyplot.clf()
 
         if len(data.keys()) == 6:
             venndiagram = venn.pseudovenn(data, fmt="{percentage:.1f}%", cmap="crest_r", fontsize="small",
