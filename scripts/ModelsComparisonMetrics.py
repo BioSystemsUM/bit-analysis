@@ -85,6 +85,13 @@ class ModelsComparisonMetrics:
                                                                   self.reaction_sets[reference_model_name])
                         jaccard_distances[model_name] = jaccard_distance
 
+                        disjunction= self.reaction_sets[reference_model_name] - self.reaction_sets[model_name]
+
+                        file =open('results/' + model_name + "_" + self.models['carveme model'].id +"_disjunction.txt", "w")
+                        for reaction in disjunction:
+                            file.write(reaction + "\n")
+                        file.close()
+
             elif type == Type.METABOLITES:
 
                 if self.metabolite_sets == {}:

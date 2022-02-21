@@ -72,5 +72,53 @@ class ReconstructionTool(Enum):
     RAVEN = 7
 
 
+metabolite_pattern = re.compile(r'(__[A-Za-z](?!.))')
+extracellular_metabolite_pattern = re.compile(r'(__[A-Za-z]_b(?!.))')
+reaction_pattern = re.compile(r'(__[A-Za-z]+(?!.))')
+
+def parse_reaction_id(reaction):
+    """
+    merlin regularly appends either __cytop, ... to a BiGG reaction id.
+    This function clips such suffixes using regex.
+    :param reaction_id: str, string for the metabolite
+    :return: str, the real BiGG metabolite identifier
+    """
+
+    if re.search(reaction_pattern, reaction.id):
+        return reaction_pattern.sub('', reaction.id)
+
+    else:
+        return reaction
+
+
+def parse_reaction(reaction, filter_boundaries: bool = True):
+    """
+    Parsing reaction to the correct reaction BiGG identifier.
+    It returns None if the reaction is boundary and filter_boundaries is True
+    :param reaction: Reaction, a cobra reaction object
+    :param filter_boundaries: bool, Whether boundary reactions should be filtered
+    :return: str or None, the correct reaction BiGG identifier
+    """
+
+    if filter_boundaries:
+
+        is_exchange = False
+
+        if reaction.boundary:
+            is_exchange = True
+
+        else:
+
+            for met in reaction.metabolites:
+                if met.id.endswith('_b'):
+                    is_exchange = True
+                    break
+
+        if is_exchange:
+            return
+
+    return parse_reaction_id(reaction)
+
+
 if __name__ == "__main__":
     Utils.get_metabolite_ids("PseudomonasPutida-blast-model.xml")
