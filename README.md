@@ -84,3 +84,33 @@ The draft GSMMs have been reconstructed using the following templates:
 ### **Installation**
 Clone this repository: ``git clone https://github.com/BioSystemsUM/bit-analysis.git`` 
 Consult the previous requirements list to set up all mandatory packages and tools.
+
+
+### **Utilization**
+BIT can be used directly on merlin (https://merlin-sysbio.org/).
+Alternatively, it can be used programatically with the command:
+
+``java -jar -Xmx5G -Xss512M -XX:+HeapDumpOnOutOfMemoryError -Djavax.xml.accessExternalDTD=all -Dworkdir=workdir/ Blast.jar " + params)``
+
+Params:
+"option"
+
+, where option can have the following values:
+1 - Use the complete BiGG database
+2 - Select specific models as template
+3 - Use three random models as template
+
+"template_models"
+the name of the models to use as template
+ 
+"eValue", "bitScore", "queryCoverage", 
+
+blast parameters for e-value, bit-score, and query coverage
+ 
+ 
+"includeReactionsWithoutGPRBigg", "includeReactionsWithoutGPR"
+
+Boolean parameters to allow including reactions with incomplete or without GPR in the BiGG database, or not.
+
+
+The python script used to generate the models of this work is available in the "BIT tool files" folder - modelGenerator.py

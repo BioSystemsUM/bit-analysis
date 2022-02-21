@@ -1,0 +1,6 @@
+Organism	Tool	Number of Genes	Number of Reactions	Number of Metabolites
+Streptococcus thermophilus	carveme	518	1165	807
+Streptococcus thermophilus	reference	422	556	549
+Streptococcus thermophilus	BIT	542	2458	2633
+Streptococcus thermophilus	BIT	452	839	907
+Streptococcus thermophilus	BIT	394	632	803
